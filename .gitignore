@@ -192,3 +192,11 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# IDE configurations
+.idea
+.vscode
+
+# Misc
+assets/js/dist
+.DS_Store
