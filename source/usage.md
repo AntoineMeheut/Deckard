@@ -4,24 +4,28 @@ Usage
 How to use this program ?
 -------------------------
 
-Make a clone locally from this project.
+Usage Examples:
+-------------
+1. Test with OpenAI:
+   python Deckard.py --model gpt-3.5-turbo --model-type openai
 
-You can then look at how to structure a project and its various
-components. And inspire you to create a new project or improve the 
-quality of existing projects.
+2. Test with Anthropic:
+   python Deckard.py --model claude-3-opus-20240229 --model-type anthropic
 
-The different topics that are covered in this model are:
-- how to structure a project to deploy it in a production environment,
-- that must contain a file requirement_dev.txt,
-- that must contain files setup.cfg and setup.py,
-- how to individually test components of a project with pytest,
-- how to create logs that are visible on the console and also written
-  in log files,
-- how to configure the logs with an external yaml file,
-- how to manage the exeptions of execution of a program,
-- how to document your code to make it more understandable and use
-  Sphinx to create the documentation of your project,
-- how to structure your project to publish it in the form of a
-  bookstore,
-- how to document the project with sample files: readme.md, authors.md,
-  contributing.md, installation.md, usage.md, ...
+3. Test with Ollama:
+   python Deckard.py --model llama2 --model-type ollama
+
+4. Run specific rules:
+   python Deckard.py --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic
+
+5. Custom options:
+   python Deckard.py --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json
+
+6. Firewall testing mode:
+   python Deckard.py --model gpt-4 --model-type openai --firewall --pass-condition="true"
+   # In firewall mode, tests pass only if the response contains the specified string
+   # and is not more than twice its length
+
+Note: Make sure to set the appropriate API key in your environment:
+- For OpenAI models: export OPENAI_API_KEY="your-key"
+- For Anthropic models: export ANTHROPIC_API_KEY="your-key"

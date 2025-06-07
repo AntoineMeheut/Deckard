@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import pytest
-import source.modules.businessFunctions.findUniqueWordList as findUniqueWordList
+import source.modules.functions.findUniqueWordList as findUniqueWordList
 
 
 @pytest.fixture

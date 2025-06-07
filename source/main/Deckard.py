@@ -19,13 +19,7 @@ RED = "\033[91m"
 YELLOW = "\033[93m"
 RESET = "\033[0m"
 
-def is_ollama_running() -> bool:
-    """Check if Ollama server is running."""
-    try:
-        requests.get("http://localhost:11434/api/tags")
-        return True
-    except requests.exceptions.ConnectionError:
-        return False
+
 
 def get_ollama_path():
     """Get the path to ollama executable."""

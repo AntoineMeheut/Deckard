@@ -2,9 +2,9 @@
 
 import argparse
 import sys
-from ..modules.businessFunctions.findUniqueWordList import find_unique_word_list
-from ..modules.businessFunctions.unloadAndWriteToFile import unload_and_write_to_file
-from ..modules.businessFunctions.readAndLoadFile import read_and_load_file
+from ..modules.functions.findUniqueWordList import find_unique_word_list
+from ..modules.functions.unloadAndWriteToFile import unload_and_write_to_file
+from ..modules.functions.is_ollama_running import read_and_load_file
 from ..modules.utils.logger import setup_logging
 
 __all__ = ['arg_parser']
