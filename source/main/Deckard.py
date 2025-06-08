@@ -2,14 +2,16 @@ import argparse
 import os
 import json
 import subprocess
+import sys
 from typing import Dict, List, Optional
-from openai import OpenAI
-import anthropic
 import ollama
 import requests
 import tiktoken
+import source.modules.utils.logger as utils
+from source.modules.functions.initialize_client import initialize_client
 
 from source.modules.functions.load_test_rules import load_test_rules
+from source.modules.functions.validate_api_keys import validate_api_keys
 
 # ANSI color codes
 GREEN = "\033[92m"
@@ -17,33 +19,6 @@ RED = "\033[91m"
 YELLOW = "\033[93m"
 RESET = "\033[0m"
 
-
-def validate_api_keys(model_type: str):
-    """Validate that required API keys are present."""
-    if model_type == "openai" and not os.getenv("OPENAI_API_KEY"):
-        raise ValueError("OPENAI_API_KEY environment variable is required for OpenAI models")
-    elif model_type == "anthropic" and not os.getenv("ANTHROPIC_API_KEY"):
-        raise ValueError("ANTHROPIC_API_KEY environment variable is required for Anthropic models")
-
-def initialize_client(model_type: str):
-    """Initialize the appropriate client based on the model type."""
-    if model_type == "openai":
-        return OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-    elif model_type == "anthropic":
-        return anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-    elif model_type == "ollama":
-        common_paths = [
-            "/usr/local/bin/ollama",  # Default macOS install location
-            "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
-            "ollama"  # If it's in PATH
-        ]
-        ollama_url = "http://localhost:11434"
-        if not is_ollama_running(ollama_url):
-            if not start_ollama(common_paths, ollama_url):
-                raise RuntimeError("Failed to start Ollama server")
-        return None
-    else:
-        raise ValueError(f"Unsupported model type: {model_type}")
 
 def load_system_prompts(system_prompts_path: str) -> str:
     """Load system prompts from the specified file."""
@@ -290,11 +265,13 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
         
     return result
 
-def run_tests(model: str, model_type: str, system_prompts_path: str, iterations: int = 5, severities: list = None, rule_names: list = None, firewall_mode: bool = False, pass_condition: str = None) -> Dict[str, dict]:
+def run_tests(model: str, model_type: str, system_prompts_path: str, common_paths: list, ollama_url: str, iterations: int = 5, severities: list = None, rule_names: list = None, firewall_mode: bool = False, pass_condition: str = None) -> Dict[str, dict]:
     """Run all tests and return results."""
     print("\nTest started...")
-    validate_api_keys(model_type)
-    client = initialize_client(model_type)
+    if not validate_api_keys(model_type):
+        logger.error('No KEY environment variable found, it is required')
+        sys.exit()
+    client = initialize_client(model_type, common_paths, ollama_url)
     system_prompt = load_system_prompts(system_prompts_path)
     results = {}
     
@@ -475,8 +452,19 @@ def main():
             return 1
         
         print("\nTest started...")
-        validate_api_keys(args.model_type)
-        results = run_tests(args.model, args.model_type, args.prompts, args.iterations, 
+
+        if not validate_api_keys(args.model_type):
+            logger.error('No KEY environment variable found, it is required')
+            sys.exit()
+
+        common_paths = [
+            "/usr/local/bin/ollama",  # Default macOS install location
+            "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
+            "ollama"  # If it's in PATH
+        ]
+        ollama_url = "http://localhost:11434"
+
+        results = run_tests(args.model, args.model_type, args.prompts, common_paths, ollama_url, args.iterations,
                           args.severity, args.rules, args.firewall, args.pass_condition)
         
         with open(args.output, 'w') as f:
