@@ -301,7 +301,7 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, iterations:
     if firewall_mode and not pass_condition:
         raise ValueError("Pass condition must be specified when using firewall mode")
     
-    test_rules = load_test_rules()
+    test_rules = load_test_rules(0,0)
     
     # Filter rules based on severity and rule names
     filtered_rules = {}
