@@ -6,13 +6,13 @@ import source.modules.functions.is_ollama_running as is_ollama_running
 
 @pytest.fixture
 def function_input():
-    ollama_url = "https://www.ollama.url.test"
+    ollama_url = "http://localhost:11434/"
     return ollama_url
 
 
 @pytest.fixture
 def function_output():
-    return False
+    return True
 
 
 def test_is_ollama_running(function_input, function_output):

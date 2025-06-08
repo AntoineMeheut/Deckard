@@ -1,0 +1,6 @@
+common_paths = [
+    "/usr/local/bin/ollama",  # Default macOS install location
+    "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
+    "ollama"  # If it's in PATH
+    ]
+ollama_url = "http://localhost:11434"

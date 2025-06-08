@@ -10,15 +10,15 @@ from source.modules.functions.is_ollama_running import is_ollama_running
 __all__ = ['start_ollama']
 
 
-def start_ollama():
+def start_ollama(common_paths, ollama_url):
     """
     Start Ollama server.
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
 
-    :param : none
-    :rtype: none
+    :param : common_paths
+    :rtype: str
     :return: boolean
     :rtype: bool
     """
@@ -28,16 +28,11 @@ def start_ollama():
     logger.info('Starting Ollama server...')
 
     try:
-        common_paths = [
-            "/usr/local/bin/ollama",  # Default macOS install location
-            "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
-            "ollama"  # If it's in PATH
-        ]
         ollama_path = get_ollama_path(common_paths)
         subprocess.Popen([ollama_path, "serve"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         # Wait for server to start
         for _ in range(10):
-            if is_ollama_running():
+            if is_ollama_running(ollama_url):
                 logger.info('Ollama server is running')
                 return True
             time.sleep(1)

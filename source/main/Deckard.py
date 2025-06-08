@@ -1,17 +1,15 @@
 import argparse
 import os
 import json
-import yaml
-import glob
 import subprocess
-import time
 from typing import Dict, List, Optional
-import openai
 from openai import OpenAI
 import anthropic
 import ollama
 import requests
 import tiktoken
+
+from source.modules.functions.load_test_rules import load_test_rules
 
 # ANSI color codes
 GREEN = "\033[92m"
@@ -19,31 +17,6 @@ RED = "\033[91m"
 YELLOW = "\033[93m"
 RESET = "\033[0m"
 
-
-def ensure_model_exists(model: str):
-    """Ensure the Ollama model exists, download if not."""
-    try:
-        ollama.list()
-    except Exception:
-        print(f"Model {model} not found. Downloading...")
-        try:
-            ollama.pull(model)
-            print(f"Model {model} downloaded successfully")
-        except Exception as e:
-            print(f"Error downloading model: {str(e)}")
-            raise
-
-def load_test_rules() -> Dict[str, dict]:
-    """Load all test rules from YAML files in the rules directory."""
-    rules = {}
-    rule_files = glob.glob("rules/*.yaml")
-    
-    for rule_file in rule_files:
-        with open(rule_file, 'r', encoding='utf-8') as f:
-            rule = yaml.safe_load(f)
-            rules[rule['name']] = rule
-            
-    return rules
 
 def validate_api_keys(model_type: str):
     """Validate that required API keys are present."""
@@ -59,8 +32,14 @@ def initialize_client(model_type: str):
     elif model_type == "anthropic":
         return anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
     elif model_type == "ollama":
-        if not is_ollama_running():
-            if not start_ollama():
+        common_paths = [
+            "/usr/local/bin/ollama",  # Default macOS install location
+            "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
+            "ollama"  # If it's in PATH
+        ]
+        ollama_url = "http://localhost:11434"
+        if not is_ollama_running(ollama_url):
+            if not start_ollama(common_paths, ollama_url):
                 raise RuntimeError("Failed to start Ollama server")
         return None
     else:
@@ -103,7 +82,7 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
             return response.content[0].text, False
             
         elif model_type == "ollama":
-            ensure_model_exists(model)
+            return = ensure_model_exists(model)
             response = ollama.chat(
                 model=model,
                 messages=[
@@ -388,8 +367,14 @@ def get_available_ollama_models() -> List[str]:
 def validate_model(model: str, model_type: str, auto_yes: bool = False) -> bool:
     """Validate if the model exists for the given model type."""
     if model_type == "ollama":
-        if not is_ollama_running():
-            if not start_ollama():
+        common_paths = [
+            "/usr/local/bin/ollama",  # Default macOS install location
+            "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
+            "ollama"  # If it's in PATH
+        ]
+        ollama_url = "http://localhost:11434"
+        if not is_ollama_running(ollama_url):
+            if not start_ollama(common_paths, ollama_url):
                 print("Error: Could not start Ollama server")
                 return False
                 
