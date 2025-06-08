@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+import os
+
+import source.modules.utils.logger as utils
+
+__all__ = ['get_ollama_path']
+
+
+def get_ollama_path(common_paths):
+    """
+    Get the path to ollama executable
+
+    Exception management :
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+
+    :param : common_path
+    :rtype: str
+    :return: path
+    :rtype: str
+    """
+    logging = utils.setup_logging()
+    logger = logging.getLogger(__name__)
+    logger.info('Start of function get_ollama_path')
+
+    try:
+        for path in common_paths:
+            if os.path.exists(path):
+                logger.info('End of function get_ollama_path, ollama path is = %s', str(path))
+                return path
+            elif os.system(f"which {path} > /dev/null 2>&1") == 0:
+                logger.info('End of function get_ollama_path, ollama path is = %s', str(path))
+                return path
+            else:
+                logger.info('Ollama executable not found. Please make sure Ollama is installed.')
+        return None
+    except Exception as e:
+        logger.error('Exception = %s', str(e))
+        return None

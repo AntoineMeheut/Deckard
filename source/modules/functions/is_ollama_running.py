@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import sys
 import requests
+
 import source.modules.utils.logger as utils
 
 __all__ = ['is_ollama_running']
@@ -23,7 +23,7 @@ def is_ollama_running(ollama_url) -> bool:
 
     try:
         requests.get(ollama_url)
-        logger.info('End of function is_ollama_running')
+        logger.info('Ollama is running, end of function is_ollama_running')
         return True
     except requests.exceptions.ConnectionError as e:
         logger.error('Exception = %s', str(e))

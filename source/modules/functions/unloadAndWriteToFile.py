@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
+
 import source.modules.utils.logger as utils
 
 __all__ = ['unload_and_write_to_file']

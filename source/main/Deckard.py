@@ -20,39 +20,6 @@ YELLOW = "\033[93m"
 RESET = "\033[0m"
 
 
-
-def get_ollama_path():
-    """Get the path to ollama executable."""
-    common_paths = [
-        "/usr/local/bin/ollama",  # Default macOS install location
-        "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
-        "ollama"  # If it's in PATH
-    ]
-    
-    for path in common_paths:
-        if os.path.exists(path) or os.system(f"which {path} > /dev/null 2>&1") == 0:
-            return path
-    
-    raise FileNotFoundError("Ollama executable not found. Please make sure Ollama is installed.")
-
-def start_ollama():
-    """Start Ollama server."""
-    print("Starting Ollama server...")
-    try:
-        ollama_path = get_ollama_path()
-        subprocess.Popen([ollama_path, "serve"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        # Wait for server to start
-        for _ in range(10):
-            if is_ollama_running():
-                print("Ollama server is running")
-                return True
-            time.sleep(1)
-        return False
-    except FileNotFoundError as e:
-        print(e)
-        print("Please install Ollama first: https://ollama.ai/download")
-        return False
-
 def ensure_model_exists(model: str):
     """Ensure the Ollama model exists, download if not."""
     try:
@@ -152,7 +119,12 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
 def download_ollama_model(model: str) -> bool:
     """Download an Ollama model."""
     try:
-        ollama_path = get_ollama_path()
+        common_paths = [
+            "/usr/local/bin/ollama",  # Default macOS install location
+            "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
+            "ollama"  # If it's in PATH
+        ]
+        ollama_path = get_ollama_path(common_paths)
         # Run the command and let it inherit the parent's stdout/stderr directly
         result = subprocess.run([ollama_path, "pull", model], check=False)
         return result.returncode == 0
