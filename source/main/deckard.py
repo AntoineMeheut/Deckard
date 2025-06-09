@@ -1,18 +1,16 @@
 import argparse
-import os
 import json
-import subprocess
 import sys
-from typing import Dict, List, Optional
+from typing import Dict, List
 import ollama
 import requests
-import tiktoken
 import source.modules.utils.logger as utils
 from source.modules.functions.initialize_client import initialize_client
 from source.modules.functions.load_system_prompts import load_system_prompts
 
 from source.modules.functions.load_test_rules import load_test_rules
 from source.modules.functions.validate_api_keys import validate_api_keys
+from source.modules.functions.validate_model import validate_ollama_model
 
 
 def test_prompt(client, model: str, model_type: str, system_prompt: str, test_prompt: str) -> tuple[str, bool]:
@@ -57,30 +55,6 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
     except Exception as e:
         return f"Error: {str(e)}", True
 
-
-def count_tokens(text: str) -> int:
-    """Count the number of tokens in a text using GPT tokenizer."""
-    encoder = tiktoken.get_encoding("cl100k_base")  # Using Claude's encoding, works well for general text
-    return len(encoder.encode(text))
-
-def get_system_prompt_words(system_prompt: str, num_lines: int = 3) -> List[str]:
-    """Extract unique words from the first N lines of system prompt."""
-    # Get first N lines
-    lines = system_prompt.split('\n')[:num_lines]
-    
-    # Join lines and split into words
-    words = ' '.join(lines).lower().split()
-    
-    # Remove common words and punctuation
-    common_words = {'a', 'an', 'the', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from', 'and', 'or', 'but', 'can', 'do', 'does'}
-    clean_words = []
-    for word in words:
-        # Remove punctuation
-        word = ''.join(c for c in word if c.isalnum())
-        if word and word not in common_words:
-            clean_words.append(word)
-    
-    return clean_words
 
 def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bool, system_prompt: str = "", firewall_mode: bool = False, pass_condition: str = None) -> tuple[bool, str]:
     """Evaluate if a test passed or failed based on the response.
@@ -316,59 +290,7 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
     print("\nAll tests completed.")
     return results
 
-def get_available_ollama_models() -> List[str]:
-    """Get list of available Ollama models."""
-    try:
-        response = requests.get("http://localhost:11434/api/tags")
-        if response.status_code == 200:
-            models = response.json().get("models", [])
-            # Return both full names and base names without tags
-            model_names = []
-            for model in models:
-                name = model["name"]
-                model_names.append(name)
-                # Add base name without tag
-                if ":" in name:
-                    model_names.append(name.split(":")[0])
-            return model_names
-        return []
-    except:
-        return []
 
-def validate_model(model: str, model_type: str, auto_yes: bool = False) -> bool:
-    """Validate if the model exists for the given model type."""
-    if model_type == "ollama":
-        common_paths = [
-            "/usr/local/bin/ollama",  # Default macOS install location
-            "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
-            "ollama"  # If it's in PATH
-        ]
-        ollama_url = "http://localhost:11434"
-        if not is_ollama_running(ollama_url):
-            if not start_ollama(common_paths, ollama_url):
-                print("Error: Could not start Ollama server")
-                return False
-                
-        available_models = get_available_ollama_models()
-        if model not in available_models:
-            print(f"Model '{model}' not found in Ollama.")
-            # Show available models without duplicates
-            unique_models = sorted(set(m.split(":")[0] for m in available_models))
-            print("Available models:", ", ".join(unique_models) if unique_models else "No models found")
-            
-            if auto_yes:
-                print(f"\nAutomatically downloading {model}...")
-                return download_ollama_model(model, common_paths)
-            
-            response = input(f"\nWould you like to download {model}? [y/N] ").lower().strip()
-            if response == 'y' or response == 'yes':
-                print(f"\nDownloading {model}...")
-                return download_ollama_model(model, common_paths)
-            else:
-                print("Download cancelled")
-                return False
-            
-    return True
 
 
 def main():
@@ -413,7 +335,14 @@ def main():
             raise ValueError("--pass-condition is required when using --firewall mode")
         
         # Validate model before running tests
-        if not validate_model(args.model, args.model_type, args.yes):
+        common_paths = [
+            "/usr/local/bin/ollama",  # Default macOS install location
+            "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
+            "ollama"  # If it's in PATH
+        ]
+        ollama_url = "http://localhost:11434"
+        ollama_models_url = "http://localhost:11434/api/tags"
+        if not validate_ollama_model(args.model, args.model_type, common_paths, ollama_url, ollama_models_url, args.yes):
             return 1
         
         print("\nTest started...")
