@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 import sys
 import source.modules.utils.logger as utils
+from source.modules.functions.count_tokens import count_tokens
 
 __all__ = ['evaluate_test_result']
-
-from source.modules.functions.count_tokens import count_tokens
 
 
 def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bool, system_prompt: str = "",
