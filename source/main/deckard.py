@@ -1,14 +1,12 @@
-# -*- coding: utf-8 -*-
 import sys
 import json
 import argparse
-import source.modules.utils.logger as utils
 
 from source.modules.functions.run_tests import run_tests
 from source.modules.functions.validate_api_keys import validate_api_keys
 from source.modules.functions.validate_ollama_model import validate_ollama_model
 from source.modules.utils.show_help import show_help
-
+from source.modules.utils.logger import setup_logging
 
 def main():
     """
@@ -46,7 +44,7 @@ def main():
         - For Anthropic models: export ANTHROPIC_API_KEY="your-key"
     """
 
-    logging = utils.setup_logging()
+    logging = setup_logging()
     logger = logging.getLogger(__name__)
     logger.info('Starting to initialize the appropriate client based on the model type....')
 

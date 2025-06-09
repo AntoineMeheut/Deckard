@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
 import sys
 from typing import Dict
 import source.modules.utils.logger as utils
