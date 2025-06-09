@@ -28,7 +28,7 @@ def function_input_3():
 
 @pytest.fixture
 def function_output():
-    return False
+    return 'False'
 
 
 def test_initialize_client(function_input_1, function_input_2, function_input_3, function_output):

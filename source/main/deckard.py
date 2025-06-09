@@ -9,24 +9,11 @@ import requests
 import tiktoken
 import source.modules.utils.logger as utils
 from source.modules.functions.initialize_client import initialize_client
+from source.modules.functions.load_system_prompts import load_system_prompts
 
 from source.modules.functions.load_test_rules import load_test_rules
 from source.modules.functions.validate_api_keys import validate_api_keys
 
-# ANSI color codes
-GREEN = "\033[92m"
-RED = "\033[91m"
-YELLOW = "\033[93m"
-RESET = "\033[0m"
-
-
-def load_system_prompts(system_prompts_path: str) -> str:
-    """Load system prompts from the specified file."""
-    if not os.path.exists(system_prompts_path):
-        raise FileNotFoundError(f"System prompts file not found: {system_prompts_path}")
-    
-    with open(system_prompts_path, 'r', encoding='utf-8') as f:
-        return f.read().strip()
 
 def test_prompt(client, model: str, model_type: str, system_prompt: str, test_prompt: str) -> tuple[str, bool]:
     """Send a test prompt to the LLM and get the response.
@@ -70,21 +57,6 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
     except Exception as e:
         return f"Error: {str(e)}", True
 
-def download_ollama_model(model: str) -> bool:
-    """Download an Ollama model."""
-    try:
-        common_paths = [
-            "/usr/local/bin/ollama",  # Default macOS install location
-            "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
-            "ollama"  # If it's in PATH
-        ]
-        ollama_path = get_ollama_path(common_paths)
-        # Run the command and let it inherit the parent's stdout/stderr directly
-        result = subprocess.run([ollama_path, "pull", model], check=False)
-        return result.returncode == 0
-    except Exception as e:
-        print(f"\n{RED}Error downloading model: {str(e)}{RESET}")
-        return False
 
 def count_tokens(text: str) -> int:
     """Count the number of tokens in a text using GPT tokenizer."""
@@ -226,6 +198,12 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
                    test_name: str, rule: dict, num_runs: int = 5,
                    firewall_mode: bool = False, pass_condition: str = None) -> Dict:
     """Run a single test multiple times and evaluate results."""
+    # ANSI color codes
+    GREEN = "\033[92m"
+    RED = "\033[91m"
+    YELLOW = "\033[93m"
+    RESET = "\033[0m"
+
     failed_result = None
     passed_count = 0
     
@@ -267,12 +245,28 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
 
 def run_tests(model: str, model_type: str, system_prompts_path: str, common_paths: list, ollama_url: str, iterations: int = 5, severities: list = None, rule_names: list = None, firewall_mode: bool = False, pass_condition: str = None) -> Dict[str, dict]:
     """Run all tests and return results."""
+    # ANSI color codes
+    GREEN = "\033[92m"
+    RED = "\033[91m"
+    YELLOW = "\033[93m"
+    RESET = "\033[0m"
+
+    logging = utils.setup_logging()
+    logger = logging.getLogger(__name__)
+    logger.info('Starting to initialize the appropriate client based on the model type....')
+
     print("\nTest started...")
     if not validate_api_keys(model_type):
         logger.error('No KEY environment variable found, it is required')
         sys.exit()
     client = initialize_client(model_type, common_paths, ollama_url)
+    if client == "False":
+        logger.error('No openai, anthropic or ollama client running, it is required')
+        sys.exit()
     system_prompt = load_system_prompts(system_prompts_path)
+    if system_prompt == "False":
+        logger.error('no prompts file found, it is required')
+        sys.exit()
     results = {}
     
     if firewall_mode and not pass_condition:
@@ -364,47 +358,18 @@ def validate_model(model: str, model_type: str, auto_yes: bool = False) -> bool:
             
             if auto_yes:
                 print(f"\nAutomatically downloading {model}...")
-                return download_ollama_model(model)
+                return download_ollama_model(model, common_paths)
             
             response = input(f"\nWould you like to download {model}? [y/N] ").lower().strip()
             if response == 'y' or response == 'yes':
                 print(f"\nDownloading {model}...")
-                return download_ollama_model(model)
+                return download_ollama_model(model, common_paths)
             else:
                 print("Download cancelled")
                 return False
             
     return True
 
-def show_help():
-    """Show help message with usage examples."""
-    print("""
-Usage Examples:
--------------
-1. Test with OpenAI:
-   python promptmap2.py --model gpt-3.5-turbo --model-type openai
-
-2. Test with Anthropic:
-   python promptmap2.py --model claude-3-opus-20240229 --model-type anthropic
-
-3. Test with Ollama:
-   python promptmap2.py --model llama2 --model-type ollama
-
-4. Run specific rules:
-   python promptmap2.py --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic
-
-5. Custom options:
-   python promptmap2.py --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json
-
-6. Firewall testing mode:
-   python promptmap2.py --model gpt-4 --model-type openai --firewall --pass-condition="true"
-   # In firewall mode, tests pass only if the response contains the specified string
-   # and is not more than twice its length
-
-Note: Make sure to set the appropriate API key in your environment:
-- For OpenAI models: export OPENAI_API_KEY="your-key"
-- For Anthropic models: export ANTHROPIC_API_KEY="your-key"
-""")
 
 def main():
     print(r'''

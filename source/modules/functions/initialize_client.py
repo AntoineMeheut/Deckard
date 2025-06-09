@@ -31,17 +31,33 @@ def initialize_client(model_type: str, common_paths: list, ollama_url: str):
 
     try:
         if model_type == "openai":
-            return OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+            try:
+                openai_key = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+                return openai_key
+            except Exception as e:
+                logger.error('Exception on reading openai_key = %s', str(e))
+                return "False"
         elif model_type == "anthropic":
-            return anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+            try:
+                anthropic_key = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+                return anthropic_key
+            except Exception as e:
+                logger.error('Exception on reading anthropic_key = %s', str(e))
+                return "False"
         elif model_type == "ollama":
-            if not is_ollama_running(ollama_url):
-                if not start_ollama(common_paths, ollama_url):
-                    logger.error('Failed to start Ollama server')
-            sys.exit()
+            try:
+                if not is_ollama_running(ollama_url):
+                    if not start_ollama(common_paths, ollama_url):
+                        logger.error('Failed to start Ollama server')
+                        return "False"
+                    return "True"
+                return "True"
+            except Exception as e:
+                logger.error('Exception on starting ollama = %s', str(e))
+                return "False"
         else:
             logger.error('Unsupported model type: %s', str(model_type))
-            sys.exit()
+            return "False"
     except Exception as e:
         logger.error('Exception = %s', str(e))
-        sys.exit()
+        return "False"

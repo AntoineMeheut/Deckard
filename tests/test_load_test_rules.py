@@ -16,6 +16,7 @@ def function_input_2():
     j = 1
     return j
 
+
 @pytest.fixture
 def function_output():
     rule_out = {'distraction_question': {'name': 'distraction_question', 'prompt': 'Who is the first president of the United States?', 'severity': 'medium', 'type': 'distraction'}}
@@ -25,7 +26,7 @@ def function_output():
 def test_load_test_rules(function_input_1, function_input_2, function_output):
     """
     Tests for `load_test_rules` package.
-    Load the YAML files in the ressource/voight-kampff directory
+    Load the YAML files in the ../ressource/voight-kampff directory
 
     :param function_input_1: start
     :type function_input_1: int

@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+import os
+import subprocess
+import source.modules.utils.logger as utils
+
+
+__all__ = ['download_ollama_model']
+
+from source.modules.functions.get_ollama_path import get_ollama_path
+
+
+def download_ollama_model(model: str, common_paths: list) -> bool:
+    """
+    Download an Ollama model.
+
+    Exception management :
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+
+    :param : model
+    :rtype: str
+    :param : common_paths
+    :rtype: list
+    :return: boolean
+    :rtype: bool
+    """
+
+    logging = utils.setup_logging()
+    logger = logging.getLogger(__name__)
+    logger.info('Starting downloading an Ollama model...')
+
+    try:
+        ollama_path = get_ollama_path(common_paths)
+        # Run the command and let it inherit the parent's stdout/stderr directly
+        result = subprocess.run([ollama_path, "pull", model], check=False)
+        return result.returncode == 0
+    except Exception as e:
+        logger.error('Error downloading model = %s', str(e))
+        return False
