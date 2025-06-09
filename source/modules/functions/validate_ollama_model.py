@@ -5,7 +5,7 @@ from source.modules.functions.get_available_ollama_models import get_available_o
 from source.modules.functions.is_ollama_running import is_ollama_running
 from source.modules.functions.star_ollama import start_ollama
 
-__all__ = ['validate_model']
+__all__ = ['validate_ollama_model']
 
 
 def validate_ollama_model(model: str, model_type: str, common_paths: list, ollama_url: str, ollama_models_url: str, auto_yes: bool = False) -> bool:
@@ -15,7 +15,7 @@ def validate_ollama_model(model: str, model_type: str, common_paths: list, ollam
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
 
-    :param : model_type
+    :param : model
     :rtype: str
     :param : model_type
     :rtype: str
@@ -25,6 +25,8 @@ def validate_ollama_model(model: str, model_type: str, common_paths: list, ollam
     :rtype: str
     :param : ollama_models_url
     :rtype: str
+    :param : auto_yes
+    :rtype: bool
     :return: boolean
     :rtype: bool
     """

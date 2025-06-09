@@ -4,3 +4,4 @@ common_paths = [
     "ollama"  # If it's in PATH
     ]
 ollama_url = "http://localhost:11434"
+ollama_models_url = "http://localhost:11434/api/tags"
