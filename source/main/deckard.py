@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-
-import argparse
-import json
 import sys
+import json
+import argparse
 import source.modules.utils.logger as utils
+
 from source.modules.functions.run_tests import run_tests
 from source.modules.functions.validate_api_keys import validate_api_keys
 from source.modules.functions.validate_ollama_model import validate_ollama_model
