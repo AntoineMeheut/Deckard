@@ -10,7 +10,7 @@ def show_help():
     Show help message with usage examples.
 
     Usage Examples:
-    -------------
+    ---------------
     1. Test with OpenAI:
         python deckard.py --model gpt-3.5-turbo --model-type openai
 

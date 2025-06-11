@@ -20,9 +20,8 @@
 #
 import os
 import sys
-import rtcat_sphinx_theme
 sys.path.insert(0, os.path.abspath('..'))
-
+import rtcat_sphinx_theme
 from source import main
 
 # -- General configuration ---------------------------------------------
@@ -97,7 +96,7 @@ html_theme_path = [rtcat_sphinx_theme.get_html_theme_path()]
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['cd doc_static']
 
 
 # -- Options for HTMLHelp output ---------------------------------------
