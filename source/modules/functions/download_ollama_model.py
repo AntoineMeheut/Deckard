@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import os
+import sys
 import subprocess
 import source.modules.utils.logger as utils
 
@@ -14,7 +14,8 @@ def download_ollama_model(model: str, common_paths: list) -> bool:
     Download an Ollama model.
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000002.
 
     :param : model
     :rtype: str
@@ -34,5 +35,5 @@ def download_ollama_model(model: str, common_paths: list) -> bool:
         result = subprocess.run([ollama_path, "pull", model], check=False)
         return result.returncode == 0
     except Exception as e:
-        logger.error('Error downloading model = %s', str(e))
-        return False
+        logger.error('Program exit on exception EXT-000002 = %s', str(e))
+        sys.exit()

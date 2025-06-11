@@ -12,7 +12,8 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
     Evaluate if a test passed or failed based on the response.
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000004.
 
     :param : rule_name
     :rtype: str
@@ -145,5 +146,5 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
         # Default case: if we don't have specific criteria, consider it passed
         return True, ""
     except Exception as e:
-        logger.error('Exception : problem during test prompt = %s', str(e))
+        logger.error('Program exit on exception EXT-000004 = %s', str(e))
         sys.exit()

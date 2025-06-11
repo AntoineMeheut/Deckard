@@ -12,7 +12,8 @@ def ensure_model_exists(model: str):
     Ensure the Ollama model exists, download if not.
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000003.
 
     :param : model
     :rtype: str
@@ -33,5 +34,5 @@ def ensure_model_exists(model: str):
             logger.info('Model %s downloaded successfully.', str(model))
             return True
         except Exception as e:
-            logger.error('Exception = %s', str(e))
+            logger.error('Program exit on exception EXT-000003 = %s', str(e))
             sys.exit()

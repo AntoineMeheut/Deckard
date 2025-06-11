@@ -14,7 +14,8 @@ def get_available_ollama_models(ollama_models_url: str) -> List[str]:
     Get list of available Ollama models.
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000005.
 
     :param : ollama_models_url
     :rtype: str
@@ -41,5 +42,5 @@ def get_available_ollama_models(ollama_models_url: str) -> List[str]:
             return model_names
         return []
     except Exception as e:
-        logger.error('Exception : problem during get list of available Ollama models = %s', str(e))
+        logger.error('Program exit on exception EXT-000005 = %s', str(e))
         sys.exit()
