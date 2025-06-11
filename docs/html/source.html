@@ -96,8 +96,30 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Source</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#main">Main</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main">Main</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#source.main.deckard.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.count_tokens.count_tokens"><code class="docutils literal notranslate"><span class="pre">count_tokens()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.download_ollama_model.download_ollama_model"><code class="docutils literal notranslate"><span class="pre">download_ollama_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.ensure_model_exists.ensure_model_exists"><code class="docutils literal notranslate"><span class="pre">ensure_model_exists()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.evaluate_test_result.evaluate_test_result"><code class="docutils literal notranslate"><span class="pre">evaluate_test_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.get_available_ollama_models.get_available_ollama_models"><code class="docutils literal notranslate"><span class="pre">get_available_ollama_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.get_ollama_path.get_ollama_path"><code class="docutils literal notranslate"><span class="pre">get_ollama_path()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.get_system_prompt_words.get_system_prompt_words"><code class="docutils literal notranslate"><span class="pre">get_system_prompt_words()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.initialize_client.initialize_client"><code class="docutils literal notranslate"><span class="pre">initialize_client()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.is_ollama_running.is_ollama_running"><code class="docutils literal notranslate"><span class="pre">is_ollama_running()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.load_system_prompts.load_system_prompts"><code class="docutils literal notranslate"><span class="pre">load_system_prompts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.load_test_rules.load_test_rules"><code class="docutils literal notranslate"><span class="pre">load_test_rules()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.run_single_test.run_single_test"><code class="docutils literal notranslate"><span class="pre">run_single_test()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.run_tests.run_tests"><code class="docutils literal notranslate"><span class="pre">run_tests()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.start_ollama.start_ollama"><code class="docutils literal notranslate"><span class="pre">start_ollama()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.test_prompt.test_prompt"><code class="docutils literal notranslate"><span class="pre">test_prompt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.validate_api_keys.validate_api_keys"><code class="docutils literal notranslate"><span class="pre">validate_api_keys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.validate_ollama_model.validate_ollama_model"><code class="docutils literal notranslate"><span class="pre">validate_ollama_model()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#utils">Utils</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#source.modules.utils.logger.setup_logging"><code class="docutils literal notranslate"><span class="pre">setup_logging()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#source.modules.utils.show_help.show_help"><code class="docutils literal notranslate"><span class="pre">show_help()</span></code></a></li>
@@ -170,9 +192,335 @@
 <h1>Source<a class="headerlink" href="#source" title="Permalink to this heading">¶</a></h1>
 <section id="main">
 <h2>Main<a class="headerlink" href="#main" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="source.main.deckard.main">
+<span class="sig-prename descclassname"><span class="pre">source.main.deckard.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/main/deckard.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.main.deckard.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deckard program is a quick attack injection tool for playing with replicants.
+The prompts are located in the &quot;voight-kampff&quot; directory, you can add your own prompts there,
+respecting the yaml file format.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<section id="usage-examples">
+<h3>Usage Examples:<a class="headerlink" href="#usage-examples" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Test with OpenAI:</dt><dd><p>python deckard.py --model gpt-3.5-turbo --model-type openai</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Test with Anthropic:</dt><dd><p>python deckard.py --model claude-3-opus-20240229 --model-type anthropic</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Test with Ollama:</dt><dd><p>python deckard.py --model llama2 --model-type ollama</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Run specific rules:</dt><dd><p>python deckard.py --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Custom options:</dt><dd><p>python deckard.py --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Firewall testing mode:</dt><dd><p>python deckard.py --model gpt-4 --model-type openai --firewall --pass-condition=&quot;true&quot;
+# In firewall mode, tests pass only if the response contains the specified string
+# and is not more than twice its length</p>
+</dd>
+</dl>
+</li>
+</ol>
+<dl class="simple">
+<dt>Note: Make sure to set the appropriate API key in your environment:</dt><dd><ul class="simple">
+<li><p>For OpenAI models: export OPENAI_API_KEY=&quot;your-key&quot;</p></li>
+<li><p>For Anthropic models: export ANTHROPIC_API_KEY=&quot;your-key&quot;</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
 </section>
 <section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.count_tokens.count_tokens">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.count_tokens.</span></span><span class="sig-name descname"><span class="pre">count_tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/source/modules/functions/count_tokens.html#count_tokens"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.count_tokens.count_tokens" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count the number of tokens in a text using GPT tokenizer.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : text
+:rtype: str
+:return: number_of_token
+:rtype: int</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.download_ollama_model.download_ollama_model">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.download_ollama_model.</span></span><span class="sig-name descname"><span class="pre">download_ollama_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/source/modules/functions/download_ollama_model.html#download_ollama_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.download_ollama_model.download_ollama_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download an Ollama model.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : model
+:rtype: str
+:param : common_paths
+:rtype: list
+:return: boolean
+:rtype: bool</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.ensure_model_exists.ensure_model_exists">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.ensure_model_exists.</span></span><span class="sig-name descname"><span class="pre">ensure_model_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/functions/ensure_model_exists.html#ensure_model_exists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.ensure_model_exists.ensure_model_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure the Ollama model exists, download if not.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : model
+:rtype: str
+:return: none
+:rtype: none</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.evaluate_test_result.evaluate_test_result">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.evaluate_test_result.</span></span><span class="sig-name descname"><span class="pre">evaluate_test_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firewall_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/evaluate_test_result.html#evaluate_test_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.evaluate_test_result.evaluate_test_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate if a test passed or failed based on the response.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : rule_name
+:rtype: str
+:param : rule
+:rtype: dict
+:param : response
+:rtype: str
+:param : is_error
+:rtype: bool
+:param : system_prompt
+:rtype: str
+:param: firewall_mode
+:rtype: bool
+:param: pass_condition
+:rtype: bool
+:return: tuple
+:rtype: bool, str</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.get_available_ollama_models.get_available_ollama_models">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.get_available_ollama_models.</span></span><span class="sig-name descname"><span class="pre">get_available_ollama_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ollama_models_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/get_available_ollama_models.html#get_available_ollama_models"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.get_available_ollama_models.get_available_ollama_models" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of available Ollama models.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : ollama_models_url
+:rtype: str
+:return: str_list
+:rtype: list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.get_ollama_path.get_ollama_path">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.get_ollama_path.</span></span><span class="sig-name descname"><span class="pre">get_ollama_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">common_paths</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/functions/get_ollama_path.html#get_ollama_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.get_ollama_path.get_ollama_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the path to ollama executable</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : common_path
+:rtype: str
+:return: path
+:rtype: str</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.get_system_prompt_words.get_system_prompt_words">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.get_system_prompt_words.</span></span><span class="sig-name descname"><span class="pre">get_system_prompt_words</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/get_system_prompt_words.html#get_system_prompt_words"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.get_system_prompt_words.get_system_prompt_words" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract unique words from the first N lines of system prompt.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : system_prompt
+:rtype: str
+:param : num_lines
+:rtype: int
+:return: str_list
+:rtype: list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.initialize_client.initialize_client">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.initialize_client.</span></span><span class="sig-name descname"><span class="pre">initialize_client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/functions/initialize_client.html#initialize_client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.initialize_client.initialize_client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the appropriate client based on the model type.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : model_type
+:rtype: str
+:return: none
+:rtype: none</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.is_ollama_running.is_ollama_running">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.is_ollama_running.</span></span><span class="sig-name descname"><span class="pre">is_ollama_running</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/source/modules/functions/is_ollama_running.html#is_ollama_running"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.is_ollama_running.is_ollama_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if Ollama server is running.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : url to search for ollama
+:rtype: str
+:return: boolean
+:rtype: bool</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.load_system_prompts.load_system_prompts">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.load_system_prompts.</span></span><span class="sig-name descname"><span class="pre">load_system_prompts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">system_prompts_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/source/modules/functions/load_system_prompts.html#load_system_prompts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.load_system_prompts.load_system_prompts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load system prompts from the specified file.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : common_paths
+:rtype: str
+:return: boolean
+:rtype: bool</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.load_test_rules.load_test_rules">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.load_test_rules.</span></span><span class="sig-name descname"><span class="pre">load_test_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_stop</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/load_test_rules.html#load_test_rules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.load_test_rules.load_test_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load all test rules from YAML files in the rules directory.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : rule_start
+:rtype: int
+:param : rule_stop
+:rtype: int
+:return: Dict
+:rtype: str, dict</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.run_single_test.run_single_test">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.run_single_test.</span></span><span class="sig-name descname"><span class="pre">run_single_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_runs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firewall_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/source/modules/functions/run_single_test.html#run_single_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.run_single_test.run_single_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a single test multiple times and evaluate results..</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : client
+:rtype: str
+:param : model
+:rtype: str
+:param : model_type
+:rtype: str
+:param : system_prompt
+:rtype: str
+:param : test_name
+:rtype: str
+:param : rule
+:rtype: dict
+:param : num_runs
+:rtype: int
+:param : firewall_mode
+:rtype: bool
+:param : pass_condition
+:rtype: str
+:return: result
+:rtype: dict</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.run_tests.run_tests">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.run_tests.</span></span><span class="sig-name descname"><span class="pre">run_tests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompts_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firewall_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/run_tests.html#run_tests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.run_tests.run_tests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run all tests and return results.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : client
+:rtype: str
+:param : model
+:rtype: str
+:param : model_type
+:rtype: str
+:param : system_prompt
+:rtype: str
+:param : test_name
+:rtype: str
+:param : rule
+:rtype: dict
+:param : num_runs
+:rtype: int
+:param : firewall_mode
+:rtype: bool
+:param : pass_condition
+:rtype: str
+:return: result
+:rtype: dict</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.start_ollama.start_ollama">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.start_ollama.</span></span><span class="sig-name descname"><span class="pre">start_ollama</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">common_paths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/functions/start_ollama.html#start_ollama"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.start_ollama.start_ollama" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Ollama server.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : common_paths
+:rtype: str
+:return: boolean
+:rtype: bool</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.test_prompt.test_prompt">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.test_prompt.</span></span><span class="sig-name descname"><span class="pre">test_prompt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/test_prompt.html#test_prompt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.test_prompt.test_prompt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a test prompt to the LLM and get the response.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : client
+:rtype: str
+:param : model
+:rtype: str
+:param : model_type
+:rtype: str
+:param : system_prompt
+:rtype: str
+:param : test_prompt
+:rtype: str
+:return: tuple
+:rtype: str,bool</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.validate_api_keys.validate_api_keys">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.validate_api_keys.</span></span><span class="sig-name descname"><span class="pre">validate_api_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/functions/validate_api_keys.html#validate_api_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.validate_api_keys.validate_api_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate that required API keys are present for openai or anthropic.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : model_type
+:rtype: str
+:return: none
+:rtype: none</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.validate_ollama_model.validate_ollama_model">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.validate_ollama_model.</span></span><span class="sig-name descname"><span class="pre">validate_ollama_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_models_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_yes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/source/modules/functions/validate_ollama_model.html#validate_ollama_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.validate_ollama_model.validate_ollama_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate if the model exists for the given model type.</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+<p>:param : model
+:rtype: str
+:param : model_type
+:rtype: str
+:param : common_paths
+:rtype: list
+:param : ollama_url
+:rtype: str
+:param : ollama_models_url
+:rtype: str
+:param : auto_yes
+:rtype: bool
+:return: boolean
+:rtype: bool</p>
+</dd></dl>
+
 </section>
 <section id="utils">
 <h2>Utils<a class="headerlink" href="#utils" title="Permalink to this heading">¶</a></h2>
@@ -197,8 +545,8 @@ calling components, the log target to the console or a log file and format).</p>
 <dt class="sig sig-object py" id="source.modules.utils.show_help.show_help">
 <span class="sig-prename descclassname"><span class="pre">source.modules.utils.show_help.</span></span><span class="sig-name descname"><span class="pre">show_help</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/utils/show_help.html#show_help"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.utils.show_help.show_help" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show help message with usage examples.</p>
-<section id="usage-examples">
-<h3>Usage Examples:<a class="headerlink" href="#usage-examples" title="Permalink to this heading">¶</a></h3>
+<section id="id1">
+<h3>Usage Examples:<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><dl class="simple">
 <dt>Test with OpenAI:</dt><dd><p>python deckard.py --model gpt-3.5-turbo --model-type openai</p>

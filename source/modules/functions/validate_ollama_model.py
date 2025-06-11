@@ -3,7 +3,7 @@ import source.modules.utils.logger as utils
 from source.modules.functions.download_ollama_model import download_ollama_model
 from source.modules.functions.get_available_ollama_models import get_available_ollama_models
 from source.modules.functions.is_ollama_running import is_ollama_running
-from source.modules.functions.star_ollama import start_ollama
+from source.modules.functions.start_ollama import start_ollama
 
 __all__ = ['validate_ollama_model']
 

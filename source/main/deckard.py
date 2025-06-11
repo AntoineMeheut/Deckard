@@ -21,7 +21,7 @@ def main():
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
 
     Usage Examples:
-    -------------
+    ---------------
     1. Test with OpenAI:
         python deckard.py --model gpt-3.5-turbo --model-type openai
 

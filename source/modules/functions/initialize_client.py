@@ -4,7 +4,7 @@ import anthropic
 from openai import OpenAI
 import source.modules.utils.logger as utils
 
-from source.modules.functions.star_ollama import start_ollama
+from source.modules.functions.start_ollama import start_ollama
 from source.modules.functions.is_ollama_running import is_ollama_running
 
 __all__ = ['initialize_client']

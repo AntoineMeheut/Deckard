@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import pytest
-import source.modules.functions.star_ollama as start_ollama
+import source.modules.functions.start_ollama as start_ollama
 
 
 @pytest.fixture
