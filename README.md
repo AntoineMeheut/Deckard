@@ -54,6 +54,11 @@ TODO
 ## Prerequisites
 TODO
 
+## Build documentation
+```
+sphinx-build -M html sourcedir outputdir
+```
+
 <!-- CONTRIBUTING -->
 ## Contributing
 
