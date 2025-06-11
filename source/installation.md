@@ -10,7 +10,7 @@ Create a virtual environment for your project and then run the setup.py
 program that is at the root. This will locally install this project and
 allow you to call it.
 
-`python setup.py install`
+`python3 setup.py install`
 
 if you want to publish one of your programs as a python library:
 [https://setuptools.readthedocs.io/en/latest/setuptools.html](Setuptools)

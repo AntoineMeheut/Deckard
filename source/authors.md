@@ -4,7 +4,7 @@ Credits
 Development Lead
 ----------------
 
-* Antoine Meheut <antoine.meheut@gmail.com>
+* Antoine Meheut <github.contacts@protonmail.com>
 
 Contributors
 ------------

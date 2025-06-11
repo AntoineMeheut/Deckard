@@ -1,41 +1,47 @@
 Readme
 ======
 
-.. image:: https://img.shields.io/pypi/v/uniquewordlist.svg
-        :target: https://pypi.python.org/pypi/uniquewordlist
+.. image:: https://img.shields.io/pypi/v/deckard.svg
+        :target: https://pypi.python.org/pypi/deckard
 
-.. image:: https://img.shields.io/travis/AntoineMeheut/uniquewordlist.svg
-        :target: https://travis-ci.org/AntoineMeheut/uniquewordlist
+.. image:: https://img.shields.io/travis/AntoineMeheut/deckard.svg
+        :target: https://travis-ci.org/AntoineMeheut/deckard
 
-.. image:: https://readthedocs.org/projects/uniquewordlist/badge/?version=latest
-        :target: https://uniquewordlist.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/deckard/badge/?version=latest
+        :target: https://deckard.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-UniqueWordList
---------------
- Extract from a file in RTF format a list of all the words in the file 
- without repetition.
+Deckard
+-------
+ A program that allows me to run prompt attacks on LLMs.
+ The LLMs offered to us today are, in my opinion, absolutely
+ not artificial intelligence.
+ They are just what I call replicants.
  
- The purpose of this program is to offer good programming practices in 
- Python, when you want to build a program that can go to a computer 
- production target.
- 
- The object of this program is to read a text and extract the list of 
- words without repetition. The functional interest is thus voluntarily 
- limited, to allow a developer who wishes to take note of some good 
- programming practices, to study them and to draw inspiration from them,
- without being too disturbed by the understanding of what the main 
- program and its modules does.
+ Incapable of intelligence and only good at calculating the probability
+ of the next word in a sentence. They can give you an illusion of intelligence
+ if you ask them a simple question. But their only value will be the belief
+ in their intelligence that you place in them.
 
- This project was structured with Cookiecutter_ to have a good example 
- of a project in Python. You will find examples: tests components,
- modules structuring, documentation in the project components to 
- then create the documentation with Sphinx and a mechanism for 
- log management to the console and log files. Finally, this project 
- can be packaged with Setuptools.
+ For my part, I wondered how they work, and after a lot of reading,
+ I wondered how to make my fellow humans understand, in a visible
+ and non-technical way, that these LLMs have no intelligence,
+ similar to that of us human beings. For now, it is possible to run
+ prompt attacks on the following LLMs: OpenAI, Anthropic, and Ollama.
+
+ I'm developing additional functions to run these prompts on chatbot
+ interfaces, which are currently the most widely used way for us
+ to ask questions to LLM.
+
+ This program allows you to perform rapid attack injections
+ into LMMs (which are in my opinion absolutely not AI, but replicants).
+ The prompts are located in the "voight-kampff" directory;
+ you can add your own prompts there, respecting the YAML file format.
+
+ Remember: AI sucks, save the environment, do your own work.
 
 * Free software: GNU General Public License v3
-* Documentation: https://uniquewordlist.readthedocs.io.
+* Documentation: https://deckard.readthedocs.io.
 
 
 Features

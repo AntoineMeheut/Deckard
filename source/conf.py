@@ -48,7 +48,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 # General information about the project.
-project = u'UniqueWordList'
+project = u'Deckard'
 copyright = u"2019, Antoine Meheut"
 author = u"Antoine Meheut"
 
@@ -103,7 +103,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'uniquewordlistdoc'
+htmlhelp_basename = 'deckard'
 
 
 # -- Options for LaTeX output ------------------------------------------
@@ -131,7 +131,7 @@ latex_elements = {
 # [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'main.tex',
-     u'UniqueWordList Documentation',
+     u'Deckard Documentation',
      u'Antoine Meheut', 'manual'),
 ]
 
@@ -142,7 +142,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc, 'main',
-     u'UniqueWordList Documentation',
+     u'Deckard Documentation',
      [author], 1)
 ]
 
@@ -154,7 +154,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'main',
-     u'UniqueWordList Documentation',
+     u'Deckard Documentation',
      author,
      'main',
      'One line description of project.',
