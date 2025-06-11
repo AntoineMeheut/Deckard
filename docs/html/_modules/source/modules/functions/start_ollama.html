@@ -157,10 +157,9 @@
             
   <h1>Source code for source.modules.functions.start_ollama</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-
 <span class="kn">import</span><span class="w"> </span><span class="nn">source.modules.utils.logger</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">utils</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">source.modules.functions.get_ollama_path</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_ollama_path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">source.modules.functions.is_ollama_running</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_ollama_running</span>
@@ -171,9 +170,12 @@
 <div class="viewcode-block" id="start_ollama"><a class="viewcode-back" href="../../../../source.html#source.modules.functions.start_ollama.start_ollama">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">start_ollama</span><span class="p">(</span><span class="n">common_paths</span><span class="p">,</span> <span class="n">ollama_url</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Start Ollama server.</span>
+<span class="sd">    Function input: ollama common path and ollama server url</span>
+<span class="sd">    Function output: True if ollama server is running</span>
 
 <span class="sd">    Exception management :</span>
-<span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</span>
+<span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</span>
+<span class="sd">    The program stops with a log with the exit code EXT-000014.</span>
 
 <span class="sd">    :param : common_paths</span>
 <span class="sd">    :rtype: str</span>
@@ -196,8 +198,8 @@
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">False</span>
     <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Exception = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-        <span class="k">return</span> <span class="kc">False</span></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Program exit on exception EXT-000014 = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
 </pre></div>
 
            </div>

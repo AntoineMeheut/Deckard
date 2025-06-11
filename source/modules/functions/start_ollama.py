@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
+import sys
 import subprocess
 import time
-import requests
-
 import source.modules.utils.logger as utils
 from source.modules.functions.get_ollama_path import get_ollama_path
 from source.modules.functions.is_ollama_running import is_ollama_running
@@ -13,9 +12,12 @@ __all__ = ['start_ollama']
 def start_ollama(common_paths, ollama_url):
     """
     Start Ollama server.
+    Function input: ollama common path and ollama server url
+    Function output: True if ollama server is running
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000014.
 
     :param : common_paths
     :rtype: str
@@ -38,5 +40,5 @@ def start_ollama(common_paths, ollama_url):
             time.sleep(1)
         return False
     except FileNotFoundError as e:
-        logger.error('Exception = %s', str(e))
-        return False
+        logger.error('Program exit on exception EXT-000014 = %s', str(e))
+        sys.exit()

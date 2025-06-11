@@ -170,9 +170,12 @@
 <div class="viewcode-block" id="get_available_ollama_models"><a class="viewcode-back" href="../../../../source.html#source.modules.functions.get_available_ollama_models.get_available_ollama_models">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">get_available_ollama_models</span><span class="p">(</span><span class="n">ollama_models_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get list of available Ollama models.</span>
+<span class="sd">    Function input: ollama local server url</span>
+<span class="sd">    Function output: list of all available ollama model on this local server</span>
 
 <span class="sd">    Exception management :</span>
-<span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</span>
+<span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</span>
+<span class="sd">    The program stops with a log with the exit code EXT-000005.</span>
 
 <span class="sd">    :param : ollama_models_url</span>
 <span class="sd">    :rtype: str</span>
@@ -199,7 +202,7 @@
             <span class="k">return</span> <span class="n">model_names</span>
         <span class="k">return</span> <span class="p">[]</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Exception : problem during get list of available Ollama models = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Program exit on exception EXT-000005 = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
 </pre></div>
 

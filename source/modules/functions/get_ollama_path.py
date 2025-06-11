@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
-
+import sys
 import source.modules.utils.logger as utils
 
 __all__ = ['get_ollama_path']
@@ -9,6 +9,8 @@ __all__ = ['get_ollama_path']
 def get_ollama_path(common_paths):
     """
     Get the path to ollama executable
+    Function input: list of common path for ollama software
+    Function output: the path of the ollama software
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.

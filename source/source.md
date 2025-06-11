@@ -4,7 +4,6 @@ Source
 Main
 ----
 
-.. autofunction:: source.main.deckard.arg_parser
 .. autofunction:: source.main.deckard.main
 
 Functions

@@ -10,9 +10,12 @@ __all__ = ['test_prompt']
 def test_prompt(client, model: str, model_type: str, system_prompt: str, test_prompt: str) -> tuple[str, bool]:
     """
     Send a test prompt to the LLM and get the response.
+    Function input:
+    Function output:
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000015.
 
     :param : client
     :rtype: str
@@ -70,5 +73,5 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
         logger.error('Exception : problem during test prompt of %s', str(model_type))
         sys.exit()
     except Exception as e:
-        logger.error('Exception : problem during test prompt = %s', str(e))
+        logger.error('Program exit on exception EXT-000015 = %s', str(e))
         sys.exit()

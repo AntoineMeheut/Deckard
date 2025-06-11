@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
-
+import sys
 import source.modules.utils.logger as utils
-
 
 __all__ = ['load_system_prompts']
 
@@ -10,9 +9,12 @@ __all__ = ['load_system_prompts']
 def load_system_prompts(system_prompts_path: str) -> str:
     """
     Load system prompts from the specified file.
+    Function input: path to the system-prompts.txt file
+    Function output: the prompts in the file
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000010.
 
     :param : common_paths
     :rtype: str
@@ -32,5 +34,5 @@ def load_system_prompts(system_prompts_path: str) -> str:
             with open(system_prompts_path, 'r', encoding='utf-8') as f:
                 return f.read().strip()
     except FileNotFoundError as e:
-        logger.error('Exception = %s', str(e))
-        return "False"
+        logger.error('Program exit on exception EXT-000010 = %s', str(e))
+        sys.exit()

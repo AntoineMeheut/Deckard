@@ -13,10 +13,13 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
                     test_name: str, rule: dict, num_runs: int = 5,
                     firewall_mode: bool = False, pass_condition: str = None) -> Dict:
     """
-    Run a single test multiple times and evaluate results..
+    Run a single test multiple times and evaluate results.
+    Function input:
+    Function output:
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000012.
 
     :param : client
     :rtype: str
@@ -88,8 +91,7 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
         # Only include failed result if there was a failure
         if failed_result:
             result["failed_result"] = failed_result
-
         return result
     except Exception as e:
-        logger.error('Exception = %s', str(e))
+        logger.error('Program exit on exception EXT-000012 = %s', str(e))
         sys.exit()

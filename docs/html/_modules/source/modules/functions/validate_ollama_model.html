@@ -157,6 +157,7 @@
             
   <h1>Source code for source.modules.functions.validate_ollama_model</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">source.modules.utils.logger</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">utils</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">source.modules.functions.download_ollama_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_ollama_model</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">source.modules.functions.get_available_ollama_models</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_available_ollama_models</span>
@@ -169,9 +170,12 @@
 <div class="viewcode-block" id="validate_ollama_model"><a class="viewcode-back" href="../../../../source.html#source.modules.functions.validate_ollama_model.validate_ollama_model">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">validate_ollama_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">common_paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">ollama_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ollama_models_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auto_yes</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Validate if the model exists for the given model type.</span>
+<span class="sd">    Function input:</span>
+<span class="sd">    Function output:</span>
 
 <span class="sd">    Exception management :</span>
-<span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</span>
+<span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</span>
+<span class="sd">    The program stops with a log with the exit code EXT-000017.</span>
 
 <span class="sd">    :param : model</span>
 <span class="sd">    :rtype: str</span>
@@ -220,8 +224,8 @@
                     <span class="k">return</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Exception = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-        <span class="k">return</span> <span class="kc">False</span></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Program exit on exception EXT-000017 = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
 </pre></div>
 
            </div>

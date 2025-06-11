@@ -10,6 +10,8 @@ __all__ = ['ensure_model_exists']
 def ensure_model_exists(model: str):
     """
     Ensure the Ollama model exists, download if not.
+    Function input: the ollama model that we want to use
+    Function output: True il the model exist, exit if not
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import sys
 import source.modules.utils.logger as utils
 from source.modules.functions.download_ollama_model import download_ollama_model
 from source.modules.functions.get_available_ollama_models import get_available_ollama_models
@@ -11,9 +12,12 @@ __all__ = ['validate_ollama_model']
 def validate_ollama_model(model: str, model_type: str, common_paths: list, ollama_url: str, ollama_models_url: str, auto_yes: bool = False) -> bool:
     """
     Validate if the model exists for the given model type.
+    Function input:
+    Function output:
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000017.
 
     :param : model
     :rtype: str
@@ -62,5 +66,5 @@ def validate_ollama_model(model: str, model_type: str, common_paths: list, ollam
                     return False
         return True
     except Exception as e:
-        logger.error('Exception = %s', str(e))
-        return False
+        logger.error('Program exit on exception EXT-000017 = %s', str(e))
+        sys.exit()

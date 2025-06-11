@@ -8,6 +8,12 @@ __all__ = ['show_help']
 def show_help():
     """
     Show help message with usage examples.
+    Function input: none
+    Function output: none
+
+    Exception management :
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000017.
 
     Usage Examples:
     ---------------
@@ -69,5 +75,5 @@ def show_help():
                 - For Anthropic models: export ANTHROPIC_API_KEY="your-key"
             """)
     except Exception as e:
-        logger.error('Exception : problem during show_help = %s', str(e))
+        logger.error('Program exit on exception EXT-000017 = %s', str(e))
         sys.exit()

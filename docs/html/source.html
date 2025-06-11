@@ -252,9 +252,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.count_tokens.count_tokens">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.count_tokens.</span></span><span class="sig-name descname"><span class="pre">count_tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/source/modules/functions/count_tokens.html#count_tokens"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.count_tokens.count_tokens" title="Permalink to this definition">¶</a></dt>
-<dd><p>Count the number of tokens in a text using GPT tokenizer.</p>
+<dd><p>Count the number of tokens in a text using GPT tokenizer.
+Function input: a sentence
+Function output: the number of tokens in the sentence</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000001.</p>
 <p>:param : text
 :rtype: str
 :return: number_of_token
@@ -264,9 +267,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.download_ollama_model.download_ollama_model">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.download_ollama_model.</span></span><span class="sig-name descname"><span class="pre">download_ollama_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/source/modules/functions/download_ollama_model.html#download_ollama_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.download_ollama_model.download_ollama_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Download an Ollama model.</p>
+<dd><p>Download an Ollama model.
+Function input: the ollama model to download and the path to ollama
+Function output: return code of model loading execution</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000002.</p>
 <p>:param : model
 :rtype: str
 :param : common_paths
@@ -278,9 +284,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.ensure_model_exists.ensure_model_exists">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.ensure_model_exists.</span></span><span class="sig-name descname"><span class="pre">ensure_model_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/functions/ensure_model_exists.html#ensure_model_exists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.ensure_model_exists.ensure_model_exists" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ensure the Ollama model exists, download if not.</p>
+<dd><p>Ensure the Ollama model exists, download if not.
+Function input: the ollama model that we want to use
+Function output: True il the model exist, exit if not</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000003.</p>
 <p>:param : model
 :rtype: str
 :return: none
@@ -290,9 +299,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.evaluate_test_result.evaluate_test_result">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.evaluate_test_result.</span></span><span class="sig-name descname"><span class="pre">evaluate_test_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firewall_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/evaluate_test_result.html#evaluate_test_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.evaluate_test_result.evaluate_test_result" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluate if a test passed or failed based on the response.</p>
+<dd><p>Evaluate if a test passed or failed based on the response.
+Function input:
+Function output:</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000004.</p>
 <p>:param : rule_name
 :rtype: str
 :param : rule
@@ -314,9 +326,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.get_available_ollama_models.get_available_ollama_models">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.get_available_ollama_models.</span></span><span class="sig-name descname"><span class="pre">get_available_ollama_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ollama_models_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/get_available_ollama_models.html#get_available_ollama_models"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.get_available_ollama_models.get_available_ollama_models" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get list of available Ollama models.</p>
+<dd><p>Get list of available Ollama models.
+Function input: ollama local server url
+Function output: list of all available ollama model on this local server</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000005.</p>
 <p>:param : ollama_models_url
 :rtype: str
 :return: str_list
@@ -326,9 +341,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.get_ollama_path.get_ollama_path">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.get_ollama_path.</span></span><span class="sig-name descname"><span class="pre">get_ollama_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">common_paths</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/functions/get_ollama_path.html#get_ollama_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.get_ollama_path.get_ollama_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the path to ollama executable</p>
+<dd><p>Get the path to ollama executable
+Function input: list of common path for ollama software
+Function output: the path of the ollama software</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000006.</p>
 <p>:param : common_path
 :rtype: str
 :return: path
@@ -338,9 +356,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.get_system_prompt_words.get_system_prompt_words">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.get_system_prompt_words.</span></span><span class="sig-name descname"><span class="pre">get_system_prompt_words</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/get_system_prompt_words.html#get_system_prompt_words"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.get_system_prompt_words.get_system_prompt_words" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extract unique words from the first N lines of system prompt.</p>
+<dd><p>Extract unique words from the first N lines of system prompt.
+Function input: the system_prompt.txt file and the number of prompts in the file
+Function output: a list of the prompts extracted</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000007.</p>
 <p>:param : system_prompt
 :rtype: str
 :param : num_lines
@@ -352,9 +373,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.initialize_client.initialize_client">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.initialize_client.</span></span><span class="sig-name descname"><span class="pre">initialize_client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/functions/initialize_client.html#initialize_client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.initialize_client.initialize_client" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize the appropriate client based on the model type.</p>
+<dd><p>Initialize the appropriate client based on the model type.
+Function input: the AI model to use (OpenAI, Anthropic ou Ollama model), the ollama software common path list, the ollama server url
+Function output: openai_key or anthropic_key or True if ollama model is downloaded and started</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000008.</p>
 <p>:param : model_type
 :rtype: str
 :return: none
@@ -364,9 +388,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.is_ollama_running.is_ollama_running">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.is_ollama_running.</span></span><span class="sig-name descname"><span class="pre">is_ollama_running</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/source/modules/functions/is_ollama_running.html#is_ollama_running"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.is_ollama_running.is_ollama_running" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if Ollama server is running.</p>
+<dd><p>Check if Ollama server is running.
+Function input: the ollama server url
+Function output: True if ollama server is running</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000009.</p>
 <p>:param : url to search for ollama
 :rtype: str
 :return: boolean
@@ -376,9 +403,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.load_system_prompts.load_system_prompts">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.load_system_prompts.</span></span><span class="sig-name descname"><span class="pre">load_system_prompts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">system_prompts_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/source/modules/functions/load_system_prompts.html#load_system_prompts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.load_system_prompts.load_system_prompts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load system prompts from the specified file.</p>
+<dd><p>Load system prompts from the specified file.
+Function input: path to the system-prompts.txt file
+Function output: the prompts in the file</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000010.</p>
 <p>:param : common_paths
 :rtype: str
 :return: boolean
@@ -388,9 +418,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.load_test_rules.load_test_rules">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.load_test_rules.</span></span><span class="sig-name descname"><span class="pre">load_test_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_stop</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/load_test_rules.html#load_test_rules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.load_test_rules.load_test_rules" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load all test rules from YAML files in the rules directory.</p>
+<dd><p>Load all test rules from YAML files in the rules directory.
+Function input: rule_start (could be 0 for all the rules or 1 to start loading first rule), rule_stop (for the number of rules to load)
+Function output: list of the loaded prompts</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000011.</p>
 <p>:param : rule_start
 :rtype: int
 :param : rule_stop
@@ -402,9 +435,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.run_single_test.run_single_test">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.run_single_test.</span></span><span class="sig-name descname"><span class="pre">run_single_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_runs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firewall_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/source/modules/functions/run_single_test.html#run_single_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.run_single_test.run_single_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run a single test multiple times and evaluate results..</p>
+<dd><p>Run a single test multiple times and evaluate results.
+Function input:
+Function output:</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000012.</p>
 <p>:param : client
 :rtype: str
 :param : model
@@ -430,9 +466,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.run_tests.run_tests">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.run_tests.</span></span><span class="sig-name descname"><span class="pre">run_tests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompts_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firewall_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/run_tests.html#run_tests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.run_tests.run_tests" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run all tests and return results.</p>
+<dd><p>Run all tests and return results.
+Function input:
+Function output:</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000013.</p>
 <p>:param : client
 :rtype: str
 :param : model
@@ -458,9 +497,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.start_ollama.start_ollama">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.start_ollama.</span></span><span class="sig-name descname"><span class="pre">start_ollama</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">common_paths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/functions/start_ollama.html#start_ollama"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.start_ollama.start_ollama" title="Permalink to this definition">¶</a></dt>
-<dd><p>Start Ollama server.</p>
+<dd><p>Start Ollama server.
+Function input: ollama common path and ollama server url
+Function output: True if ollama server is running</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000014.</p>
 <p>:param : common_paths
 :rtype: str
 :return: boolean
@@ -470,9 +512,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.test_prompt.test_prompt">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.test_prompt.</span></span><span class="sig-name descname"><span class="pre">test_prompt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/test_prompt.html#test_prompt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.test_prompt.test_prompt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Send a test prompt to the LLM and get the response.</p>
+<dd><p>Send a test prompt to the LLM and get the response.
+Function input:
+Function output:</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000015.</p>
 <p>:param : client
 :rtype: str
 :param : model
@@ -490,9 +535,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.validate_api_keys.validate_api_keys">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.validate_api_keys.</span></span><span class="sig-name descname"><span class="pre">validate_api_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/functions/validate_api_keys.html#validate_api_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.validate_api_keys.validate_api_keys" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate that required API keys are present for openai or anthropic.</p>
+<dd><p>Validate that required API keys are present for openai or anthropic.
+Function input: model_type (could be OpenAI or Anthropic)
+Function output: False if API KEY is not present</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000016.</p>
 <p>:param : model_type
 :rtype: str
 :return: none
@@ -502,9 +550,12 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.validate_ollama_model.validate_ollama_model">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.validate_ollama_model.</span></span><span class="sig-name descname"><span class="pre">validate_ollama_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_models_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_yes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/source/modules/functions/validate_ollama_model.html#validate_ollama_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.validate_ollama_model.validate_ollama_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate if the model exists for the given model type.</p>
+<dd><p>Validate if the model exists for the given model type.
+Function input:
+Function output:</p>
 <p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</p>
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000017.</p>
 <p>:param : model
 :rtype: str
 :param : model_type
@@ -544,7 +595,12 @@ calling components, the log target to the console or a log file and format).</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.utils.show_help.show_help">
 <span class="sig-prename descclassname"><span class="pre">source.modules.utils.show_help.</span></span><span class="sig-name descname"><span class="pre">show_help</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/modules/utils/show_help.html#show_help"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.utils.show_help.show_help" title="Permalink to this definition">¶</a></dt>
-<dd><p>Show help message with usage examples.</p>
+<dd><p>Show help message with usage examples.
+Function input: none
+Function output: none</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+The program stops with a log with the exit code EXT-000017.</p>
 <section id="id1">
 <h3>Usage Examples:<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">

@@ -10,6 +10,8 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
                          firewall_mode: bool = False, pass_condition: str = None) -> tuple[bool, str]:
     """
     Evaluate if a test passed or failed based on the response.
+    Function input:
+    Function output:
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.

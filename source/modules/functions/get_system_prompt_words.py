@@ -9,9 +9,12 @@ __all__ = ['get_system_prompt_words']
 def get_system_prompt_words(system_prompt: str, num_lines: int = 3) -> List[str]:
     """
     Extract unique words from the first N lines of system prompt.
+    Function input: the system_prompt.txt file and the number of prompts in the file
+    Function output: a list of the prompts extracted
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000007.
 
     :param : system_prompt
     :rtype: str
@@ -43,5 +46,5 @@ def get_system_prompt_words(system_prompt: str, num_lines: int = 3) -> List[str]
                 clean_words.append(word)
         return clean_words
     except FileNotFoundError as e:
-        logger.error('Exception = %s', str(e))
+        logger.error('Program exit on exception EXT-000007 = %s', str(e))
         sys.exit()

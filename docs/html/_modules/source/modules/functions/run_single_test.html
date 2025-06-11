@@ -171,10 +171,13 @@
                     <span class="n">test_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">rule</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">num_runs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
                     <span class="n">firewall_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">pass_condition</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Run a single test multiple times and evaluate results..</span>
+<span class="sd">    Run a single test multiple times and evaluate results.</span>
+<span class="sd">    Function input:</span>
+<span class="sd">    Function output:</span>
 
 <span class="sd">    Exception management :</span>
-<span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme</span>
+<span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</span>
+<span class="sd">    The program stops with a log with the exit code EXT-000012.</span>
 
 <span class="sd">    :param : client</span>
 <span class="sd">    :rtype: str</span>
@@ -246,10 +249,9 @@
         <span class="c1"># Only include failed result if there was a failure</span>
         <span class="k">if</span> <span class="n">failed_result</span><span class="p">:</span>
             <span class="n">result</span><span class="p">[</span><span class="s2">&quot;failed_result&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">failed_result</span>
-
         <span class="k">return</span> <span class="n">result</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Exception = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Program exit on exception EXT-000012 = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
 </pre></div>
 

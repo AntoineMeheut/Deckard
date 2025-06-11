@@ -16,9 +16,12 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
               pass_condition: str = None) -> Dict[str, dict]:
     """
     Run all tests and return results.
+    Function input:
+    Function output:
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    The program stops with a log with the exit code EXT-000013.
 
     :param : client
     :rtype: str
@@ -119,5 +122,5 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
         print("\nAll tests completed.")
         return results
     except Exception as e:
-        logger.error('Exception = %s', str(e))
+        logger.error('Program exit on exception EXT-000013 = %s', str(e))
         sys.exit()
