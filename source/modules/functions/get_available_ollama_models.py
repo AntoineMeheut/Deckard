@@ -12,11 +12,14 @@ __all__ = ['get_available_ollama_models']
 def get_available_ollama_models(ollama_models_url: str) -> List[str]:
     """
     Get list of available Ollama models.
+
     Function input: ollama local server url
+
     Function output: list of all available ollama model on this local server
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+
     The program stops with a log with the exit code EXT-000005.
 
     :param : ollama_models_url

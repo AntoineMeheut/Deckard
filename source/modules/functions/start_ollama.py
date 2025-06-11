@@ -12,11 +12,14 @@ __all__ = ['start_ollama']
 def start_ollama(common_paths, ollama_url):
     """
     Start Ollama server.
+
     Function input: ollama common path and ollama server url
+
     Function output: True if ollama server is running
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+
     The program stops with a log with the exit code EXT-000014.
 
     :param : common_paths

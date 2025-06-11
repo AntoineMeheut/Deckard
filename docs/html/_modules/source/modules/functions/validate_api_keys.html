@@ -167,11 +167,14 @@
 <div class="viewcode-block" id="validate_api_keys"><a class="viewcode-back" href="../../../../source.html#source.modules.functions.validate_api_keys.validate_api_keys">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">validate_api_keys</span><span class="p">(</span><span class="n">model_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Validate that required API keys are present for openai or anthropic.</span>
+
 <span class="sd">    Function input: model_type (could be OpenAI or Anthropic)</span>
+
 <span class="sd">    Function output: False if API KEY is not present</span>
 
 <span class="sd">    Exception management :</span>
 <span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</span>
+
 <span class="sd">    The program stops with a log with the exit code EXT-000016.</span>
 
 <span class="sd">    :param : model_type</span>

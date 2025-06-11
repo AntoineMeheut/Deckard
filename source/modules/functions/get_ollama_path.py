@@ -9,11 +9,14 @@ __all__ = ['get_ollama_path']
 def get_ollama_path(common_paths):
     """
     Get the path to ollama executable
+
     Function input: list of common path for ollama software
+
     Function output: the path of the ollama software
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+
     The program stops with a log with the exit code EXT-000006.
 
     :param : common_path

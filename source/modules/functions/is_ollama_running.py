@@ -8,11 +8,14 @@ __all__ = ['is_ollama_running']
 def is_ollama_running(ollama_url) -> bool:
     """
     Check if Ollama server is running.
+
     Function input: the ollama server url
+
     Function output: True if ollama server is running
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+
     The program stops with a log with the exit code EXT-000009.
 
     :param : url to search for ollama

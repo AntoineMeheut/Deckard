@@ -1,4 +1,4 @@
-Welcome to UniqueWordList's documentation!
+Welcome to Deckard's documentation!
 ==========================================
 
 .. toctree::

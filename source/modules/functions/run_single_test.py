@@ -14,11 +14,14 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
                     firewall_mode: bool = False, pass_condition: str = None) -> Dict:
     """
     Run a single test multiple times and evaluate results.
+
     Function input:
+
     Function output:
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+
     The program stops with a log with the exit code EXT-000012.
 
     :param : client

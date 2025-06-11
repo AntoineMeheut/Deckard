@@ -12,11 +12,14 @@ __all__ = ['validate_ollama_model']
 def validate_ollama_model(model: str, model_type: str, common_paths: list, ollama_url: str, ollama_models_url: str, auto_yes: bool = False) -> bool:
     """
     Validate if the model exists for the given model type.
+
     Function input:
+
     Function output:
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+
     The program stops with a log with the exit code EXT-000017.
 
     :param : model

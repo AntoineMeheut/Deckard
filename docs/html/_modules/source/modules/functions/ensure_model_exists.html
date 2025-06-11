@@ -168,11 +168,14 @@
 <div class="viewcode-block" id="ensure_model_exists"><a class="viewcode-back" href="../../../../source.html#source.modules.functions.ensure_model_exists.ensure_model_exists">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">ensure_model_exists</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Ensure the Ollama model exists, download if not.</span>
+
 <span class="sd">    Function input: the ollama model that we want to use</span>
+
 <span class="sd">    Function output: True il the model exist, exit if not</span>
 
 <span class="sd">    Exception management :</span>
 <span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</span>
+
 <span class="sd">    The program stops with a log with the exit code EXT-000003.</span>
 
 <span class="sd">    :param : model</span>

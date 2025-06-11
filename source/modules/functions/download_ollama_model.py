@@ -12,11 +12,14 @@ from source.modules.functions.get_ollama_path import get_ollama_path
 def download_ollama_model(model: str, common_paths: list) -> bool:
     """
     Download an Ollama model.
+
     Function input: the ollama model to download and the path to ollama
+
     Function output: return code of model loading execution
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+
     The program stops with a log with the exit code EXT-000002.
 
     :param : model

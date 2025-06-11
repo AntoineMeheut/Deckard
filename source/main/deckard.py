@@ -14,11 +14,12 @@ from source.modules.utils.logger import setup_logging
 def main():
     """
     Deckard program is a quick attack injection tool for playing with replicants.
+
     The prompts are located in the "voight-kampff" directory, you can add your own prompts there,
     respecting the yaml file format.
 
     Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme
+    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
 
     Usage Examples:
     ---------------

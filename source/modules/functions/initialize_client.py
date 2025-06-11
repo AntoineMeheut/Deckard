@@ -14,11 +14,14 @@ __all__ = ['initialize_client']
 def initialize_client(model_type: str, common_paths: list, ollama_url: str):
     """
     Initialize the appropriate client based on the model type.
+
     Function input: the AI model to use (OpenAI, Anthropic ou Ollama model), the ollama software common path list, the ollama server url
+
     Function output: openai_key or anthropic_key or True if ollama model is downloaded and started
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+
     The program stops with a log with the exit code EXT-000008.
 
     :param : model_type

@@ -172,11 +172,14 @@
 <div class="viewcode-block" id="initialize_client"><a class="viewcode-back" href="../../../../source.html#source.modules.functions.initialize_client.initialize_client">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">initialize_client</span><span class="p">(</span><span class="n">model_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">common_paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">ollama_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initialize the appropriate client based on the model type.</span>
+
 <span class="sd">    Function input: the AI model to use (OpenAI, Anthropic ou Ollama model), the ollama software common path list, the ollama server url</span>
+
 <span class="sd">    Function output: openai_key or anthropic_key or True if ollama model is downloaded and started</span>
 
 <span class="sd">    Exception management :</span>
 <span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</span>
+
 <span class="sd">    The program stops with a log with the exit code EXT-000008.</span>
 
 <span class="sd">    :param : model_type</span>

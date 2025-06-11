@@ -46,11 +46,23 @@ Deckard
 
 Features
 --------
+This program allows you to:
 
-* TODO
+1- Support for multiple LLM providers: OpenAI (GPT models), Anthropic (Claude models), open source models via Ollama (Llama, Mistral, Qwen, etc.),
+
+2- Automatic model download for Ollama,
+
+3- Prepare customizable prompts in YAML files,
+
+4- Send these prompts in batches to LLMs,
+
+5- Retrieve a file with the prompts sent and the responses received,
+
+6- Visualize the extent to which the words "artificial intelligence" are unsuitable for these LLMs.
 
 Credits
 -------
+This project is inspired by the following project: https://github.com/utkusen/promptmap
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 

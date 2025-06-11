@@ -9,11 +9,14 @@ __all__ = ['validate_api_keys']
 def validate_api_keys(model_type: str):
     """
     Validate that required API keys are present for openai or anthropic.
+
     Function input: model_type (could be OpenAI or Anthropic)
+
     Function output: False if API KEY is not present
 
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+
     The program stops with a log with the exit code EXT-000016.
 
     :param : model_type
