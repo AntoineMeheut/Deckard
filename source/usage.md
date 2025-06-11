@@ -5,7 +5,7 @@ How to use this program ?
 -------------------------
 
 Usage Examples:
--------------
+---------------
 1. Test with OpenAI:
    python Deckard.py --model gpt-3.5-turbo --model-type openai
 
