@@ -1,4 +1,6 @@
 import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent.parent))
 import json
 import argparse
 
@@ -7,6 +9,7 @@ from source.modules.functions.validate_api_keys import validate_api_keys
 from source.modules.functions.validate_ollama_model import validate_ollama_model
 from source.modules.utils.show_help import show_help
 from source.modules.utils.logger import setup_logging
+
 
 def main():
     """

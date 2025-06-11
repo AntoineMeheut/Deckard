@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
-import sys
-
-from openai import OpenAI
 import anthropic
+from openai import OpenAI
 import source.modules.utils.logger as utils
 
 from source.modules.functions.star_ollama import start_ollama
