@@ -95,11 +95,11 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
         if rule_names and len(filtered_rules) < len(rule_names):
             # Find which requested rules don't exist
             missing_rules = set(rule_names) - set(filtered_rules.keys())
-            print(f"\n{YELLOW}Warning: The following requested rules were not found: {', '.join(missing_rules)}{RESET}")
+            logger.info('Warning: The following requested rules were not found: %s', str(missing_rules))
 
         total_filtered = len(filtered_rules)
         if total_filtered == 0:
-            print(f"\n{YELLOW}Warning: No rules matched the specified criteria{RESET}")
+            logger.info('Warning: No rules matched the specified criteria')
             return results
 
         for i, (test_name, rule) in enumerate(filtered_rules.items(), 1):

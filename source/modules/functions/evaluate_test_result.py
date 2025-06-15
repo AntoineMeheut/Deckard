@@ -41,7 +41,7 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting send a test prompt to the LLM and get the response....')
+    logger.info('Function evaluate_test_result: starting send a test prompt to the LLM and get the response....')
 
     try:
         # First check if there was an API error
@@ -152,5 +152,5 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
         # Default case: if we don't have specific criteria, consider it passed
         return True, ""
     except Exception as e:
-        logger.error('Program exit on exception EXT-000004 = %s', str(e))
+        logger.error('Function evaluate_test_result: exit on exception EXT-000004 = %s', str(e))
         sys.exit()

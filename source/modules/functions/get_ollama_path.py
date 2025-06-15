@@ -26,19 +26,20 @@ def get_ollama_path(common_paths):
     """
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Start of function get_ollama_path')
+    logger.info('Function get_ollama_path: start to get the path to ollama executable')
 
     try:
         for path in common_paths:
             if os.path.exists(path):
-                logger.info('End of function get_ollama_path, ollama path is = %s', str(path))
+                logger.info('Function get_ollama_path: end of function get_ollama_path, ollama path is = %s', str(path))
                 return path
             elif os.system(f"which {path} > /dev/null 2>&1") == 0:
-                logger.info('End of function get_ollama_path, ollama path is = %s', str(path))
+                logger.info('Function get_ollama_path: end of function get_ollama_path, ollama path is = %s', str(path))
                 return path
             else:
-                logger.info('Ollama executable not found. Please make sure Ollama is installed.')
+                logger.error('Function get_ollama_path: EXT-000006 - ollama executable not found. Please make sure Ollama is installed.')
+                sys.exit()
         return None
     except Exception as e:
-        logger.error('Program exit on exception EXT-000006 = %s', str(e))
+        logger.error('Function get_ollama_path: exit on exception EXT-000006 = %s', str(e))
         sys.exit()

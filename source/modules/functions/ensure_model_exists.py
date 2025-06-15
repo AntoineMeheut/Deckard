@@ -28,16 +28,17 @@ def ensure_model_exists(model: str):
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Check if ollama model exist...')
+    logger.info('Function ensure_model_exists: check if ollama model exist...')
 
     try:
         ollama.list(model)
+        return None
     except Exception as e:
-        logger.info('Model %s not found. Downloading...', str(model))
+        logger.info('Function ensure_model_exists: model %s not found. Downloading...', str(model))
         try:
             ollama.pull(model)
-            logger.info('Model %s downloaded successfully.', str(model))
+            logger.info('Function ensure_model_exists: model %s downloaded successfully.', str(model))
             return True
         except Exception as e:
-            logger.error('Program exit on exception EXT-000003 = %s', str(e))
+            logger.error('Function ensure_model_exists: exit on exception EXT-000003 = %s', str(e))
             sys.exit()

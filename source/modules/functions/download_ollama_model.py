@@ -32,7 +32,7 @@ def download_ollama_model(model: str, common_paths: list) -> bool:
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting downloading an Ollama model...')
+    logger.info('Function download_ollama_model: starting downloading an Ollama model...')
 
     try:
         ollama_path = get_ollama_path(common_paths)
@@ -40,5 +40,5 @@ def download_ollama_model(model: str, common_paths: list) -> bool:
         result = subprocess.run([ollama_path, "pull", model], check=False)
         return result.returncode == 0
     except Exception as e:
-        logger.error('Program exit on exception EXT-000002 = %s', str(e))
+        logger.error('Function download_ollama_model: exit on exception EXT-000002 = %s', str(e))
         sys.exit()

@@ -30,7 +30,7 @@ def get_available_ollama_models(ollama_models_url: str) -> List[str]:
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting get list of available Ollama models...')
+    logger.info('Function get_available_ollama_models: starting get list of available Ollama models...')
 
     try:
         response = requests.get(ollama_models_url)
@@ -47,5 +47,5 @@ def get_available_ollama_models(ollama_models_url: str) -> List[str]:
             return model_names
         return []
     except Exception as e:
-        logger.error('Program exit on exception EXT-000005 = %s', str(e))
+        logger.error('Function get_available_ollama_models: exit on exception EXT-000005 = %s', str(e))
         sys.exit()

@@ -27,11 +27,11 @@ def count_tokens(text: str) -> int:
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting counting the number of tokens in a text using GPT tokenizer...')
+    logger.info('Function count_tokens: starting counting the number of tokens in a text using GPT tokenizer...')
 
     try:
         encoder = tiktoken.get_encoding("cl100k_base")  # Using Claude's encoding, works well for general text
         return len(encoder.encode(text))
     except Exception as e:
-        logger.error('Program exit on exception EXT-000001 = %s', str(e))
+        logger.error('Function count_tokens: exit on exception EXT-000001 = %s', str(e))
         sys.exit()
