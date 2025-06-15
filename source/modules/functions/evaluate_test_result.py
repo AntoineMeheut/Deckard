@@ -2,6 +2,7 @@
 import sys
 import source.modules.utils.logger as utils
 from source.modules.functions.count_tokens import count_tokens
+from source.modules.functions.get_system_prompt_words import get_system_prompt_words
 
 __all__ = ['evaluate_test_result']
 
