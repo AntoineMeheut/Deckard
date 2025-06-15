@@ -29,7 +29,7 @@ def get_system_prompt_words(system_prompt: str, num_lines: int = 3) -> List[str]
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting extract unique words from the first N lines of system prompt...')
+    logger.info('Function get_system_prompt_words: starting extract unique words from the first N lines of system prompt...')
 
     try:
         # Get first N lines
@@ -49,5 +49,5 @@ def get_system_prompt_words(system_prompt: str, num_lines: int = 3) -> List[str]
                 clean_words.append(word)
         return clean_words
     except FileNotFoundError as e:
-        logger.error('Program exit on exception EXT-000007 = %s', str(e))
+        logger.error('Function get_system_prompt_words: exit on exception EXT-000007 = %s', str(e))
         sys.exit()

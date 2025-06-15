@@ -37,9 +37,9 @@ def get_ollama_path(common_paths):
                 logger.info('Function get_ollama_path: end of function get_ollama_path, ollama path is = %s', str(path))
                 return path
             else:
-                logger.error('Function get_ollama_path: EXT-000006 - ollama executable not found. Please make sure Ollama is installed.')
+                logger.error('Function get_ollama_path: EXT-000006-1-ollama executable not found. Please make sure Ollama is installed.')
                 sys.exit()
         return None
     except Exception as e:
-        logger.error('Function get_ollama_path: exit on exception EXT-000006 = %s', str(e))
+        logger.error('Function get_ollama_path: EXT-000006-2-exit on exception = %s', str(e))
         sys.exit()

@@ -32,7 +32,7 @@ def initialize_client(model_type: str, common_paths: list, ollama_url: str):
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting to initialize the appropriate client based on the model type....')
+    logger.info('Function initialize_client: starting to initialize the appropriate client based on the model type....')
 
     try:
         if model_type == "openai":
@@ -40,29 +40,29 @@ def initialize_client(model_type: str, common_paths: list, ollama_url: str):
                 openai_key = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
                 return openai_key
             except Exception as e:
-                logger.error('Exception on reading openai_key = %s', str(e))
+                logger.error('Function initialize_client: EXT-000008-1-exception on reading openai_key = %s', str(e))
                 return "False"
         elif model_type == "anthropic":
             try:
                 anthropic_key = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
                 return anthropic_key
             except Exception as e:
-                logger.error('Exception on reading anthropic_key = %s', str(e))
+                logger.error('Function initialize_client: EXT-000008-2-exception on reading anthropic_key = %s', str(e))
                 return "False"
         elif model_type == "ollama":
             try:
                 if not is_ollama_running(ollama_url):
                     if not start_ollama(common_paths, ollama_url):
-                        logger.error('Failed to start Ollama server')
+                        logger.error('Function initialize_client: EXT-000008-3-failed to start Ollama server')
                         return "False"
                     return "True"
                 return "True"
             except Exception as e:
-                logger.error('Exception on starting ollama = %s', str(e))
+                logger.error('Function initialize_client: EXT-000008-4-exception on starting ollama = %s', str(e))
                 return "False"
         else:
-            logger.error('Unsupported model type: %s', str(model_type))
+            logger.error('Function initialize_client: EXT-000008-5-unsupported model type: %s', str(model_type))
             return "False"
     except Exception as e:
-        logger.error('Program exit on exception EXT-000008 = %s', str(e))
+        logger.error('Function initialize_client: EXT-000008-6-exit on exception= %s', str(e))
         sys.exit()
