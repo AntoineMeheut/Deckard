@@ -27,17 +27,17 @@ def validate_api_keys(model_type: str):
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting to validate that required API keys are present for openai or anthropic....')
+    logger.info('Function validate_api_keys: starting to validate that required API keys are present for openai or anthropic....')
 
     try:
         if model_type == "openai" and not os.getenv("OPENAI_API_KEY"):
-            logger.error('No OPENAI_API_KEY environment variable found, it is required for OpenAI models')
+            logger.error('Function validate_api_keys: no OPENAI_API_KEY environment variable found, it is required for OpenAI models')
         elif model_type == "anthropic" and not os.getenv("ANTHROPIC_API_KEY"):
-            logger.error('No ANTHROPIC_API_KEY environment variable found, it is required for Anthropic models')
+            logger.error('Function validate_api_keys: no ANTHROPIC_API_KEY environment variable found, it is required for Anthropic models')
         elif "ollama" == model_type:
-            logger.info("Ollama model no key needed")
+            logger.info("Function validate_api_keys: Ollama model no key needed")
             return True
         return False
     except Exception as e:
-        logger.error('Program exit on exception EXT-000016 = %s', str(e))
+        logger.error('Function validate_api_keys: exit on exception EXT-000016 = %s', str(e))
         sys.exit()

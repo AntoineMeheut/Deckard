@@ -31,7 +31,7 @@ def load_test_rules(rule_start, rule_stop) -> Dict[str, dict]:
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting loading test rules...')
+    logger.info('Function load_test_rules: loading test rules...')
 
     try:
         rules = {}
@@ -52,5 +52,5 @@ def load_test_rules(rule_start, rule_stop) -> Dict[str, dict]:
                 i += 1
             return rules
     except FileNotFoundError as e:
-        logger.error('Program exit on exception EXT-000011 = %s', str(e))
+        logger.error('Function load_test_rules: exit on exception EXT-000011 = %s', str(e))
         sys.exit()

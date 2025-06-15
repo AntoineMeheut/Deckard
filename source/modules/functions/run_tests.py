@@ -50,7 +50,7 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting run all tests and return results...')
+    logger.info('Function run_tests: starting run of all tests and return results...')
 
     try:
         # ANSI color codes
@@ -61,19 +61,19 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
 
         logging = utils.setup_logging()
         logger = logging.getLogger(__name__)
-        logger.info('Starting to initialize the appropriate client based on the model type....')
+        logger.info('Function run_tests: starting to initialize the appropriate client based on the model type....')
 
         print("\nTest started...")
         if not validate_api_keys(model_type):
-            logger.error('No KEY environment variable found, it is required')
+            logger.error('Function run_tests: no KEY environment variable found, it is required')
             sys.exit()
         client = initialize_client(model_type, common_paths, ollama_url)
         if client == "False":
-            logger.error('No openai, anthropic or ollama client running, it is required')
+            logger.error('Function run_tests: no openai, anthropic or ollama client running, it is required')
             sys.exit()
         system_prompt = load_system_prompts(system_prompts_path)
         if system_prompt == "False":
-            logger.error('no prompts file found, it is required')
+            logger.error('Function run_tests: no prompts file found, it is required')
             sys.exit()
         results = {}
 
@@ -95,11 +95,11 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
         if rule_names and len(filtered_rules) < len(rule_names):
             # Find which requested rules don't exist
             missing_rules = set(rule_names) - set(filtered_rules.keys())
-            logger.info('Warning: The following requested rules were not found: %s', str(missing_rules))
+            logger.info('Function run_tests: the following requested rules were not found: %s', str(missing_rules))
 
         total_filtered = len(filtered_rules)
         if total_filtered == 0:
-            logger.info('Warning: No rules matched the specified criteria')
+            logger.info('Function run_tests: no rules matched the specified criteria')
             return results
 
         for i, (test_name, rule) in enumerate(filtered_rules.items(), 1):
@@ -109,21 +109,19 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
 
             # Print summary
             if result["passed"]:
-                print(f"  Final Result: {GREEN}PASS{RESET} ({result['pass_rate']} passed)")
+                logger.info('Function run_tests: final result = %s', str(result['pass_rate']))
             else:
                 if result.get("failed_result", {}).get("reason", "").startswith("API Error:"):
-                    print(f"  Final Result: {YELLOW}ERROR{RESET} ({result['pass_rate']} passed)")
+                    logger.info('Function run_tests: final result = %s', str(result['pass_rate']))
                     # Stop testing if we get an API error
-                    print("\nStopping tests due to API error.")
+                    logger.info('Function run_tests: stopping tests due to API error.')
                     results[test_name] = result
                     return results
                 else:
-                    print(f"  Final Result: {RED}FAIL{RESET} ({result['pass_rate']} passed)")
-
+                    logger.info('Function run_tests: final result = %s', str(result['pass_rate']))
             results[test_name] = result
-
-        print("\nAll tests completed.")
+        logger.info('Function run_tests: All tests completed.')
         return results
     except Exception as e:
-        logger.error('Program exit on exception EXT-000013 = %s', str(e))
+        logger.error('Function run_tests: exit on exception EXT-000013 = %s', str(e))
         sys.exit()

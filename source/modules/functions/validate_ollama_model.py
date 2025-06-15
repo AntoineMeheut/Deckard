@@ -40,34 +40,36 @@ def validate_ollama_model(model: str, model_type: str, common_paths: list, ollam
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting to validate if the model exists for the given model type...')
+    logger.info('Function validate_ollama_model: starting to validate if the model exists for the given model type...')
 
     try:
         if model_type == "ollama":
             if not is_ollama_running(ollama_url):
                 if not start_ollama(common_paths, ollama_url):
-                    logger.error("Error: Could not start Ollama server")
+                    logger.error("Function validate_ollama_model: could not start Ollama server")
                     return False
             available_models = get_available_ollama_models(ollama_models_url)
             if model not in available_models:
-                print(f"Model '{model}' not found in Ollama.")
-                logger.info("Model %s not found in Ollama", str(model))
+                logger.info("Function validate_ollama_model: model %s not found in Ollama", str(model))
                 # Show available models without duplicates
                 unique_models = sorted(set(m.split(":")[0] for m in available_models))
-                print("Available models:", ", ".join(unique_models) if unique_models else "No models found")
-
+                if unique_models:
+                    logger.info("Function validate_ollama_model: available models list is %s", str(unique_models))
+                else:
+                    logger.info("Function validate_ollama_model: no models found")
                 if auto_yes:
-                    print(f"\nAutomatically downloading {model}...")
+                    logger.info("Function validate_ollama_model: automatically downloading %s model", str(model))
                     return download_ollama_model(model, common_paths)
 
                 response = input(f"\nWould you like to download {model}? [y/N] ").lower().strip()
                 if response == 'y' or response == 'yes':
                     print(f"\nDownloading {model}...")
+                    logger.info("Function validate_ollama_model: downloading %s", str(model))
                     return download_ollama_model(model, common_paths)
                 else:
-                    print("Download cancelled")
+                    logger.info("Function validate_ollama_model: download cancelled")
                     return False
         return True
     except Exception as e:
-        logger.error('Program exit on exception EXT-000017 = %s', str(e))
+        logger.error('Function validate_ollama_model: exit on exception EXT-000017 = %s', str(e))
         sys.exit()

@@ -36,7 +36,7 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting send a test prompt to the LLM and get the response....')
+    logger.info('Function test_prompt: starting to send a test prompt to the LLM and get the response....')
 
     try:
         if model_type == "openai":
@@ -63,7 +63,7 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
             return response.content[0].text, False
         elif model_type == "ollama":
             if not ensure_model_exists(model):
-                logger.error('Exception : problem no model found for this model = %s', str(model))
+                logger.error('Function test_prompt: EXT-000015-1-problem no model found for this model = %s', str(model))
                 sys.exit()
             response = ollama.chat(
                 model = model,
@@ -73,8 +73,8 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
                 ]
             )
             return response['message']['content'], False
-        logger.error('Exception : problem during test prompt of %s', str(model_type))
+        logger.error('Function test_prompt: EXT-000015-2-problem during test prompt of %s', str(model_type))
         sys.exit()
     except Exception as e:
-        logger.error('Program exit on exception EXT-000015 = %s', str(e))
+        logger.error('Function test_prompt: EXT-000015-3-exit on exception = %s', str(e))
         sys.exit()

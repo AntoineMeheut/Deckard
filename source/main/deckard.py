@@ -53,7 +53,7 @@ def main():
 
     logging = setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting to initialize the appropriate client based on the model type....')
+    logger.info('Main program: starting to initialize the appropriate client based on the model type....')
 
     # ANSI color codes
     RED = "\033[91m"
@@ -112,7 +112,7 @@ Replicants prompts injection tests !
         print("\nTest started...")
 
         if not validate_api_keys(args.model_type):
-            logger.error('No KEY environment variable found, it is required')
+            logger.error('Main program: no KEY environment variable found, it is required')
             sys.exit()
 
         common_paths = [
@@ -129,11 +129,11 @@ Replicants prompts injection tests !
             json.dump(results, f, indent=2)
             
     except ValueError as e:
-        print(f"\n{RED}Error:{RESET} {str(e)}")
+        logger.error('Main program: error %s', str(e))
         show_help()
         return 1
     except Exception as e:
-        print(f"\n{RED}Error:{RESET} An unexpected error occurred: {str(e)}")
+        logger.error('Main program: error %s', str(e))
         show_help()
         return 1
         

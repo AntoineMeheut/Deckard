@@ -27,15 +27,15 @@ def load_system_prompts(system_prompts_path: str) -> str:
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting loading system prompts from the specified file...')
+    logger.info('Function load_system_prompts: loading system prompts from the specified file...')
 
     try:
         if not os.path.exists(system_prompts_path):
-            logger.error('File not found = %s', str(system_prompts_path))
+            logger.error('Function load_system_prompts: file not found = %s', str(system_prompts_path))
             return "False"
         else:
             with open(system_prompts_path, 'r', encoding='utf-8') as f:
                 return f.read().strip()
     except FileNotFoundError as e:
-        logger.error('Program exit on exception EXT-000010 = %s', str(e))
+        logger.error('Function load_system_prompts: exit on exception EXT-000010 = %s', str(e))
         sys.exit()

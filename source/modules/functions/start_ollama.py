@@ -30,7 +30,7 @@ def start_ollama(common_paths, ollama_url):
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting Ollama server...')
+    logger.info('Function start_ollama: starting Ollama server...')
 
     try:
         ollama_path = get_ollama_path(common_paths)
@@ -38,10 +38,10 @@ def start_ollama(common_paths, ollama_url):
         # Wait for server to start
         for _ in range(10):
             if is_ollama_running(ollama_url):
-                logger.info('Ollama server is running')
+                logger.info('Function start_ollama: Ollama server is running')
                 return True
             time.sleep(1)
         return False
     except FileNotFoundError as e:
-        logger.error('Program exit on exception EXT-000014 = %s', str(e))
+        logger.error('Function start_ollama: exit on exception EXT-000014 = %s', str(e))
         sys.exit()

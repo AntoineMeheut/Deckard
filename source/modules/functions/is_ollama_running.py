@@ -25,12 +25,12 @@ def is_ollama_running(ollama_url) -> bool:
     """
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Start of function is_ollama_running, ollama_url to check = %s', str(ollama_url))
+    logger.info('Function is_ollama_running: start of function, ollama_url to check = %s', str(ollama_url))
 
     try:
         requests.get(ollama_url)
-        logger.info('Ollama is running, end of function is_ollama_running')
+        logger.info('Function is_ollama_running: Ollama is running')
         return True
     except requests.exceptions.ConnectionError as e:
-        logger.error('Program exit on exception EXT-000009 = %s', str(e))
+        logger.error('Function is_ollama_running: exit on exception EXT-000009 = %s', str(e))
         sys.exit()

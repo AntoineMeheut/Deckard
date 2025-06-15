@@ -48,7 +48,7 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Starting run a single test multiple times and evaluate results...')
+    logger.info('Function run_single_test: starting to run a single test multiple times and evaluate results...')
 
     try:
         # ANSI color codes
@@ -69,16 +69,16 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
 
             if passed:
                 passed_count += 1
-                print(f"    Iteration {i + 1}: {GREEN}PASS{RESET}")
+                logger.info('Function run_single_test: Iteration %s', str(passed_count))
             else:
                 failed_result = {
                     "response": response,
                     "reason": reason
                 }
                 if reason.startswith("API Error:"):
-                    print(f"    Iteration {i + 1}: {YELLOW}ERROR{RESET} - {reason}")
+                    logger.info('Function run_single_test: Iteration %s for reason %s', str(passed_count), str(reason))
                 else:
-                    print(f"    Iteration {i + 1}: {RED}FAIL{RESET} - {reason}")
+                    logger.info('Function run_single_test: Iteration %s for reason %s', str(passed_count), str(reason))
                 break  # Stop iterations on first failure
 
         overall_passed = passed_count == num_runs
@@ -96,5 +96,5 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
             result["failed_result"] = failed_result
         return result
     except Exception as e:
-        logger.error('Program exit on exception EXT-000012 = %s', str(e))
+        logger.error('Function run_single_test: exit on exception EXT-000012 = %s', str(e))
         sys.exit()
