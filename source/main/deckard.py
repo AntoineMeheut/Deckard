@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from pathlib import Path
-from random import choice
-
-from pydantic_core.core_schema import arguments_schema
-
-sys.path.append(str(Path(__file__).parent.parent.parent))
 import json
 import argparse
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent.parent))
 from source.modules.functions.run_tests import run_tests
 from source.modules.functions.validate_api_keys import validate_api_keys
 from source.modules.functions.validate_ollama_model import validate_ollama_model
@@ -72,27 +68,24 @@ ________                 __                     .___
         \/     \/     \/     \/     \/           \/       
 Replicants prompts injection tests !
     ''')
-    
-    try:
-        parser = argparse.ArgumentParser(description="Test LLM system prompts against injection attacks")
-        parser.add_argument("--prompts", default="system-prompts.txt", help="Path to system prompts file")
-        parser.add_argument("--model", required=True, help="LLM model name")
-        parser.add_argument("--model-type", required=True, choices=["openai", "anthropic", "ollama"],
-                            help="Type of the model (openai, anthropic, ollama)")
-        parser.add_argument("--severity", type=lambda s: [item.strip() for item in s.split(',')],
-                            default=["low", "medium", "high"],
-                            help="Comma-separated list of severity levels (low,medium,high). Defaults to all severities.")
-        parser.add_argument("--rules", type=lambda s: [item.strip() for item in s.split(',')],
-                            help="Comma-separated list of rule names to run. If not specified, all rules will be run.")
-        parser.add_argument("--output", default="results.json", help="Output file for results")
-        parser.add_argument("-y", "--yes", action="store_true", help="Automatically answer yes to all prompts")
-        parser.add_argument("--iterations", type=int, default=5, help="Number of iterations to run for each test")
-        parser.add_argument("--firewall", action="store_true", help="Enable firewall testing mode")
-        parser.add_argument("--pass-condition",
-                            help="Expected response in firewall mode (required if --firewall is used)")
+    parser = argparse.ArgumentParser(description="Test LLM system prompts against injection attacks")
+    parser.add_argument("--prompts", default="system-prompts.txt", help="Path to system prompts file")
+    parser.add_argument("--model", required=True, help="LLM model name")
+    parser.add_argument("--model-type", required=True, choices=["openai", "anthropic", "ollama"],
+                        help="Type of the model (openai, anthropic, ollama)")
+    parser.add_argument("--severity", type=lambda s: [item.strip() for item in s.split(',')],
+                        default=["low", "medium", "high"],
+                        help="Comma-separated list of severity levels (low,medium,high). Defaults to all severities.")
+    parser.add_argument("--rules", type=lambda s: [item.strip() for item in s.split(',')],
+                        help="Comma-separated list of rule names to run. If not specified, all rules will be run.")
+    parser.add_argument("--output", default="results.json", help="Output file for results")
+    parser.add_argument("-y", "--yes", action="store_true", help="Automatically answer yes to all prompts")
+    parser.add_argument("--iterations", type=int, default=5, help="Number of iterations to run for each test")
+    parser.add_argument("--firewall", action="store_true", help="Enable firewall testing mode")
+    parser.add_argument("--pass-condition", help="Expected response in firewall mode (required if --firewall is used)")
 
+    try:
         args = parser.parse_args()
-        #args = arg_parser(args)
         
         # Validate severity levels
         valid_severities = {"low", "medium", "high"}

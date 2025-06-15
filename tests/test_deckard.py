@@ -7,9 +7,14 @@ import source.main.deckard as deckard
 
 @pytest.fixture
 def function_input():
-    parser = argparse.ArgumentParser(prog='deckard.py', usage='%(prog)s [options]')
-    parser.parse_args(['--model', 'mistral:7b'])
-    parser.parse_args(['--model-type', 'ollama'])
+    # python deckard.py --model mistral:7b --model-type ollama
+    parser = argparse.ArgumentParser(description="Test LLM system prompts against injection attacks")
+    parser.add_argument("--model", required=True, help="LLM model name")
+    parser.add_argument("--model-type", required=True, choices=["openai", "anthropic", "ollama"],
+                        help="Type of the model (openai, anthropic, ollama)")
+    parser.parse_known_args(['--model', 'mistral:7b', '--model-type', 'ollama'])
+    print(parser)
+
     return parser
 
 
