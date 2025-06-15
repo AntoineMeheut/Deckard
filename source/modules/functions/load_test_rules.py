@@ -35,7 +35,7 @@ def load_test_rules(rule_start, rule_stop) -> Dict[str, dict]:
 
     try:
         rules = {}
-        rule_files = glob.glob("../resource/voight-kampff/*.yaml")
+        rule_files = glob.glob("../../resource/voight-kampff/*.yaml")
         if rule_start == 0:
             for rule_file in rule_files:
                 with open(rule_file, 'r', encoding='utf-8') as f:

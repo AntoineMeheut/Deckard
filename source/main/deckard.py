@@ -69,7 +69,7 @@ ________                 __                     .___
 Replicants prompts injection tests !
     ''')
     parser = argparse.ArgumentParser(description="Test LLM system prompts against injection attacks")
-    parser.add_argument("--prompts", default="system-prompts.txt", help="Path to system prompts file")
+    parser.add_argument("--prompts", default="../../resource/system-prompts.txt", help="Path to system prompts file")
     parser.add_argument("--model", required=True, help="LLM model name")
     parser.add_argument("--model-type", required=True, choices=["openai", "anthropic", "ollama"],
                         help="Type of the model (openai, anthropic, ollama)")

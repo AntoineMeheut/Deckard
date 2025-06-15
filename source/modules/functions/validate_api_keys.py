@@ -34,6 +34,9 @@ def validate_api_keys(model_type: str):
             logger.error('No OPENAI_API_KEY environment variable found, it is required for OpenAI models')
         elif model_type == "anthropic" and not os.getenv("ANTHROPIC_API_KEY"):
             logger.error('No ANTHROPIC_API_KEY environment variable found, it is required for Anthropic models')
+        elif "ollama" == model_type:
+            logger.info("Ollama model no key needed")
+            return True
         return False
     except Exception as e:
         logger.error('Program exit on exception EXT-000016 = %s', str(e))
