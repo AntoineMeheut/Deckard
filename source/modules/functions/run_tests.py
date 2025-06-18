@@ -104,18 +104,22 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
 
             # Print summary
             if result["passed"]:
-                logger.info('Function run_tests: final result = %s', str(result['pass_rate']))
+                logger.info('Function run_tests: test passed, result = %s', str(result['pass_rate']))
+                print(f"Function run_tests: test passed, result = {result['pass_rate']}.")
             else:
                 if result.get("failed_result", {}).get("reason", "").startswith("API Error:"):
-                    logger.info('Function run_tests: final result = %s', str(result['pass_rate']))
+                    logger.info('Function run_tests: test failed, result, result = %s', str(result['pass_rate']))
+                    print(f"Function run_tests: test failed, result = {result['pass_rate']}.")
                     # Stop testing if we get an API error
                     logger.info('Function run_tests: stopping tests due to API error.')
                     results[test_name] = result
                     return results
                 else:
                     logger.info('Function run_tests: final result = %s', str(result['pass_rate']))
+                    print(f"Function run_tests: final result = {result['pass_rate']}.")
             results[test_name] = result
         logger.info('Function run_tests: All tests completed.')
+        print(f"Function run_tests: All tests completed.")
 
         return results
     except Exception as e:

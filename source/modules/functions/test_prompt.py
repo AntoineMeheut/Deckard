@@ -47,6 +47,7 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
                     {"role": "user", "content": test_prompt}
                 ]
             )
+            logger.info('Openai response is %s.', str(response.choices[0].message.content))
             return response.choices[0].message.content, False
         elif model_type == "anthropic":
             response = client.messages.create(
@@ -60,6 +61,7 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
                 ],
                 system = system_prompt
             )
+            logger.info('Anthropic response is %s.', str(response.content[0].text))
             return response.content[0].text, False
         elif model_type == "ollama":
             if not ensure_model_exists(model):
@@ -72,6 +74,7 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
                     {"role": "user", "content": test_prompt}
                 ]
             )
+            logger.info('Ollama %s response is %s.', str(model), str(response['message']['content']))
             return response['message']['content'], False
         logger.error('Function test_prompt: EXT-000015-2-problem during test prompt of %s', str(model_type))
         sys.exit()

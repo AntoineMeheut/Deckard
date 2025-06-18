@@ -7,7 +7,7 @@ import source.main.deckard as deckard
 
 @pytest.fixture
 def function_input():
-    # python deckard.py --model mistral:7b --model-type ollama
+    # python3 deckard.py --model mistral:7b --model-type ollama
     parser = argparse.ArgumentParser(description="Test LLM system prompts against injection attacks")
     parser.add_argument("--model", required=True, help="LLM model name")
     parser.add_argument("--model-type", required=True, choices=["openai", "anthropic", "ollama"],
