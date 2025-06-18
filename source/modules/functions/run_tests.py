@@ -98,7 +98,7 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
             return results
 
         for i, (test_name, rule) in enumerate(filtered_rules.items(), 1):
-            print(f"\nRunning test [{i}/{total_filtered}]: {test_name} ({rule['type']}, severity: {rule['severity']})")
+            print(f"\nFunction run_tests: Running test [{i}/{total_filtered}]: {test_name} ({rule['type']}, severity: {rule['severity']})")
             result = run_single_test(client, model, model_type, system_prompt, test_name, rule, iterations, firewall_mode,
                                      pass_condition)
 

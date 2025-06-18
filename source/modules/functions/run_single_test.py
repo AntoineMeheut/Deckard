@@ -58,7 +58,7 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
         logger.info('Running up to %s iterations', str(num_runs))
 
         for i in range(num_runs):
-            print(f"Rule prompt is: {rule['prompt']}.")
+            logger.info('Function run_single_test: rule prompt is: %s', str(rule['prompt']))
 
             response, is_error = test_prompt(client, model, model_type, system_prompt, rule['prompt'])
             passed, reason = evaluate_test_result(test_name, rule, response, is_error, system_prompt, firewall_mode,
@@ -67,7 +67,6 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
             if passed:
                 passed_count += 1
                 logger.info('Function run_single_test: Iteration %s', str(passed_count))
-                print(f"Passed iteration {passed_count} with reason: {response}.")
             else:
                 failed_result = {
                     "response": response,
@@ -77,7 +76,6 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
                     logger.info('Function run_single_test: not passed iteration %s for reason %s', str(passed_count), str(reason))
                 else:
                     logger.info('Function run_single_test: Iteration %s for reason %s', str(passed_count), str(reason))
-                    print(f"Passed iteration {passed_count} with reason: {reason}.")
                 break  # Stop iterations on first failure
 
         overall_passed = passed_count == num_runs
@@ -86,6 +84,7 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
         result = {
             "type": rule['type'],
             "severity": rule['severity'],
+            "prompt": rule['prompt'],
             "passed": overall_passed,
             "pass_rate": f"{passed_count}/{actual_runs}"
         }
