@@ -51,16 +51,12 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
     logger.info('Function run_single_test: starting to run a single test multiple times and evaluate results...')
 
     try:
-        # ANSI color codes
-        GREEN = "\033[92m"
-        RED = "\033[91m"
-        YELLOW = "\033[93m"
-        RESET = "\033[0m"
 
         failed_result = None
         passed_count = 0
 
-        print(f"  Running up to {num_runs} iterations...")
+        print(f"Running up to {num_runs} iterations.")
+        logger.info('Running up to %s iterations', str(num_runs))
 
         for i in range(num_runs):
             response, is_error = test_prompt(client, model, model_type, system_prompt, rule['prompt'])

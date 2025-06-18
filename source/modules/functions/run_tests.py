@@ -50,28 +50,22 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Function run_tests: starting run of all tests and return results...')
+    logger.info('Function run_tests: starting to initialize the appropriate client based on the model type....')
 
     try:
-        # ANSI color codes
-        GREEN = "\033[92m"
-        RED = "\033[91m"
-        YELLOW = "\033[93m"
-        RESET = "\033[0m"
 
-        logging = utils.setup_logging()
-        logger = logging.getLogger(__name__)
-        logger.info('Function run_tests: starting to initialize the appropriate client based on the model type....')
-
-        print("\nTest started...")
         if not validate_api_keys(model_type):
             logger.error('Function run_tests: no KEY environment variable found, it is required')
             sys.exit()
+
         client = initialize_client(model_type, common_paths, ollama_url)
+
         if client == "False":
             logger.error('Function run_tests: no openai, anthropic or ollama client running, it is required')
             sys.exit()
+
         system_prompt = load_system_prompts(system_prompts_path)
+
         if system_prompt == "False":
             logger.error('Function run_tests: no prompts file found, it is required')
             sys.exit()
@@ -98,6 +92,7 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
             logger.info('Function run_tests: the following requested rules were not found: %s', str(missing_rules))
 
         total_filtered = len(filtered_rules)
+
         if total_filtered == 0:
             logger.info('Function run_tests: no rules matched the specified criteria')
             return results
@@ -121,6 +116,7 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
                     logger.info('Function run_tests: final result = %s', str(result['pass_rate']))
             results[test_name] = result
         logger.info('Function run_tests: All tests completed.')
+
         return results
     except Exception as e:
         logger.error('Function run_tests: exit on exception EXT-000013 = %s', str(e))

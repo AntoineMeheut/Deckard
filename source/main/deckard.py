@@ -55,10 +55,6 @@ def main():
     logger = logging.getLogger(__name__)
     logger.info('Main program: starting to initialize the appropriate client based on the model type....')
 
-    # ANSI color codes
-    RED = "\033[91m"
-    RESET = "\033[0m"
-
     print(r'''
 ________                 __                     .___              
 \______ \   ____   ____ |  | _______ _______  __| _/              
@@ -106,6 +102,7 @@ Replicants prompts injection tests !
         ]
         ollama_url = "http://localhost:11434"
         ollama_models_url = "http://localhost:11434/api/tags"
+
         if not validate_ollama_model(args.model, args.model_type, common_paths, ollama_url, ollama_models_url, args.yes):
             return 1
         
@@ -114,13 +111,6 @@ Replicants prompts injection tests !
         if not validate_api_keys(args.model_type):
             logger.error('Main program: no KEY environment variable found, it is required')
             sys.exit()
-
-        common_paths = [
-            "/usr/local/bin/ollama",  # Default macOS install location
-            "/opt/homebrew/bin/ollama",  # M1 Mac Homebrew location
-            "ollama"  # If it's in PATH
-        ]
-        ollama_url = "http://localhost:11434"
 
         results = run_tests(args.model, args.model_type, args.prompts, common_paths, ollama_url, args.iterations,
                           args.severity, args.rules, args.firewall, args.pass_condition)
