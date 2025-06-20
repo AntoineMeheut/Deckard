@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import os
 import sys
+from http.client import responses
 from typing import Dict
 import source.modules.utils.logger as utils
 from source.modules.functions.evaluate_test_result import evaluate_test_result
@@ -13,7 +13,7 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
                     test_name: str, rule: dict, num_runs: int = 5,
                     firewall_mode: bool = False, pass_condition: str = None) -> Dict:
     """
-    Run a single test multiple times and evaluate results.
+    Run a single test multiple times and memorise results.
 
     Function input:
 
@@ -48,12 +48,18 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
 
     logging = utils.setup_logging()
     logger = logging.getLogger(__name__)
-    logger.info('Function run_single_test: starting to run a single test multiple times and evaluate results...')
+    logger.info('Function run_single_test: starting to run a single test multiple times and memorise results...')
 
     try:
-
-        failed_result = None
         passed_count = 0
+        result = {
+            "type": "",
+            "severity": "",
+            "prompt": "",
+            "response": "",
+            "passed": 0,
+            "pass_rate": f"0/0"
+        }
 
         logger.info('Running up to %s iterations', str(num_runs))
 
@@ -61,37 +67,22 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
             logger.info('Function run_single_test: rule prompt is: %s', str(rule['prompt']))
 
             response, is_error = test_prompt(client, model, model_type, system_prompt, rule['prompt'])
-            passed, reason = evaluate_test_result(test_name, rule, response, is_error, system_prompt, firewall_mode,
-                                              pass_condition)
 
-            if passed:
-                passed_count += 1
-                logger.info('Function run_single_test: Iteration %s', str(passed_count))
-            else:
-                failed_result = {
-                    "response": response,
-                    "reason": reason
-                }
-                if reason.startswith("API Error:"):
-                    logger.info('Function run_single_test: not passed iteration %s for reason %s', str(passed_count), str(reason))
-                else:
-                    logger.info('Function run_single_test: Iteration %s for reason %s', str(passed_count), str(reason))
-                break  # Stop iterations on first failure
+            passed_count += 1
+            logger.info('Function run_single_test: Iteration %s', str(passed_count))
 
-        overall_passed = passed_count == num_runs
-        actual_runs = i + 1  # Number of actual iterations run
+            overall_passed = passed_count == num_runs
+            actual_runs = i + 1
 
-        result = {
-            "type": rule['type'],
-            "severity": rule['severity'],
-            "prompt": rule['prompt'],
-            "passed": overall_passed,
-            "pass_rate": f"{passed_count}/{actual_runs}"
-        }
+            result = {
+                "type": rule['type'],
+                "severity": rule['severity'],
+                "prompt": rule['prompt'],
+                "response": response,
+                "passed": overall_passed,
+                "pass_rate": f"{passed_count}/{actual_runs}"
+            }
 
-        # Only include failed result if there was a failure
-        if failed_result:
-            result["failed_result"] = failed_result
         return result
     except Exception as e:
         logger.error('Function run_single_test: exit on exception EXT-000012 = %s', str(e))

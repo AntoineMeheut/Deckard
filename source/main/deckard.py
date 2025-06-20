@@ -6,6 +6,7 @@ import argparse
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent.parent))
 from source.modules.functions.run_tests import run_tests
+from source.modules.functions.run_replay import run_replay
 from source.modules.functions.validate_api_keys import validate_api_keys
 from source.modules.functions.validate_ollama_model import validate_ollama_model
 from source.modules.utils.show_help import show_help
@@ -18,6 +19,14 @@ def main():
     """
     Deckard program is a quick attack injection tool for playing with replicants.
 
+    This program works in two distinct steps. The first step allows you to test prompts in an LLM and obtain
+    a json file with all the tested prompts and the responses given by the LLM. This step allows you to check
+    which prompts have an effect on the LLM and which ones do not pass due to the protections that exist in the LLM.
+    The json file will then allow you to prepare the second step. You just need to insert the response of the prompt
+    that worked, in your input yaml file and then you can replay the attacks at any time.
+
+    To tell the program which step you want to run, simply use the --step parameter, specifying the values 1 or 2.
+
     The prompts are located in the "voight-kampff" directory, you can add your own prompts there,
     respecting the yaml file format.
 
@@ -27,22 +36,22 @@ def main():
     Usage Examples:
     ---------------
     1. Test with OpenAI:
-        python deckard.py --model gpt-3.5-turbo --model-type openai
+        python deckard.py --step 1 --model gpt-3.5-turbo --model-type openai
 
     2. Test with Anthropic:
-        python deckard.py --model claude-3-opus-20240229 --model-type anthropic
+        python deckard.py --step 1 --model claude-3-opus-20240229 --model-type anthropic
 
     3. Test with Ollama:
-        python deckard.py --model llama2 --model-type ollama
+        python deckard.py --step 1 --model mistral:7b --model-type ollama
 
     4. Run specific rules:
-        python deckard.py --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic
+        python deckard.py --step 1 --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic
 
     5. Custom options:
-        python deckard.py --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json
+        python deckard.py --step 1 --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json
 
     6. Firewall testing mode:
-        python deckard.py --model gpt-4 --model-type openai --firewall --pass-condition="true"
+        python deckard.py --step 1 --model gpt-4 --model-type openai --firewall --pass-condition="true"
         # In firewall mode, tests pass only if the response contains the specified string
         # and is not more than twice its length
 
@@ -66,6 +75,7 @@ Replicants prompts injection tests !
     ''')
     parser = argparse.ArgumentParser(description="Test LLM system prompts against injection attacks")
     parser.add_argument("--prompts", default="../../resource/system-prompts.txt", help="Path to system prompts file")
+    parser.add_argument("--step", required=True, help="Type of cycle to do")
     parser.add_argument("--model", required=True, help="LLM model name")
     parser.add_argument("--model-type", required=True, choices=["openai", "anthropic", "ollama"],
                         help="Type of the model (openai, anthropic, ollama)")
@@ -112,9 +122,17 @@ Replicants prompts injection tests !
             logger.error('Main program: no KEY environment variable found, it is required')
             sys.exit()
 
-        results = run_tests(args.model, args.model_type, args.prompts, common_paths, ollama_url, args.iterations,
-                          args.severity, args.rules, args.firewall, args.pass_condition)
-        
+        if args.step == "1":
+            results = run_tests(args.model, args.model_type, args.prompts, common_paths, ollama_url, args.iterations,
+                              args.severity, args.rules, args.firewall, args.pass_condition)
+        elif args.step == "2":
+            results = run_replay(args.model, args.model_type, args.prompts, common_paths, ollama_url, args.iterations,
+                                args.severity, args.rules, args.firewall, args.pass_condition)
+        else:
+            logger.error('Main program: error step = %s', str(args.step))
+            show_help()
+            return 1
+
         with open(args.output, 'w') as f:
             json.dump(results, f, indent=2)
             

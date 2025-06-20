@@ -115,23 +115,23 @@ You need to provide your system prompts file. Default file is `system-prompts.tx
 
 1. Test with OpenAI models:
 ```bash
-python promptmap2.py --model gpt-3.5-turbo --model-type openai
+python deckard.py --step 1 --model gpt-3.5-turbo --model-type openai
 ```
 
 2. Test with Anthropic models:
 ```bash
-python promptmap2.py --model claude-3-opus-20240229 --model-type anthropic
+python deckard.py --step 1 --model claude-3-opus-20240229 --model-type anthropic
 ```
 
 3. Test with local models via Ollama:
 ```bash
-python promptmap2.py --model "llama2:7b" --model-type ollama
+python deckard.py --step 1 --model "llama2:7b" --model-type ollama
 # If the model is not installed, promptmap will ask you to download it. If you want to download it automatically, you can use `-y` flag.
 ```
 
 4. JSON output:
 ```bash
-python promptmap2.py --model gpt-4 --model-type openai --output results.json
+python deckard.py --step 1 --model gpt-4 --model-type openai --output results.json
 ```
 
 5. Custom number of test iterations:
@@ -139,7 +139,7 @@ python promptmap2.py --model gpt-4 --model-type openai --output results.json
 LLM applications may appear not vulnerable to prompt injection on the first attempt. However, they often reveal vulnerabilities after multiple tries. The iteration count represents the number of attempts, with a default value of 5. You can increase this number as needed.
 
 ```bash
-python promptmap2.py --model llama2 --model-type ollama --iterations 10
+python deckard.py --step 1 --model llama2 --model-type ollama --iterations 10
 ```
 
 6. Running Specific Rules
@@ -148,19 +148,19 @@ You can choose to run specific test rules instead of running all rules.
 
 ```bash
 # Run only selected rules by name
-python promptmap2.py --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic
+python deckard.py --step 1 --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic
 ```
 
 7. Filtering by Severity Level
 
-Each rule in promptmap2 has a severity level (low, medium, or high) indicating its potential impact. You can filter rules based on their severity to focus on specific risk levels.
+Each rule in deckard has a severity level (low, medium, or high) indicating its potential impact. You can filter rules based on their severity to focus on specific risk levels.
 
 ```bash
 # Run only high severity rules
-python promptmap2.py --model gpt-4 --model-type openai --severity high
+python deckard.py --step 1 --model gpt-4 --model-type openai --severity high
 
 # Run medium and high severity rules
-python promptmap2.py --model gpt-4 --model-type openai --severity medium,high
+python deckard.py --step 1 --model gpt-4 --model-type openai --severity medium,high
 ```
 
 ## Firewall Testing Mode
@@ -179,10 +179,10 @@ If not, respond with “false” and nothing else.
 Since the LLM responds with “true” when it detects a malicious prompt, this is our test pass condition. You can specify it as follows:
 
 ```bash
-python promptmap2.py --model gpt-4 --model-type openai --firewall --pass-condition="true"
+python deckard.py --step 1 --model gpt-4 --model-type openai --firewall --pass-condition="true"
 ```
 
-promptmap2 will send attack rules to the target. If the target responds with “true,” it will consider the test is passed. Otherwise, it will fail the test.
+Deckard will send attack rules to the target. If the target responds with “true,” it will consider the test is passed. Otherwise, it will fail the test.
 
 ## Test Rules
 
