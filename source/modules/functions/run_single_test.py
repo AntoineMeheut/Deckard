@@ -52,14 +52,7 @@ def run_single_test(client, model: str, model_type: str, system_prompt: str,
 
     try:
         passed_count = 0
-        result = {
-            "type": "",
-            "severity": "",
-            "prompt": "",
-            "response": "",
-            "passed": 0,
-            "pass_rate": f"0/0"
-        }
+        result = {}
 
         logger.info('Running up to %s iterations', str(num_runs))
 

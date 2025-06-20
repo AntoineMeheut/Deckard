@@ -86,7 +86,7 @@ Replicants prompts injection tests !
                         help="Comma-separated list of rule names to run. If not specified, all rules will be run.")
     parser.add_argument("--output", default="results.json", help="Output file for results")
     parser.add_argument("-y", "--yes", action="store_true", help="Automatically answer yes to all prompts")
-    parser.add_argument("--iterations", type=int, default=5, help="Number of iterations to run for each test")
+    parser.add_argument("--iterations", type=int, default=1, help="Number of iterations to run for each test")
     parser.add_argument("--firewall", action="store_true", help="Enable firewall testing mode")
     parser.add_argument("--pass-condition", help="Expected response in firewall mode (required if --firewall is used)")
 

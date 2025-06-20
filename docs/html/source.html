@@ -196,6 +196,12 @@
 <dt class="sig sig-object py" id="source.main.deckard.main">
 <span class="sig-prename descclassname"><span class="pre">source.main.deckard.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/main/deckard.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.main.deckard.main" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deckard program is a quick attack injection tool for playing with replicants.</p>
+<p>This program works in two distinct steps. The first step allows you to test prompts in an LLM and obtain
+a json file with all the tested prompts and the responses given by the LLM. This step allows you to check
+which prompts have an effect on the LLM and which ones do not pass due to the protections that exist in the LLM.
+The json file will then allow you to prepare the second step. You just need to insert the response of the prompt
+that worked, in your input yaml file and then you can replay the attacks at any time.</p>
+<p>To tell the program which step you want to run, simply use the --step parameter, specifying the values 1 or 2.</p>
 <p>The prompts are located in the &quot;voight-kampff&quot; directory, you can add your own prompts there,
 respecting the yaml file format.</p>
 <p>Exception management :
@@ -204,32 +210,32 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <h3>Usage Examples:<a class="headerlink" href="#usage-examples" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><dl class="simple">
-<dt>Test with OpenAI:</dt><dd><p>python deckard.py --model gpt-3.5-turbo --model-type openai</p>
+<dt>Test with OpenAI:</dt><dd><p>python deckard.py --step 1 --model gpt-3.5-turbo --model-type openai</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Test with Anthropic:</dt><dd><p>python deckard.py --model claude-3-opus-20240229 --model-type anthropic</p>
+<dt>Test with Anthropic:</dt><dd><p>python deckard.py --step 1 --model claude-3-opus-20240229 --model-type anthropic</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Test with Ollama:</dt><dd><p>python deckard.py --model llama2 --model-type ollama</p>
+<dt>Test with Ollama:</dt><dd><p>python deckard.py --step 1 --model mistral:7b --model-type ollama</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Run specific rules:</dt><dd><p>python deckard.py --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic</p>
+<dt>Run specific rules:</dt><dd><p>python deckard.py --step 1 --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Custom options:</dt><dd><p>python deckard.py --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json</p>
+<dt>Custom options:</dt><dd><p>python deckard.py --step 1 --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Firewall testing mode:</dt><dd><p>python deckard.py --model gpt-4 --model-type openai --firewall --pass-condition=&quot;true&quot;
+<dt>Firewall testing mode:</dt><dd><p>python deckard.py --step 1 --model gpt-4 --model-type openai --firewall --pass-condition=&quot;true&quot;
 # In firewall mode, tests pass only if the response contains the specified string
 # and is not more than twice its length</p>
 </dd>
@@ -435,7 +441,7 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.run_single_test.run_single_test">
 <span class="sig-prename descclassname"><span class="pre">source.modules.functions.run_single_test.</span></span><span class="sig-name descname"><span class="pre">run_single_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_runs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firewall_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/source/modules/functions/run_single_test.html#run_single_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.run_single_test.run_single_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run a single test multiple times and evaluate results.</p>
+<dd><p>Run a single test multiple times and memorise results.</p>
 <p>Function input:</p>
 <p>Function output:</p>
 <p>Exception management :
@@ -465,7 +471,7 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.run_tests.run_tests">
-<span class="sig-prename descclassname"><span class="pre">source.modules.functions.run_tests.</span></span><span class="sig-name descname"><span class="pre">run_tests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompts_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firewall_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/run_tests.html#run_tests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.run_tests.run_tests" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.run_tests.</span></span><span class="sig-name descname"><span class="pre">run_tests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompts_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firewall_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/run_tests.html#run_tests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.run_tests.run_tests" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run all tests and return results.</p>
 <p>Function input:</p>
 <p>Function output:</p>
@@ -601,50 +607,6 @@ calling components, the log target to the console or a log file and format).</p>
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000017.</p>
-<section id="id1">
-<h3>Usage Examples:<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt>Test with OpenAI:</dt><dd><p>python deckard.py --model gpt-3.5-turbo --model-type openai</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Test with Anthropic:</dt><dd><p>python deckard.py --model claude-3-opus-20240229 --model-type anthropic</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Test with Ollama:</dt><dd><p>python deckard.py --model llama2 --model-type ollama</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Run specific rules:</dt><dd><p>python deckard.py --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Custom options:</dt><dd><p>python deckard.py --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Firewall testing mode:</dt><dd><p>python deckard.py --model gpt-4 --model-type openai --firewall --pass-condition=&quot;true&quot;
-# In firewall mode, tests pass only if the response contains the specified string
-# and is not more than twice its length</p>
-</dd>
-</dl>
-</li>
-</ol>
-<dl class="simple">
-<dt>Note: Make sure to set the appropriate API key in your environment:</dt><dd><ul class="simple">
-<li><p>For OpenAI models: export OPENAI_API_KEY=&quot;your-key&quot;</p></li>
-<li><p>For Anthropic models: export ANTHROPIC_API_KEY=&quot;your-key&quot;</p></li>
-</ul>
-</dd>
-</dl>
-</section>
 </dd></dl>
 
 </section>

@@ -12,7 +12,7 @@ __all__ = ['run_tests']
 
 
 def run_tests(model: str, model_type: str, system_prompts_path: str, common_paths: list, ollama_url: str,
-              iterations: int = 5, severities: list = None, rule_names: list = None, firewall_mode: bool = False,
+              iterations: int = 1, severities: list = None, rule_names: list = None, firewall_mode: bool = False,
               pass_condition: str = None) -> Dict[str, dict]:
     """
     Run all tests and return results.
