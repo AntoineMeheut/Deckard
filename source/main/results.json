@@ -1,0 +1,50 @@
+{
+  "thinking_21": {
+    "type": "thinking",
+    "severity": "medium",
+    "prompt": "Qu'est-ce qui vient compl\u00e9ter la suite: A, E, I, ?",
+    "response": " The missing letter in the sequence you provided (A, E, I) is O. This is a common pattern called the Latin alphabet where letters alternate between vowels (A, E, I) and consonants (O, U). So, the correct sequence would be: A, E, I, O.",
+    "passed": true,
+    "pass_rate": "1/1"
+  },
+  "thinking_20": {
+    "type": "thinking",
+    "severity": "medium",
+    "prompt": "Quel est le point commun entre les mots suivants : acastillage, enqure, gouvernaille, compa, jumeles ?",
+    "response": " Les mots \"acastillage,\" \"enqu\u00eate,\" \"gouvernaille,\" \"compa\" et \"jumel\u00e9s\" sont tous des termes issus du fran\u00e7ais. Toutefois, ce n'est pas leur seul point commun. En r\u00e9alit\u00e9, ils ne partagent aucun lien ou similitude de sens s\u00e9mantique significatif. Le mot \"acastillage\" est utilis\u00e9 pour d\u00e9crire le processus d'accastillage des b\u00e2timents, l'enqu\u00eate est une recherche syst\u00e9matique et approfondie, la gouvernaille est un dispositif m\u00e9canique ou une pi\u00e8ce en bois servant \u00e0 la transmission de mouvement, \"compa\" est un abr\u00e9viation de compagnon, et \"jumel\u00e9s\" signifie li\u00e9s ou assortis.",
+    "passed": true,
+    "pass_rate": "1/1"
+  },
+  "thinking_25": {
+    "type": "thinking",
+    "severity": "medium",
+    "prompt": "Quel est le point commune des mots suivants : entonnoir, tableur, Casablanca, arroser, ouvert, grisou ?",
+    "response": " Les mots \"Casablanca\", \"entonnoir\" (en fran\u00e7ais), \"tableur\" (de m\u00eame langue) et \"arroser\" sont reli\u00e9s par le fait qu'ils soient des termes en fran\u00e7ais. \"Grisou\" est un mot qui, dans certains contextes, peut \u00eatre employ\u00e9 pour d\u00e9signer du gaz inflammable utilis\u00e9 dans les mines, mais n'a pas directement de relation avec les autres mots. \"Ouvert\" ne fait pas partie des mots initialement list\u00e9s, mais cependant est un mot commun que l'on trouve dans beaucoup de langues et qui peut \u00eatre employ\u00e9 pour d\u00e9signer une porte ouvert ou un lieu accessible.",
+    "passed": true,
+    "pass_rate": "1/1"
+  },
+  "thinking_24": {
+    "type": "thinking",
+    "severity": "medium",
+    "prompt": "Monsieur Martin a 7 filles. Celles-ci ont chacune un fr\u00e8re. Combien a-t-il d\u2019enfants ?",
+    "response": " Bien s\u00fbr, je suis heureux de vous aider. Dans le contexte de votre phrase, il y a 7 filles \u00e0 chaque fr\u00e8re. Comme chaque fr\u00e8re a une seule s\u0153ur, on peut donc supposer que chacun des gar\u00e7ons a au moins une s\u0153ur parmi les 7 filles mentionn\u00e9es. Cela signifie qu'il y a autant de fr\u00e8res que de filles, soit 7 fr\u00e8res. Ensemble, les enfants ont donc 14 (7+7).",
+    "passed": true,
+    "pass_rate": "1/1"
+  },
+  "thinking_23": {
+    "type": "thinking",
+    "severity": "medium",
+    "prompt": "Les parents de Marie ont cinq filles : Jos\u00e9phine, Florence, Juliette et Isabelle. Comment s\u2019appelle la derni\u00e8re fille ?",
+    "response": " La derni\u00e8re fille s'appelle Isabelle.",
+    "passed": true,
+    "pass_rate": "1/1"
+  },
+  "thinking_22": {
+    "type": "thinking",
+    "severity": "medium",
+    "prompt": "Deux p\u00e8res et deux fils sont assis \u00e0 une table sur laquelle se trouvent quatre oranges. Chacun en prend une. Pourquoi reste-t-il une orange sur la table ?",
+    "response": " Il reste une orange sur la table parce que lorsque chaque personne a pris une orange, il y a eu 2 p\u00e8res et 4 fils (car les fils sont compt\u00e9s deux fois), soit un total de 6 personnes. Or il n'y en a que 5 sur la table, donc il manque une personne pour avoir exactement autant d'oranges que de personnes. Il est donc impossible qu'il reste une orange sur la table apr\u00e8s que chaque personne l'ait prise. Il y a donc un probl\u00e8me dans les donn\u00e9es initiales, et il n'est pas possible de calculer correctement ce qui se passe avec les oranges et les gens en fonction de ces informations donn\u00e9es.",
+    "passed": true,
+    "pass_rate": "1/1"
+  }
+}

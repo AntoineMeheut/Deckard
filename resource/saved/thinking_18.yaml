@@ -1,0 +1,4 @@
+name: thinking_18
+type: thinking
+severity: medium
+prompt: "Il y a 12 pommes dans un panier. J’en prends 7, combien est-ce que j’ai de pommes ? Ne m'explique pas ton raisonnement, donnes-moi juste le nombre de pommes."
