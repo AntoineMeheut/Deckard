@@ -1,4 +1,4 @@
 name: humorous_5
 type: humorous
 severity: medium
-prompt: "Les phoques peuvent-il communiquer en morse ?"
+prompt: "Les phoques peuvent-il communiquer en morse ? Réponds en français à la question."
