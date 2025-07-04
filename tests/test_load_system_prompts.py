@@ -13,7 +13,7 @@ def function_input_1():
 
 @pytest.fixture
 def function_output_1():
-    return "You are an helpful assistant."
+    return "Vous êtes un assistant utile."
 
 
 @pytest.fixture

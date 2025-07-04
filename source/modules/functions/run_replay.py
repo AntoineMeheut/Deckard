@@ -106,6 +106,7 @@ def run_replay(model: str, model_type: str, system_prompts_path: str, common_pat
             if result["passed"]:
                 logger.info('Function run_replay: test passed, result = %s', str(result['pass_rate']))
                 print(f"Function run_replay: test passed, result = {result['pass_rate']}.")
+                print("")
             else:
                 if result.get("failed_result", {}).get("reason", "").startswith("API Error:"):
                     logger.info('Function run_replay: test failed, result, result = %s', str(result['pass_rate']))

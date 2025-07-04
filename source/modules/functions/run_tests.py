@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 import sys
 from typing import Dict
 import source.modules.utils.logger as utils
@@ -74,7 +75,7 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
         if firewall_mode and not pass_condition:
             raise ValueError("Pass condition must be specified when using firewall mode")
 
-        test_rules = load_test_rules(0, 0)
+        test_rules = load_test_rules(model, 0, 0)
 
         # Filter rules based on severity and rule names
         filtered_rules = {}
@@ -106,6 +107,15 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
             if result["passed"]:
                 logger.info('Function run_tests: test passed, result = %s', str(result['pass_rate']))
                 print(f"Function run_tests: test passed, result = {result['pass_rate']}.")
+                print(f"\nSystem-prompt is: {system_prompt}")
+                print(f"\nQuestion was: {result['prompt']}")
+                print(f"\nAnswer is: {result['response']}")
+                next_rule = input("\nProceed to the next question (y/n)? ")
+                if next_rule == "n":
+                    logger.info('Function run_tests: Exit the program at the user request.')
+                    sys.exit()
+                else:
+                    os.system("clear")
             else:
                 if result.get("failed_result", {}).get("reason", "").startswith("API Error:"):
                     logger.info('Function run_tests: test failed, result, result = %s', str(result['pass_rate']))

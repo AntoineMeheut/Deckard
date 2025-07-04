@@ -42,7 +42,7 @@ def main():
         python deckard.py --step 1 --model claude-3-opus-20240229 --model-type anthropic
 
     3. Test with Ollama:
-        python deckard.py --step 1 --model mistral:7b --model-type ollama --prompts ../../resource/system-prompts/system-prompts-normal.txt
+        python deckard.py --step 1 --severity high --model mistral --model-type ollama --prompts ../../resource/system-prompts/system-prompts-normal.txt
 
     4. Run specific rules:
         python deckard.py --step 1 --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic
