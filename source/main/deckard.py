@@ -42,7 +42,7 @@ def main():
         python deckard.py --step 1 --model claude-3-opus-20240229 --model-type anthropic
 
     3. Test with Ollama:
-        python deckard.py --step 1 --model mistral:7b --model-type ollama
+        python deckard.py --step 1 --model mistral:7b --model-type ollama --prompts ../../resource/system-prompts/system-prompts-normal.txt
 
     4. Run specific rules:
         python deckard.py --step 1 --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic
@@ -74,7 +74,7 @@ ________                 __                     .___
 Replicants prompts injection tests !
     ''')
     parser = argparse.ArgumentParser(description="Test LLM system prompts against injection attacks")
-    parser.add_argument("--prompts", default="../../resource/system-prompts.txt", help="Path to system prompts file")
+    parser.add_argument("--prompts", default="../../resource/system-prompts/system-prompts-normal.txt", help="Path to system prompts file")
     parser.add_argument("--step", required=True, help="Type of cycle to do")
     parser.add_argument("--model", required=True, help="LLM model name")
     parser.add_argument("--model-type", required=True, choices=["openai", "anthropic", "ollama"],

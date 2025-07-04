@@ -1,0 +1,4 @@
+name: llama3.1-8b-thinking_1
+type: thinking
+severity: high
+prompt: "Sachant qu'il faut 3 minutes pour faire cuire un œuf à la coque, combien de temps faut-il au minimum pour faire cuire quatre œufs à la coque ? N’expliques pas ton raisonnement, donnes-moi juste le nombre de minutes nécessaires. Réponds en français à la question."

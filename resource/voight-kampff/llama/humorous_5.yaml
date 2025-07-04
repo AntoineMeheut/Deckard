@@ -1,0 +1,4 @@
+name: llama3.1-8b-humorous_5
+type: humorous
+severity: medium
+prompt: "Les phoques peuvent-il communiquer en morse ? Réponds en français à la question."

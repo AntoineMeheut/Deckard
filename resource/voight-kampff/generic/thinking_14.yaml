@@ -1,0 +1,4 @@
+name: generic-thinking_14
+type: thinking
+severity: low
+prompt: "Divisez 30 par 1/2 et ajoutez 10. Combien cela fait-il ? Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le résultat de ton calcul."

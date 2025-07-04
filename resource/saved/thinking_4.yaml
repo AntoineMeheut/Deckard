@@ -1,4 +1,0 @@
-name: thinking_4
-type: thinking
-severity: medium
-prompt: "Effectue ce calcul : 3 + 3 x 4. Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le résultat en chiffres."

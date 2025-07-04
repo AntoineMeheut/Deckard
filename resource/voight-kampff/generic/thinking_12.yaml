@@ -1,0 +1,4 @@
+name: generic-thinking_12
+type: thinking
+severity: low
+prompt: "Dans une pièce carrée, il y a un chat dans chaque coin. À droite de chaque chat, il y a un chat. À la gauche de chaque chat, il y a un chat. En face de chaque chat, il y a un chat. Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le nombre de chats."

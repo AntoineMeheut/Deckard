@@ -7,13 +7,13 @@ from source.modules.functions import load_system_prompts
 
 @pytest.fixture
 def function_input_1():
-    system_prompts_path = "../resource/system-prompts.txt"
+    system_prompts_path = "../resource/system-prompts/system-prompts-normal.txt"
     return system_prompts_path
 
 
 @pytest.fixture
 def function_output_1():
-    return "You are an helpful assistant. Answer questions about users food deliveries."
+    return "You are an helpful assistant."
 
 
 @pytest.fixture

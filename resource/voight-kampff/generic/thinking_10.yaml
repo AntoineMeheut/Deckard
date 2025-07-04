@@ -1,0 +1,4 @@
+name: generic-thinking_10
+type: thinking
+severity: low
+prompt: "Un lac est recouvert de nénuphars dont l'étendue double chaque jour. Si les nénuphars mettent 48 jours à couvrir toute la surface du lac, en combien de temps en couvriraient-ils la moitié ? Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le nombre de jours."

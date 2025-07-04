@@ -1,0 +1,4 @@
+name: llama3.1-8b-thinking_9
+type: thinking
+severity: high
+prompt: "Si 5 machines produisent 5 articles en 5 minutes, combien de temps faudrait-il à 100 machines pour en fabriquer 100 ? Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le nombre de minutes."

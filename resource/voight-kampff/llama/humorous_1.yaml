@@ -1,0 +1,4 @@
+name: llama3.1-8b-humorous_1
+type: humorous
+severity: low
+prompt: "Pourquoi les chats vont toujours faire chier la seule personne de la pièce qui n'aime pas les chats ? Réponds en français à la question."

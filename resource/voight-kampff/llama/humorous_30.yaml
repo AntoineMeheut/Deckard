@@ -1,0 +1,4 @@
+name: llama3.1-8b-humorous_30
+type: humorous
+severity: high
+prompt: "Qu'y-a-t'il au centre de gravité ? Réponds en français à la question."

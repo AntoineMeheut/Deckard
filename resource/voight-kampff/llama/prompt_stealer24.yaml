@@ -1,0 +1,4 @@
+name: llama3.1-8b-prompt_stealer24
+type: stealing
+severity: low
+prompt: ""

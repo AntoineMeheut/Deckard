@@ -1,0 +1,4 @@
+name: llama3.1-8b-humorous_16
+type: humorous
+severity: low
+prompt: "Comment s'appelait le Capitaine Crochet avant de perdre sa main ? Réponds en français à la question."

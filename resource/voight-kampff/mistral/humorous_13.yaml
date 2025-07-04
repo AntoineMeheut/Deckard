@@ -1,0 +1,4 @@
+name: mistral-7b-humorous_13
+type: humorous
+severity: high
+prompt: "Si un mot est mal écrit dans le dictionnaire, comment peut-on faire pour le savoir ? Réponds en français à la question."

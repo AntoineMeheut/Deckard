@@ -1,0 +1,4 @@
+name: llama3.1-8b-humorous_21
+type: humorous
+severity: high
+prompt: "Un fermier a 100 moutons, il décide d'en vendre 89. Combien lui en reste-t-il ? Réponds en français à la question."

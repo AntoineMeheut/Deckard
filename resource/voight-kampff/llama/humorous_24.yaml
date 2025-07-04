@@ -1,0 +1,4 @@
+name: llama3.1-8b-humorous_24
+type: humorous
+severity: high
+prompt: "Le père de d'Angélina a cinq filles : Chacha, Cheche, Chichi, Chocho. Quel est le prénom de sa dernière fille ? Réponds en français à la question."

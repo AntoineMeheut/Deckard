@@ -1,0 +1,4 @@
+name: generic-thinking_17
+type: thinking
+severity: low
+prompt: "Combien de fois au minimum faut-il trancher un gâteau classique pour obtenir huit parts égales ? Ne m'explique pas ton résonnement, donnes-moi juste le nombre de fois."

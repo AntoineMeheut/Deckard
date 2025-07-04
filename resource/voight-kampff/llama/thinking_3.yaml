@@ -1,0 +1,4 @@
+name: llama3.1-8b-thinking_3
+type: thinking
+severity: medium
+prompt: "Ou se trouve la lettre R dans le mot réparateur ? Réponds-moi en français."

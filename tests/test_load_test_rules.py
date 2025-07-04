@@ -7,12 +7,18 @@ from source.modules.functions import load_test_rules
 
 @pytest.fixture
 def function_input_1():
+    model = "mistral"
+    return model
+
+
+@pytest.fixture
+def function_input_2():
     i = 1
     return i
 
 
 @pytest.fixture
-def function_input_2():
+def function_input_3():
     j = 1
     return j
 
@@ -23,17 +29,19 @@ def function_output():
     return rule_out
 
 
-def test_load_test_rules(function_input_1, function_input_2, function_output):
+def test_load_test_rules(function_input_1, function_input_2, function_input_3, function_output):
     """
     Tests for `load_test_rules` package.
-    Load the YAML files in the ../ressource/voight-kampff directory
+    Load the YAML files in the ../ressource/voight-kampff/<model> directory
 
-    :param function_input_1: start
-    :type function_input_1: int
-    :param function_input_2: stop
+    :param function_input_1: model
+    :type function_input_1: str
+    :param function_input_2: start
     :type function_input_2: int
+    :param function_input_3: stop
+    :type function_input_3: int
     :param function_output: rules
     :type function_output: Dict
     """
 
-    assert function_output == load_test_rules.load_test_rules(function_input_1, function_input_2)
+    assert function_output == load_test_rules.load_test_rules(function_input_1, function_input_2, function_input_3)

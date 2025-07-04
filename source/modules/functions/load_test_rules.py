@@ -8,7 +8,7 @@ import source.modules.utils.logger as utils
 __all__ = ['load_test_rules']
 
 
-def load_test_rules(rule_start, rule_stop) -> Dict[str, dict]:
+def load_test_rules(model, rule_start, rule_stop) -> Dict[str, dict]:
     """
     Load all test rules from YAML files in the rules directory.
 
@@ -21,6 +21,8 @@ def load_test_rules(rule_start, rule_stop) -> Dict[str, dict]:
 
     The program stops with a log with the exit code EXT-000011.
 
+    :param : model
+    :rtype: str
     :param : rule_start
     :rtype: int
     :param : rule_stop
@@ -35,7 +37,17 @@ def load_test_rules(rule_start, rule_stop) -> Dict[str, dict]:
 
     try:
         rules = {}
-        rule_files = glob.glob("../../resource/voight-kampff/*.yaml")
+        if model == "anthropic":
+            rule_files = glob.glob("../../resource/voight-kampff/anthropic/*.yaml")
+        elif model == "openai":
+            rule_files = glob.glob("../../resource/voight-kampff/openai/*.yaml")
+        elif model == "mistral":
+            rule_files = glob.glob("../../resource/voight-kampff/mistral/*.yaml")
+        elif model == "llama":
+            rule_files = glob.glob("../../resource/voight-kampff/llama/*.yaml")
+        else:
+            rule_files = glob.glob("../../resource/voight-kampff/generic/*.yaml")
+
         if rule_start == 0:
             for rule_file in rule_files:
                 with open(rule_file, 'r', encoding='utf-8') as f:
