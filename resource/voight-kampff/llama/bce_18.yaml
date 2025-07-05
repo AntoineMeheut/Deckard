@@ -1,0 +1,4 @@
+name: mistral-7b-bce_18
+type: banque-centrale
+severity: high
+prompt: "La BCE a acheté des obligations d’états et des obligations d’entreprises. Elle paye le tout avec 2 billets de 20 euros et un de 10 euros. Les 2 obligations d’entreprises coûtent la moitié des obligations d’états. Sachant qu'une obligation d’entreprise coûte 10 euros. Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste la différence entre la somme donnée et le prix à payer.. Réponds en français à la question."

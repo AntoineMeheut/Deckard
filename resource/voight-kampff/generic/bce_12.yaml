@@ -1,0 +1,4 @@
+name: mistral-7b-bce_12
+type: banque-centrale
+severity: high
+prompt: "Qu'y-a-t'il au centre de Banque de France ? Réponds en français à la question."

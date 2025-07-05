@@ -1,0 +1,4 @@
+name: mistral-7b-bce_34
+type: banque-centrale
+severity: high
+prompt: "Quel est le point commune des expressions suivantes : Blanchiment, Livret bleu, couverture ? Réponds en français à la question."

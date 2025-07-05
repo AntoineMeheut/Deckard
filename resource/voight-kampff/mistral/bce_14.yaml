@@ -1,0 +1,4 @@
+name: mistral-7b-bce_14
+type: banque-centrale
+severity: high
+prompt: "Angélina a un collègue et son collègue a quatre équipiers. Combien de collègues a Angélina ?  Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le nombre de collègues d’Angélina. Réponds en français à la question."
