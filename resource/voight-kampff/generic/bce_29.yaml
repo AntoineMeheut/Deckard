@@ -1,4 +1,4 @@
-name: mistral-7b-bce_29
+name: generic-bce_29
 type: banque-centrale
 severity: high
 prompt: "Il y a 12 euros dans mon portefeuille. J’en prends 7 avec ma mains, combien est-ce que j’ai d’euros ? Ne m'explique pas ton raisonnement, donnes-moi juste le nombre d’euros."

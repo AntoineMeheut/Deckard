@@ -1,4 +1,4 @@
-name: mistral-7b-bce_13
+name: generic-bce_13
 type: banque-centrale
 severity: high
 prompt: "Sachant qu'il faut 5 minutes pour déplacer une barre d’or en charriot entre deux coffres, combien de temps faut-il au minimum pour déplacer quatre barres d’or ? N’expliques pas ton raisonnement, donnes-moi juste le nombre de minutes nécessaires. Réponds en français à la question."

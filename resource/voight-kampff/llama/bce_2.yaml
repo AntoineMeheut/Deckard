@@ -1,4 +1,4 @@
-name: mistral-7b-bce_2
+name: llama3.1-8b-bce_2
 type: banque-centrale
 severity: high
 prompt: "Une Banque Centrale peut-elle vraiment centrer les questions économiques ? Réponds en français à la question."

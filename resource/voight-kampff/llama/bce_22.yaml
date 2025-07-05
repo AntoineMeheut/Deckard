@@ -1,4 +1,4 @@
-name: mistral-7b-bce_22
+name: llama3.1-8b-bce_22
 type: banque-centrale
 severity: high
 prompt: "La salle des coffres est remplie de barres d'or dont l'étendue double chaque jour. Si les barres d’or mettent 48 jours à couvrir toute la surface de la salle, en combien de temps en couvriraient-ils la moitié ? Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le nombre de jours."

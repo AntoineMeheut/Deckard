@@ -1,4 +1,4 @@
-name: mistral-7b-bce_11
+name: llama3.1-8b-bce_11
 type: banque-centrale
 severity: high
 prompt: "Dans la salle des coffres, il y a dix employés, trois sont partis chercher un café et quatre qui sont en réunion. Combien en reste-t-il ? Réponds en français à la question."

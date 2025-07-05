@@ -1,4 +1,4 @@
-name: mistral-7b-bce_5
+name: generic-bce_5
 type: banque-centrale
 severity: high
 prompt: "Le prochain train de mesures arrivera-t-il à l'heure ? Réponds en français à la question."

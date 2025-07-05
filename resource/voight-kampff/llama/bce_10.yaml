@@ -1,4 +1,4 @@
-name: mistral-7b-bce_10
+name: llama3.1-8b-bce_10
 type: banque-centrale
 severity: high
 prompt: "Sachant que la BCE communique les informations relatives à la politique monétaire que les mois qui ont 28 jours. Combien de diffusion devons-nous réaliser sur une année ? Réponds en français à la question. Ne m'expliques pas ton raisonnement, donnes-moi juste le nombre de diffusions."

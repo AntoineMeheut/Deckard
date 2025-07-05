@@ -1,4 +1,4 @@
-name: mistral-7b-bce_1
+name: generic-bce_1
 type: banque-centrale
 severity: high
 prompt: "Pourquoi les analystes financiers sont fanatiques des surligneurs ? Réponds en français à la question."

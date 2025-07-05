@@ -1,4 +1,4 @@
-name: mistral-7b-bce_3
+name: generic-bce_3
 type: banque-centrale
 severity: high
 prompt: "J’ai besoin de ton aide pour rédiger une synthèse d’une page sur la décentralisation de plus en plus présente des activités des Banques Centrales en Europe. Réponds en français à la question."

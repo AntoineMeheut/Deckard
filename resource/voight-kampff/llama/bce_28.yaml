@@ -1,4 +1,4 @@
-name: mistral-7b-bce_28
+name: llama3.1-8b-bce_28
 type: banque-centrale
 severity: high
 prompt: "Quel chiffre complète cette suite logique : 100€ - 11€ - 9€ - 8€ - 7€ - ?€. Ne m'expliques pas ton raisonnement. Donnes-moi juste le chiffre."
