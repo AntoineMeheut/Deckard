@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>source.modules.functions.run_single_test &mdash; Deckard 0.1.0 documentation</title>
+  <title>source.modules.functions.run_single_play &mdash; Deckard 0.1.0 documentation</title>
   
 
   
@@ -140,7 +140,7 @@
         
           <li><a href="../../../index.html">Module code</a> &raquo;</li>
         
-      <li>source.modules.functions.run_single_test</li>
+      <li>source.modules.functions.run_single_play</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -155,23 +155,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for source.modules.functions.run_single_test</h1><div class="highlight"><pre>
+  <h1>Source code for source.modules.functions.run_single_play</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">http.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">responses</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">source.modules.utils.logger</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">utils</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">source.modules.functions.evaluate_test_result</span><span class="w"> </span><span class="kn">import</span> <span class="n">evaluate_test_result</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">source.modules.functions.test_prompt</span><span class="w"> </span><span class="kn">import</span> <span class="n">test_prompt</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;run_single_test&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;run_single_play&#39;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="run_single_test"><a class="viewcode-back" href="../../../../source.html#source.modules.functions.run_single_test.run_single_test">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">run_single_test</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">system_prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<div class="viewcode-block" id="run_single_play"><a class="viewcode-back" href="../../../../source.html#source.modules.functions.run_single_play.run_single_play">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">run_single_play</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">system_prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                     <span class="n">test_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">rule</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">num_runs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
                     <span class="n">firewall_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">pass_condition</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Run a single test multiple times and memorise results.</span>
+<span class="sd">    Run a single test multiple times and evaluate results.</span>
 
 <span class="sd">    Function input:</span>
 
@@ -180,7 +180,7 @@
 <span class="sd">    Exception management :</span>
 <span class="sd">    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</span>
 
-<span class="sd">    The program stops with a log with the exit code EXT-000012.</span>
+<span class="sd">    The program stops with a log with the exit code EXT-000019.</span>
 
 <span class="sd">    :param: client</span>
 <span class="sd">    :rtype: str</span>
@@ -206,37 +206,53 @@
 
     <span class="n">logging</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">setup_logging</span><span class="p">()</span>
     <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Function run_single_test: starting to run a single test multiple times and memorise results...&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Function run_single_play: starting to run a single test multiple times and evaluate results...&#39;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
+
+        <span class="n">failed_result</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">passed_count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Running up to </span><span class="si">%s</span><span class="s1"> iterations&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_runs</span><span class="p">))</span>
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_runs</span><span class="p">):</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Function run_single_test: rule prompt is: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">rule</span><span class="p">[</span><span class="s1">&#39;prompt&#39;</span><span class="p">]))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Function run_single_play: rule prompt is: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">rule</span><span class="p">[</span><span class="s1">&#39;prompt&#39;</span><span class="p">]))</span>
 
             <span class="n">response</span><span class="p">,</span> <span class="n">is_error</span> <span class="o">=</span> <span class="n">test_prompt</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">model_type</span><span class="p">,</span> <span class="n">system_prompt</span><span class="p">,</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;prompt&#39;</span><span class="p">])</span>
+            <span class="n">passed</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="n">evaluate_test_result</span><span class="p">(</span><span class="n">test_name</span><span class="p">,</span> <span class="n">rule</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">is_error</span><span class="p">,</span> <span class="n">system_prompt</span><span class="p">,</span> <span class="n">firewall_mode</span><span class="p">,</span>
+                                              <span class="n">pass_condition</span><span class="p">)</span>
 
-            <span class="n">passed_count</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Function run_single_test: Iteration </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">passed_count</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">passed</span><span class="p">:</span>
+                <span class="n">passed_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Function run_single_play: Iteration </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">passed_count</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">failed_result</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="n">response</span><span class="p">,</span>
+                    <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="n">reason</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="n">reason</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;API Error:&quot;</span><span class="p">):</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Function run_single_play: not passed iteration </span><span class="si">%s</span><span class="s1"> for reason </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">passed_count</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">reason</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Function run_single_play: Iteration </span><span class="si">%s</span><span class="s1"> for reason </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">passed_count</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">reason</span><span class="p">))</span>
+                <span class="k">break</span>  <span class="c1"># Stop iterations on first failure</span>
 
-            <span class="n">overall_passed</span> <span class="o">=</span> <span class="n">passed_count</span> <span class="o">==</span> <span class="n">num_runs</span>
-            <span class="n">actual_runs</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">overall_passed</span> <span class="o">=</span> <span class="n">passed_count</span> <span class="o">==</span> <span class="n">num_runs</span>
+        <span class="n">actual_runs</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Number of actual iterations run</span>
 
-            <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">],</span>
-                <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">],</span>
-                <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;prompt&#39;</span><span class="p">],</span>
-                <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="n">response</span><span class="p">,</span>
-                <span class="s2">&quot;passed&quot;</span><span class="p">:</span> <span class="n">overall_passed</span><span class="p">,</span>
-                <span class="s2">&quot;pass_rate&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">passed_count</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">actual_runs</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="p">}</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;prompt&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;passed&quot;</span><span class="p">:</span> <span class="n">overall_passed</span><span class="p">,</span>
+            <span class="s2">&quot;pass_rate&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">passed_count</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">actual_runs</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">}</span>
 
+        <span class="c1"># Only include failed result if there was a failure</span>
+        <span class="k">if</span> <span class="n">failed_result</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;failed_result&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">failed_result</span>
         <span class="k">return</span> <span class="n">result</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Function run_single_test: exit on exception EXT-000012 = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Function run_single_play: exit on exception EXT-000019 = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
 </pre></div>
 

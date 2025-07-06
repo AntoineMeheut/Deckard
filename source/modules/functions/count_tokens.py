@@ -19,7 +19,7 @@ def count_tokens(text: str) -> int:
 
     The program stops with a log with the exit code EXT-000001.
 
-    :param : text
+    :param: text
     :rtype: str
     :return: number_of_token
     :rtype: int

@@ -4,6 +4,12 @@ Installation
 How to install this project ?
 -----------------------------
 
+Install Ollama from this url : https://ollama.com/
+
+Create an OpenAI account here : https://openai.com/
+
+Create an Antropic account here : https://www.anthropic.com/
+
 Make a clone locally from this project, open it in Pycharm.
 
 Create a virtual environment for your project and then run the setup.py

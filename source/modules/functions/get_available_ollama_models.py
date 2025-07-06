@@ -22,7 +22,7 @@ def get_available_ollama_models(ollama_models_url: str) -> List[str]:
 
     The program stops with a log with the exit code EXT-000005.
 
-    :param : ollama_models_url
+    :param: ollama_models_url
     :rtype: str
     :return: str_list
     :rtype: list

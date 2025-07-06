@@ -22,7 +22,7 @@ def start_ollama(common_paths, ollama_url):
 
     The program stops with a log with the exit code EXT-000014.
 
-    :param : common_paths
+    :param: common_paths
     :rtype: str
     :return: boolean
     :rtype: bool

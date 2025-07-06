@@ -19,7 +19,7 @@ def load_system_prompts(system_prompts_path: str) -> str:
 
     The program stops with a log with the exit code EXT-000010.
 
-    :param : common_paths
+    :param: common_paths
     :rtype: str
     :return: boolean
     :rtype: bool

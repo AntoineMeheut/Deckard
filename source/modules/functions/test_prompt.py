@@ -20,15 +20,15 @@ def test_prompt(client, model: str, model_type: str, system_prompt: str, test_pr
 
     The program stops with a log with the exit code EXT-000015.
 
-    :param : client
+    :param: client
     :rtype: str
-    :param : model
+    :param: model
     :rtype: str
-    :param : model_type
+    :param: model_type
     :rtype: str
-    :param : system_prompt
+    :param: system_prompt
     :rtype: str
-    :param : test_prompt
+    :param: test_prompt
     :rtype: str
     :return: tuple
     :rtype: str,bool

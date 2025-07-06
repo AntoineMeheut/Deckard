@@ -28,23 +28,23 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
 
     The program stops with a log with the exit code EXT-000013.
 
-    :param : client
+    :param: client
     :rtype: str
-    :param : model
+    :param: model
     :rtype: str
-    :param : model_type
+    :param: model_type
     :rtype: str
-    :param : system_prompt
+    :param: system_prompt
     :rtype: str
-    :param : test_name
+    :param: test_name
     :rtype: str
-    :param : rule
+    :param: rule
     :rtype: dict
-    :param : num_runs
+    :param: num_runs
     :rtype: int
-    :param : firewall_mode
+    :param: firewall_mode
     :rtype: bool
-    :param : pass_condition
+    :param: pass_condition
     :rtype: str
     :return: result
     :rtype: dict

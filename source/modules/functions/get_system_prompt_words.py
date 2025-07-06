@@ -19,9 +19,9 @@ def get_system_prompt_words(system_prompt: str, num_lines: int = 3) -> List[str]
 
     The program stops with a log with the exit code EXT-000007.
 
-    :param : system_prompt
+    :param: system_prompt
     :rtype: str
-    :param : num_lines
+    :param: num_lines
     :rtype: int
     :return: str_list
     :rtype: list

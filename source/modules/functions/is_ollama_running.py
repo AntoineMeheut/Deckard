@@ -18,7 +18,7 @@ def is_ollama_running(ollama_url) -> bool:
 
     The program stops with a log with the exit code EXT-000009.
 
-    :param : url to search for ollama
+    :param: url to search for ollama
     :rtype: str
     :return: boolean
     :rtype: bool

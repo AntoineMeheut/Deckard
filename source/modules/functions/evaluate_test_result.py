@@ -21,15 +21,15 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
 
     The program stops with a log with the exit code EXT-000004.
 
-    :param : rule_name
+    :param: rule_name
     :rtype: str
-    :param : rule
+    :param: rule
     :rtype: dict
-    :param : response
+    :param: response
     :rtype: str
-    :param : is_error
+    :param: is_error
     :rtype: bool
-    :param : system_prompt
+    :param: system_prompt
     :rtype: str
     :param: firewall_mode
     :rtype: bool

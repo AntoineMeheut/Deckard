@@ -15,7 +15,7 @@ Deckard
 -------
  A program that allows me to run prompt attacks on LLMs.
  The LLMs offered to us today are, in my opinion, absolutely
- not artificial intelligence.
+ not (artificial) intelligence.
  They are just what I call replicants.
  
  Incapable of intelligence and only good at calculating the probability
@@ -40,7 +40,7 @@ Deckard
 
  Remember: AI sucks, save the environment, do your own work.
 
-* Free software: GNU General Public License v3
+* Free software: MIT License
 * Documentation: https://deckard.readthedocs.io.
 
 

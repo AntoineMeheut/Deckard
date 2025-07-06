@@ -22,17 +22,17 @@ def validate_ollama_model(model: str, model_type: str, common_paths: list, ollam
 
     The program stops with a log with the exit code EXT-000017.
 
-    :param : model
+    :param: model
     :rtype: str
-    :param : model_type
+    :param: model_type
     :rtype: str
-    :param : common_paths
+    :param: common_paths
     :rtype: list
-    :param : ollama_url
+    :param: ollama_url
     :rtype: str
-    :param : ollama_models_url
+    :param: ollama_models_url
     :rtype: str
-    :param : auto_yes
+    :param: auto_yes
     :rtype: bool
     :return: boolean
     :rtype: bool

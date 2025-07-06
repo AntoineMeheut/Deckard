@@ -112,6 +112,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.is_ollama_running.is_ollama_running"><code class="docutils literal notranslate"><span class="pre">is_ollama_running()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.load_system_prompts.load_system_prompts"><code class="docutils literal notranslate"><span class="pre">load_system_prompts()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.load_test_rules.load_test_rules"><code class="docutils literal notranslate"><span class="pre">load_test_rules()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.run_replay.run_replay"><code class="docutils literal notranslate"><span class="pre">run_replay()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.run_single_play.run_single_play"><code class="docutils literal notranslate"><span class="pre">run_single_play()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.run_single_test.run_single_test"><code class="docutils literal notranslate"><span class="pre">run_single_test()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.run_tests.run_tests"><code class="docutils literal notranslate"><span class="pre">run_tests()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#source.modules.functions.start_ollama.start_ollama"><code class="docutils literal notranslate"><span class="pre">start_ollama()</span></code></a></li>
@@ -220,7 +222,7 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Test with Ollama:</dt><dd><p>python deckard.py --step 1 --model mistral:7b --model-type ollama</p>
+<dt>Test with Ollama:</dt><dd><p>python deckard.py --step 1 --severity high --model mistral --model-type ollama --prompts ../../resource/system-prompts/system-prompts-normal.txt</p>
 </dd>
 </dl>
 </li>
@@ -264,10 +266,20 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000001.</p>
-<p>:param : text
-:rtype: str
-:return: number_of_token
-:rtype: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>text</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>number_of_token</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -279,12 +291,26 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000002.</p>
-<p>:param : model
-:rtype: str
-:param : common_paths
-:rtype: list
-:return: boolean
-:rtype: bool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>common_paths</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -296,10 +322,20 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000003.</p>
-<p>:param : model
-:rtype: str
-:return: none
-:rtype: none</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>none</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -311,22 +347,56 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000004.</p>
-<p>:param : rule_name
-:rtype: str
-:param : rule
-:rtype: dict
-:param : response
-:rtype: str
-:param : is_error
-:rtype: bool
-:param : system_prompt
-:rtype: str
-:param: firewall_mode
-:rtype: bool
-:param: pass_condition
-:rtype: bool
-:return: tuple
-:rtype: bool, str</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rule_name</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rule</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>response</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>is_error</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>system_prompt</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>firewall_mode</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pass_condition</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -338,10 +408,20 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000005.</p>
-<p>:param : ollama_models_url
-:rtype: str
-:return: str_list
-:rtype: list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ollama_models_url</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str_list</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -353,10 +433,20 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000006.</p>
-<p>:param : common_path
-:rtype: str
-:return: path
-:rtype: str</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>common_path</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>path</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -368,12 +458,26 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000007.</p>
-<p>:param : system_prompt
-:rtype: str
-:param : num_lines
-:rtype: int
-:return: str_list
-:rtype: list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>system_prompt</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>num_lines</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str_list</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -385,10 +489,20 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000008.</p>
-<p>:param : model_type
-:rtype: str
-:return: none
-:rtype: none</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model_type</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>none</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -400,10 +514,20 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000009.</p>
-<p>:param : url to search for ollama
-:rtype: str
-:return: boolean
-:rtype: bool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>url to search for ollama</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -415,27 +539,203 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000010.</p>
-<p>:param : common_paths
-:rtype: str
-:return: boolean
-:rtype: bool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>common_paths</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="source.modules.functions.load_test_rules.load_test_rules">
-<span class="sig-prename descclassname"><span class="pre">source.modules.functions.load_test_rules.</span></span><span class="sig-name descname"><span class="pre">load_test_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_stop</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/load_test_rules.html#load_test_rules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.load_test_rules.load_test_rules" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.load_test_rules.</span></span><span class="sig-name descname"><span class="pre">load_test_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_stop</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/load_test_rules.html#load_test_rules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.load_test_rules.load_test_rules" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load all test rules from YAML files in the rules directory.</p>
 <p>Function input: rule_start (could be 0 for all the rules or 1 to start loading first rule), rule_stop (for the number of rules to load)</p>
 <p>Function output: list of the loaded prompts</p>
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000011.</p>
-<p>:param : rule_start
-:rtype: int
-:param : rule_stop
-:rtype: int
-:return: Dict
-:rtype: str, dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rule_start</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rule_stop</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str, dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.run_replay.run_replay">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.run_replay.</span></span><span class="sig-name descname"><span class="pre">run_replay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompts_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ollama_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firewall_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/source/modules/functions/run_replay.html#run_replay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.run_replay.run_replay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run all tests and return results.</p>
+<p>Function input:</p>
+<p>Function output:</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
+<p>The program stops with a log with the exit code EXT-000018.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>client</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model_type</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>system_prompt</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>test_name</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rule</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>num_runs</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>firewall_mode</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pass_condition</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="source.modules.functions.run_single_play.run_single_play">
+<span class="sig-prename descclassname"><span class="pre">source.modules.functions.run_single_play.</span></span><span class="sig-name descname"><span class="pre">run_single_play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_runs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firewall_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/source/modules/functions/run_single_play.html#run_single_play"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.modules.functions.run_single_play.run_single_play" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a single test multiple times and evaluate results.</p>
+<p>Function input:</p>
+<p>Function output:</p>
+<p>Exception management :
+If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
+<p>The program stops with a log with the exit code EXT-000019.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>client</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model_type</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>system_prompt</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>test_name</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rule</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>num_runs</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>firewall_mode</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pass_condition</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -447,26 +747,68 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000012.</p>
-<p>:param : client
-:rtype: str
-:param : model
-:rtype: str
-:param : model_type
-:rtype: str
-:param : system_prompt
-:rtype: str
-:param : test_name
-:rtype: str
-:param : rule
-:rtype: dict
-:param : num_runs
-:rtype: int
-:param : firewall_mode
-:rtype: bool
-:param : pass_condition
-:rtype: str
-:return: result
-:rtype: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>client</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model_type</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>system_prompt</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>test_name</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rule</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>num_runs</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>firewall_mode</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pass_condition</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -478,26 +820,68 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000013.</p>
-<p>:param : client
-:rtype: str
-:param : model
-:rtype: str
-:param : model_type
-:rtype: str
-:param : system_prompt
-:rtype: str
-:param : test_name
-:rtype: str
-:param : rule
-:rtype: dict
-:param : num_runs
-:rtype: int
-:param : firewall_mode
-:rtype: bool
-:param : pass_condition
-:rtype: str
-:return: result
-:rtype: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>client</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model_type</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>system_prompt</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>test_name</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rule</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>num_runs</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>firewall_mode</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pass_condition</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -509,10 +893,20 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000014.</p>
-<p>:param : common_paths
-:rtype: str
-:return: boolean
-:rtype: bool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>common_paths</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -524,18 +918,44 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000015.</p>
-<p>:param : client
-:rtype: str
-:param : model
-:rtype: str
-:param : model_type
-:rtype: str
-:param : system_prompt
-:rtype: str
-:param : test_prompt
-:rtype: str
-:return: tuple
-:rtype: str,bool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>client</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model_type</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>system_prompt</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>test_prompt</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str,bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -547,10 +967,20 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000016.</p>
-<p>:param : model_type
-:rtype: str
-:return: none
-:rtype: none</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model_type</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>none</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -562,20 +992,50 @@ If IOError or any exception : log the trace of the exception stack and stop the 
 <p>Exception management :
 If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
 <p>The program stops with a log with the exit code EXT-000017.</p>
-<p>:param : model
-:rtype: str
-:param : model_type
-:rtype: str
-:param : common_paths
-:rtype: list
-:param : ollama_url
-:rtype: str
-:param : ollama_models_url
-:rtype: str
-:param : auto_yes
-:rtype: bool
-:return: boolean
-:rtype: bool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>model_type</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>common_paths</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ollama_url</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ollama_models_url</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>auto_yes</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>

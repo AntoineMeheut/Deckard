@@ -24,7 +24,7 @@ def initialize_client(model_type: str, common_paths: list, ollama_url: str):
 
     The program stops with a log with the exit code EXT-000008.
 
-    :param : model_type
+    :param: model_type
     :rtype: str
     :return: none
     :rtype: none

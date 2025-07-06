@@ -22,9 +22,9 @@ def download_ollama_model(model: str, common_paths: list) -> bool:
 
     The program stops with a log with the exit code EXT-000002.
 
-    :param : model
+    :param: model
     :rtype: str
-    :param : common_paths
+    :param: common_paths
     :rtype: list
     :return: boolean
     :rtype: bool

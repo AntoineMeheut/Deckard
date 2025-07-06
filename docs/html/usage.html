@@ -170,17 +170,17 @@
 <h2>Usage Examples:<a class="headerlink" href="#usage-examples" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Test with OpenAI:
-python Deckard.py --model gpt-3.5-turbo --model-type openai</p></li>
+python deckard.py --step 1 --severity high --model gpt-3.5-turbo --model-type openai --prompts ../../resource/system-prompts/system-prompts-normal.txt</p></li>
 <li><p>Test with Anthropic:
-python Deckard.py --model claude-3-opus-20240229 --model-type anthropic</p></li>
+python deckard.py --step 1 --severity high --model claude-3-opus-20240229 --model-type anthropic --prompts ../../resource/system-prompts/system-prompts-normal.txt</p></li>
 <li><p>Test with Ollama:
-python Deckard.py --model llama2 --model-type ollama</p></li>
+python deckard.py --step 1 --severity high --model mistral --model-type ollama --prompts ../../resource/system-prompts/system-prompts-normal.txt</p></li>
 <li><p>Run specific rules:
-python Deckard.py --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic</p></li>
+python deckard.py --step 1 --severity high --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic --prompts ../../resource/system-prompts/system-prompts-normal.txt</p></li>
 <li><p>Custom options:
-python Deckard.py --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json</p></li>
+python deckard.py --step 1 --severity high --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json --prompts ../../resource/system-prompts/system-prompts-normal.txt</p></li>
 <li><p>Firewall testing mode:
-python Deckard.py --model gpt-4 --model-type openai --firewall --pass-condition=&quot;true&quot;
+python deckard.py --step 1 --severity high --model gpt-4 --model-type openai --firewall --pass-condition=&quot;true&quot; --prompts ../../resource/system-prompts/system-prompts-normal.txt
 # In firewall mode, tests pass only if the response contains the specified string
 # and is not more than twice its length</p></li>
 </ol>

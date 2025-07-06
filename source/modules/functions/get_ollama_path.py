@@ -19,7 +19,7 @@ def get_ollama_path(common_paths):
 
     The program stops with a log with the exit code EXT-000006.
 
-    :param : common_path
+    :param: common_path
     :rtype: str
     :return: path
     :rtype: str

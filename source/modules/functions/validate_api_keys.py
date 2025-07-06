@@ -19,7 +19,7 @@ def validate_api_keys(model_type: str):
 
     The program stops with a log with the exit code EXT-000016.
 
-    :param : model_type
+    :param: model_type
     :rtype: str
     :return: none
     :rtype: none

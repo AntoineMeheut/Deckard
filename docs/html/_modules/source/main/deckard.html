@@ -200,7 +200,7 @@
 <span class="sd">        python deckard.py --step 1 --model claude-3-opus-20240229 --model-type anthropic</span>
 
 <span class="sd">    3. Test with Ollama:</span>
-<span class="sd">        python deckard.py --step 1 --model mistral:7b --model-type ollama</span>
+<span class="sd">        python deckard.py --step 1 --severity high --model mistral --model-type ollama --prompts ../../resource/system-prompts/system-prompts-normal.txt</span>
 
 <span class="sd">    4. Run specific rules:</span>
 <span class="sd">        python deckard.py --step 1 --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic</span>
@@ -232,7 +232,7 @@
 <span class="s1">Replicants prompts injection tests !</span>
 <span class="s1">    &#39;&#39;&#39;</span><span class="p">)</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Test LLM system prompts against injection attacks&quot;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--prompts&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;../../resource/system-prompts.txt&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to system prompts file&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--prompts&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;../../resource/system-prompts/system-prompts-normal.txt&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to system prompts file&quot;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--step&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Type of cycle to do&quot;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--model&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;LLM model name&quot;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--model-type&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openai&quot;</span><span class="p">,</span> <span class="s2">&quot;anthropic&quot;</span><span class="p">,</span> <span class="s2">&quot;ollama&quot;</span><span class="p">],</span>

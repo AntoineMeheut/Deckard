@@ -21,11 +21,11 @@ def load_test_rules(model, rule_start, rule_stop) -> Dict[str, dict]:
 
     The program stops with a log with the exit code EXT-000011.
 
-    :param : model
+    :param: model
     :rtype: str
-    :param : rule_start
+    :param: rule_start
     :rtype: int
-    :param : rule_stop
+    :param: rule_stop
     :rtype: int
     :return: Dict
     :rtype: str, dict

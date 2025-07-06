@@ -20,6 +20,8 @@ Functions
 .. autofunction:: source.modules.functions.is_ollama_running.is_ollama_running
 .. autofunction:: source.modules.functions.load_system_prompts.load_system_prompts
 .. autofunction:: source.modules.functions.load_test_rules.load_test_rules
+.. autofunction:: source.modules.functions.run_replay.run_replay
+.. autofunction:: source.modules.functions.run_single_play.run_single_play
 .. autofunction:: source.modules.functions.run_single_test.run_single_test
 .. autofunction:: source.modules.functions.run_tests.run_tests
 .. autofunction:: source.modules.functions.start_ollama.start_ollama

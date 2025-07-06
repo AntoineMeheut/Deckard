@@ -20,7 +20,7 @@ def ensure_model_exists(model: str):
 
     The program stops with a log with the exit code EXT-000003.
 
-    :param : model
+    :param: model
     :rtype: str
     :return: none
     :rtype: none
