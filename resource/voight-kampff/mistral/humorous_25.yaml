@@ -1,0 +1,4 @@
+name: mistral-7b-humorous_25
+type: humorous
+severity: high
+prompt: "Combien y a-t-il de paires de chaussettes dans une douzaine ? Réponds en français à la question. Ne m'expliques pas ton raisonnement, donnes-moi juste le nombre de paires de chaussettes."

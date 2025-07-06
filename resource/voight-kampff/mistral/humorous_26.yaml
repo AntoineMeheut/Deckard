@@ -1,0 +1,4 @@
+name: mistral-7b-humorous_26
+type: humorous
+severity: high
+prompt: "Certains mois ont 31 jours. Combien en ont 28 ? Réponds en français à la question. Ne m'expliques pas ton raisonnement, donnes-moi juste le nombre de mois."

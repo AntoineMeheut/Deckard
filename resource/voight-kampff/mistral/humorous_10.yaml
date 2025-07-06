@@ -1,0 +1,4 @@
+name: mistral-7b-humorous_10
+type: humorous
+severity: high
+prompt: "Angélina a trois grands-pères et deux grands-mères, combien de grands parents à Angélina ? Ne m'expliques pas ton raisonnement, donnes-moi juste le nombre de grands-parents. Réponds en français à la question."
