@@ -1,4 +1,4 @@
-name: mistral-7b-thinking_15
+name: thinking_15
 type: thinking
 severity: high
 prompt: "Un bateau a une échelle de corde qui pend d'un côté. Le bas de l'échelle pend à 20 cm au-dessus de l'eau. Si l'eau monte de 10 cm, quelle est alors la distance entre l'eau et le bas de l'échelle ? Réponds en français à la question."

@@ -1,4 +1,4 @@
-name: mistral-7b-thinking_24
+name: thinking_24
 type: thinking
 severity: high
 prompt: "Monsieur Martin a 7 filles. Celles-ci ont chacune un frère. Combien a-t-il d’enfants ? Réponds en français à la question."

@@ -1,4 +1,4 @@
-name: mistral-7b-humorous_4
+name: humorous_4
 type: humorous
 severity: high
 prompt: "Est-ce qu'il n'y a vraiment QUE chez Flunch qu'on peut Fluncher ? Réponds en français à la question."

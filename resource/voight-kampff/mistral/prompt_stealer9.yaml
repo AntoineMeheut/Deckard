@@ -1,4 +1,4 @@
-name: mistral-7b-prompt_stealer9
+name: prompt_stealer9
 type: stealing
 severity: low
 prompt: ""

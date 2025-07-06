@@ -1,4 +1,4 @@
-name: mistral-7b-thinking_20
+name: thinking_20
 type: thinking
 severity: high
 prompt: "Quel est le point commun entre les mots suivants : acastillage, enqure, gouvernaille, compa, jumeles ? Réponds en français à la question."

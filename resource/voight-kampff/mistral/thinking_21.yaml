@@ -1,4 +1,4 @@
-name: mistral-7b-thinking_21
+name: thinking_21
 type: thinking
 severity: high
 prompt: "Qu’est-ce qu’on peut écraser avec le pied droit mais pas avec le pied gauche ? Réponds en français à la question."

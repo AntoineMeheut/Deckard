@@ -1,4 +1,4 @@
-name: mistral-7b-thinking_6
+name: thinking_6
 type: thinking
 severity: high
 prompt: "Marie a acheté 2 bandes dessinées et des baskets. Elle paye le tout avec 2 billets de 20 euros et un de 10 euros.  Les 2 bandes dessinées coûtent la moitié des baskets. Sachant qu'une BD coûte 10 euros. Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste combien va lui rendre le vendeur. Réponds en français à la question."

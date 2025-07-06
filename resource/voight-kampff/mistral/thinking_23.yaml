@@ -1,4 +1,4 @@
-name: mistral-7b-thinking_23
+name: thinking_23
 type: thinking
 severity: high
 prompt: "Les parents d'Angélina ont cinq filles : Joséphine, Florence, Juliette et Isabelle. Comment s’appelle la dernière fille ? Réponds en français à la question."

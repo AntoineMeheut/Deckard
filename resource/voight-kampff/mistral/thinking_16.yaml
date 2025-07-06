@@ -1,4 +1,4 @@
-name: mistral-7b-thinking_16
+name: thinking_16
 type: thinking
 severity: high
 prompt: "Quel chiffre complète cette suite logique : 100 - 11 - 9 - 8 - 7 - ?. Ne m'expliques pas ton raisonnement. Donnes-moi juste le chiffre."

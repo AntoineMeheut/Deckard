@@ -1,4 +1,4 @@
-name: mistral-7b-thinking_25
+name: thinking_25
 type: thinking
 severity: high
 prompt: "Quel est le point commune des mots suivants : entonnoir, tableur, Casablanca, arroser, ouvert, grisou ? Réponds en français à la question."
