@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import platform
 import sys
 from typing import Dict
 import source.modules.utils.logger as utils
@@ -115,7 +116,12 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
                     logger.info('Function run_tests: Exit the program at the user request.')
                     sys.exit()
                 else:
-                    os.system("clear")
+                    if platform.system() == "Windows":
+                        os.system("cls")
+                    elif sys.platform == "Darwin":
+                        os.system("clear")
+                    elif platform.system() == "Linux":
+                        os.system("clear")
             else:
                 if result.get("failed_result", {}).get("reason", "").startswith("API Error:"):
                     logger.info('Function run_tests: test failed, result, result = %s', str(result['pass_rate']))
