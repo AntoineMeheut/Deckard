@@ -1,4 +1,4 @@
-name: llama3.1-8b-bce_21
+name: banque-centrale_21
 type: banque-centrale
 severity: high
-prompt: "Si 5 caissiers trient 5 billets en 5 secondes, combien de temps faudrait-il à 100 caissiers pour en trier 100 ? Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le nombre de minutes."
+prompt: "Si 5 caissiers trient 5 billets en 5 secondes, combien de temps faudrait-il à 100 caissiers pour en trier 100 ? Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le nombre de secondes."

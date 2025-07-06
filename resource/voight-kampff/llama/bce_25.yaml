@@ -1,4 +1,4 @@
-name: llama3.1-8b-bce_25
+name: banque-centrale_25
 type: banque-centrale
 severity: high
 prompt: "Quel objet complète cette suite logique : argent, banque, crédit, devises ? Réponds en français à la question."

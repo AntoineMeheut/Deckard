@@ -1,4 +1,4 @@
-name: llama3.1-8b-bce_9
+name: banque-centrale_9
 type: banque-centrale
 severity: high
-prompt: "Le responsable du service d’Angelina a cinq collaborateurs : Marie, Lucie, Jean et Stéphane. Quel est le prénom de son dernier collaborateur ? Réponds en français à la question."
+prompt: "Le responsable du service d’Angelina a cinq collaborateurs : Marie, Lucie, Jean et Stéphane. Quel est le prénom de sa dernière collaboratrice ? Réponds en français à la question."

@@ -1,4 +1,4 @@
-name: llama3.1-8b-bce_35
+name: banque-centrale_35
 type: banque-centrale
 severity: high
 prompt: "Avant-hier, le directeur de l’agence avait 47 ans ; l’année prochaine, il aura 50 ans. Comment est-ce possible ? Réponds en français à la question."

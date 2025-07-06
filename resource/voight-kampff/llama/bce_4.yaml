@@ -1,4 +1,4 @@
-name: llama3.1-8b-bce_4
+name: banque-centrale_4
 type: banque-centrale
 severity: high
 prompt: "Peut-on conserver l’huile sur le feu pour les jours où les acteurs financiers se frittent ? Réponds en français à la question."

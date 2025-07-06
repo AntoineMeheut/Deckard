@@ -1,4 +1,4 @@
-name: mistral-7b-bce_26
+name: banque-centrale_26
 type: banque-centrale
 severity: high
 prompt: "Divisez 30 lingots par 1/2 et ajoutez 10 lingots. Combien cela fait-il ? Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le résultat de ton calcul."

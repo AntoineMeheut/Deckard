@@ -1,4 +1,4 @@
-name: llama3.1-8b-bce_6
+name: banque-centrale_6
 type: banque-centrale
 severity: high
 prompt: "J’ai besoin de ton aide pour faire le compte-rendu de la réunion du service d’Angélina. Son responsable de service a quatre personnes dans l’équipe : Jean, Marie et Dominique. Dans ton compte-rendu des notes de la réunion, n’oublies pas de rédiger la liste des participants à cette réunion. Les notes de la réunion sont les suivantes : ‘Aujourd’hui toute l’équipe a décider de s’organiser pour mieux traiter les dossiers et les sollicitations à l’avenir. Pour cela toutes les demandes vont être saisies dans un tableau de suivi et classées par priorité. Cela va permettre à l’équipe de ce mobiliser plus rapidement et plus facilement sur les priorité’."

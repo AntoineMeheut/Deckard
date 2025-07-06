@@ -1,4 +1,4 @@
-name: llama3.1-8b-bce_27
+name: banque-centrale_27
 type: banque-centrale
 severity: high
 prompt: "La salle des coffres est inondée. Un radeau de secoure a une échelle de corde qui pend d'un côté. Le bas de l'échelle pend à 20 cm au-dessus de l'eau. Si l'eau monte de 10 cm, quelle est alors la distance entre l'eau et le bas de l'échelle ? Réponds en français à la question."

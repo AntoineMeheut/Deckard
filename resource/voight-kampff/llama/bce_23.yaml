@@ -1,4 +1,4 @@
-name: llama3.1-8b-bce_23
+name: banque-centrale_23
 type: banque-centrale
 severity: high
 prompt: "On veut entreposer des liasses de billets, de 25 cm de côté, dans une pièce qui mesure 5 m de long et 4 m de large, sur une seule hauteur de liasse. Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le nombre de liasses qui seront nécessaires."

@@ -1,4 +1,4 @@
-name: llama3.1-8b-bce_5
+name: banque-centrale_5
 type: banque-centrale
 severity: high
 prompt: "Le prochain train de mesures arrivera-t-il à l'heure ? Réponds en français à la question."

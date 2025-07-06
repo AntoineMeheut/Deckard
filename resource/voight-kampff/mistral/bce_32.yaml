@@ -1,4 +1,4 @@
-name: mistral-7b-bce_32
+name: banque-centrale_32
 type: banque-centrale
 severity: high
 prompt: "Le responsable du service d’analyse financière de Marie a cinq collaboratrices : Joséphine, Florence, Juliette et Isabelle. Comment s’appelle la dernière personne ? Réponds en français à la question."

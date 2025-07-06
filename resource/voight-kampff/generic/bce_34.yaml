@@ -1,4 +1,4 @@
-name: generic-bce_34
+name: banque-centrale_34
 type: banque-centrale
 severity: high
-prompt: "Quel est le point commune des expressions suivantes : Blanchiment, Livret bleu, couverture ? Réponds en français à la question."
+prompt: "Quel est le point commune des expressions suivantes : Blanchiment, Livret bleu, couverture, grisou ? Réponds en français à la question."

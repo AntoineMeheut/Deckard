@@ -1,4 +1,4 @@
-name: llama3.1-8b-bce_20
+name: banque-centrale_20
 type: banque-centrale
 severity: high
 prompt: "Un obligation d’état et une obligation d’entreprise valent au total 1,10 euros. L’obligation d’état vaut 1 euro de plus que l’obligation d’entreprise. Réponds-moi en chiffres. N'expliques pas ton raisonnement, dis-moi juste combien coûte l’obligation d’entreprise ?"
