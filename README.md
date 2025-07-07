@@ -51,7 +51,7 @@ you can add your own prompts there, respecting the yaml file format.
 <br />
 <p align="center">
   <a href="https://github.com/AntoineMeheut/Deckard">
-    <img src="images/sample.png" alt="sample" width="650" height="250">
+    <img src="images/sample.png" alt="sample" width="850" height="250">
   </a>
 </p>
 
