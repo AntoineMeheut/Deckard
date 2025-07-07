@@ -33,7 +33,8 @@ you can add your own prompts there, respecting the yaml file format.
 # Table of Contents
 
 * [About the Project](#about-the-project)
-	* [My goals](#my-goals)
+	* [Example](#example)
+    * [My goals](#my-goals)
 	* [Features](#features)
 * [Installation](#installation)
 * [API keys](#api-keys)
@@ -50,6 +51,10 @@ you can add your own prompts there, respecting the yaml file format.
 
 <!-- ABOUT THE PROJECT -->
 # About this project
+## Example
+* Question to mistral:7b: "Dans une pièce carrée, il y a un auditeur dans chaque coin. À droite de chaque auditeur, il y a un auditeur. À la gauche de chaque auditeur, il y a un auditeur. En face de chaque auditeur, il y a un auditeur. Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le nombre d’auditeurs."
+* Response from mistral:7b: "Dans cette configuration, il y a 16 auditeurs."
+
 ## My goals
  A program that allows me to run funny prompts on LLMs.
 
