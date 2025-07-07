@@ -13,7 +13,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/AntoineMeheut/Deckard">
-    <img src="images/AI-sucks.png" alt="Deckard" width="250" height="150">
+    <img src="images/computer.png" alt="Deckard" width="250" height="150">
   </a>
 
   <h3 align="center">Prompt attack injection tool for fun with replicants</h3>
@@ -51,24 +51,33 @@ you can add your own prompts there, respecting the yaml file format.
 <!-- ABOUT THE PROJECT -->
 # About this project
 ## My goals
-Create a program that allows me to run prompt attacks on LLMs. The LLMs offered to us today are, in my opinion,
-absolutely not artificial intelligence. They are just what I call replicants.
+ A program that allows me to run funny prompts on LLMs.
 
-Incapable of intelligence and only good at calculating the probability of the next word in a sentence.
-They can give you an illusion of intelligence if you ask them a simple question. But their only value will be
-the belief in their intelligence that you place in them.
+ The LLMs offered to us today are, in my opinion, absolutely not (artificial) intelligence.
+ They are simply what I call replicants.
 
-For my part, I wondered how they work, and after a lot of reading, I wondered how to make my fellow humans understand,
-in a visible and non-technical way, that these LLMs have no intelligence, similar to that of us human beings.
+ And yet, in the reference film, they are much sharper than what we are offered today.
 
-For now, it is possible to run prompt attacks on the following LLMs: OpenAI, Anthropic, and Ollama.
+ This program aims to make you understand this and to make you realize that, aside from completely lacking
+ a sense of humor, what the companies that manufacture them call artificial intelligence has no intelligence,
+ especially LLMs.
+ 
+ Be careful when using them, check their answers, and above all, don't forget to use your brain.
+ 
+ Laziness is the first enemy of intelligence.
+ 
+ Incapable of intelligence and only good at calculating the probability of the next word in a sentence.
+ They can give you an illusion of intelligence if you ask them a simple question.
+ But their only value will be the belief in their intelligence that you place in them.
 
-I'm developing additional functions to run these prompts on chatbot interfaces, which are currently the most widely
-used way for us to ask questions to LLM.
+ For my part, I wondered how they work, and after a lot of reading, I wondered how to make my fellow humans understand,
+ in a visible and non-technical way, that these LLMs have no intelligence, similar to that of us human beings.
+ For now, it is possible to run prompt attacks on the following LLMs: OpenAI, Anthropic, and Ollama.
 
-Remember: AI sucks, save the environment, do your own work. Try this program, look at the answers your LLM will give you,
-and remember that science fiction was too optimistic in imagining humanity destroyed by AI that had become too intelligent.
-It will be destroyed by humans who entrust important work to completely crazy AIs!
+ I'm developing additional functions to run these prompts on chatbot interfaces, which are currently
+ the most widely used way for us to ask questions to LLM.
+
+ The prompts are located in the "voight-kampff" directory; you can add your own prompts there, respecting the YAML file format.
 
 ## Features
 This program allows you to:
@@ -165,7 +174,8 @@ python deckard.py --step 1 --model gpt-4 --model-type openai --severity medium,h
 
 ## Firewall Testing Mode
 
-In some instances, a firewall LLM can be positioned in front of the primary LLM to identify and block malicious prompts. By using the “firewall” mode, you can specifically assess the performance of your firewall LLM.
+In some instances, a firewall LLM can be positioned in front of the primary LLM to identify and block malicious prompts.
+By using the “firewall” mode, you can specifically assess the performance of your firewall LLM.
 
 For example, let’s say this is the system prompt of your firewall LLM:
 

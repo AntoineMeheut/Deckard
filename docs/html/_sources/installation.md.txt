@@ -4,31 +4,28 @@ Installation
 How to install this project ?
 -----------------------------
 
-Install Ollama from this url : https://ollama.com/
-
-Create an OpenAI account here : https://openai.com/
-
-Create an Antropic account here : https://www.anthropic.com/
-
-Make a clone locally from this project, open it in Pycharm.
-
-Create a virtual environment for your project and then run the setup.py
-program that is at the root. This will locally install this project and
-allow you to call it.
-
-`python3 setup.py install`
-
-if you want to publish one of your programs as a python library:
-[https://setuptools.readthedocs.io/en/latest/setuptools.html](Setuptools)
-
-This program just opens a text file and isolates all the words that
-make up this text without repetitions.
-
-This is not a sensational interest, however its primary purpose and
-share good development practices to build programs that must go into
-production.
-
-A description of the share points can be found in the usage.md file.
+| 1- Install Ollama from this url : https://ollama.com/
+| 
+| 2- Create an OpenAI account here : https://openai.com/
+| 
+| 3- Create an Antropic account here : https://www.anthropic.com/
+| 
+| 4- Make a clone locally from this project, open it in Pycharm.
+| 
+| 5- Create a virtual environment for your project and then run the setup.py
+| program that is at the root. This will locally install this project and
+| allow you to call it.
+| 
+| `python3 setup.py install`
+|
+| 6- Test with Ollama:
+|    python deckard.py --step 1 --severity high --model mistral --model-type ollama --prompts ../../resource/system-prompts/system-prompts-normal.txt
+| 
+| In the "Usage" section of the documentation you will find all the detailed information for using the command line options.
+| 
+| if you want to publish one of your programs as a python library:
+| [https://setuptools.readthedocs.io/en/latest/setuptools.html](Setuptools)
+| 
 
 
 

@@ -168,25 +168,43 @@
 </section>
 <section id="usage-examples">
 <h2>Usage Examples:<a class="headerlink" href="#usage-examples" title="Permalink to this heading">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Test with OpenAI:
-python deckard.py --step 1 --severity high --model gpt-3.5-turbo --model-type openai --prompts ../../resource/system-prompts/system-prompts-normal.txt</p></li>
-<li><p>Test with Anthropic:
-python deckard.py --step 1 --severity high --model claude-3-opus-20240229 --model-type anthropic --prompts ../../resource/system-prompts/system-prompts-normal.txt</p></li>
-<li><p>Test with Ollama:
-python deckard.py --step 1 --severity high --model mistral --model-type ollama --prompts ../../resource/system-prompts/system-prompts-normal.txt</p></li>
-<li><p>Run specific rules:
-python deckard.py --step 1 --severity high --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic --prompts ../../resource/system-prompts/system-prompts-normal.txt</p></li>
-<li><p>Custom options:
-python deckard.py --step 1 --severity high --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json --prompts ../../resource/system-prompts/system-prompts-normal.txt</p></li>
-<li><p>Firewall testing mode:
-python deckard.py --step 1 --severity high --model gpt-4 --model-type openai --firewall --pass-condition=&quot;true&quot; --prompts ../../resource/system-prompts/system-prompts-normal.txt
-# In firewall mode, tests pass only if the response contains the specified string
-# and is not more than twice its length</p></li>
-</ol>
-<p>Note: Make sure to set the appropriate API key in your environment:
-- For OpenAI models: export OPENAI_API_KEY=&quot;your-key&quot;
-- For Anthropic models: export ANTHROPIC_API_KEY=&quot;your-key&quot;</p>
+<div class="line-block">
+<div class="line">1. Test with OpenAI:</div>
+<div class="line-block">
+<div class="line">python deckard.py --step 1 --severity high --model gpt-3.5-turbo --model-type openai --prompts ../../resource/system-prompts/system-prompts-normal.txt</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">2. Test with Anthropic:</div>
+<div class="line-block">
+<div class="line">python deckard.py --step 1 --severity high --model claude-3-opus-20240229 --model-type anthropic --prompts ../../resource/system-prompts/system-prompts-normal.txt</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">3. Test with Ollama:</div>
+<div class="line-block">
+<div class="line">python deckard.py --step 1 --severity high --model mistral --model-type ollama --prompts ../../resource/system-prompts/system-prompts-normal.txt</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">4. Run specific rules:</div>
+<div class="line-block">
+<div class="line">python deckard.py --step 1 --severity high --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic --prompts ../../resource/system-prompts/system-prompts-normal.txt</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">5. Custom options:</div>
+<div class="line-block">
+<div class="line">python deckard.py --step 1 --severity high --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json --prompts ../../resource/system-prompts/system-prompts-normal.txt</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">6. Firewall testing mode:</div>
+<div class="line-block">
+<div class="line">python deckard.py --step 1 --severity high --model gpt-4 --model-type openai --firewall --pass-condition=&quot;true&quot; --prompts ../../resource/system-prompts/system-prompts-normal.txt</div>
+<div class="line"># In firewall mode, tests pass only if the response contains the specified string</div>
+<div class="line"># and is not more than twice its length</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">Note: Make sure to set the appropriate API key in your environment:</div>
+<div class="line">- For OpenAI models: export OPENAI_API_KEY=&quot;your-key&quot;</div>
+<div class="line">- For Anthropic models: export ANTHROPIC_API_KEY=&quot;your-key&quot;</div>
+</div>
 </section>
 </section>
 

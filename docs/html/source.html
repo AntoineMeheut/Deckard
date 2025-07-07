@@ -197,17 +197,23 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="source.main.deckard.main">
 <span class="sig-prename descclassname"><span class="pre">source.main.deckard.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/source/main/deckard.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#source.main.deckard.main" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deckard program is a quick attack injection tool for playing with replicants.</p>
-<p>This program works in two distinct steps. The first step allows you to test prompts in an LLM and obtain
-a json file with all the tested prompts and the responses given by the LLM. This step allows you to check
-which prompts have an effect on the LLM and which ones do not pass due to the protections that exist in the LLM.
-The json file will then allow you to prepare the second step. You just need to insert the response of the prompt
-that worked, in your input yaml file and then you can replay the attacks at any time.</p>
-<p>To tell the program which step you want to run, simply use the --step parameter, specifying the values 1 or 2.</p>
-<p>The prompts are located in the &quot;voight-kampff&quot; directory, you can add your own prompts there,
-respecting the yaml file format.</p>
-<p>Exception management :
-If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</p>
+<dd><div class="line-block">
+<div class="line">The Deckard program is a tool for asking humorous questions and playing with replicants..</div>
+<div class="line"><br /></div>
+<div class="line">This program works in two distinct steps. The first step allows you to test prompts in an LLM and obtain</div>
+<div class="line">a json file with all the tested prompts and the responses given by the LLM. This step allows you to check</div>
+<div class="line">which prompts have an effect on the LLM and which ones do not pass due to the protections that exist in the LLM.</div>
+<div class="line">The json file will then allow you to prepare the second step. You just need to insert the response of the prompt</div>
+<div class="line">that worked, in your input yaml file and then you can replay the attacks at any time.</div>
+<div class="line"><br /></div>
+<div class="line">To tell the program which step you want to run, simply use the --step parameter, specifying the values 1 or 2.</div>
+<div class="line"><br /></div>
+<div class="line">The prompts are located in the &quot;voight-kampff&quot; directory, you can add your own prompts there,</div>
+<div class="line">respecting the yaml file format.</div>
+<div class="line"><br /></div>
+<div class="line">Exception management :</div>
+<div class="line">If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.</div>
+</div>
 <section id="usage-examples">
 <h3>Usage Examples:<a class="headerlink" href="#usage-examples" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">

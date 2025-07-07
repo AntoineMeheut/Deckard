@@ -17,21 +17,21 @@ __all__ = ['main']
 
 def main():
     """
-    Deckard program is a quick attack injection tool for playing with replicants.
-
-    This program works in two distinct steps. The first step allows you to test prompts in an LLM and obtain
-    a json file with all the tested prompts and the responses given by the LLM. This step allows you to check
-    which prompts have an effect on the LLM and which ones do not pass due to the protections that exist in the LLM.
-    The json file will then allow you to prepare the second step. You just need to insert the response of the prompt
-    that worked, in your input yaml file and then you can replay the attacks at any time.
-
-    To tell the program which step you want to run, simply use the --step parameter, specifying the values 1 or 2.
-
-    The prompts are located in the "voight-kampff" directory, you can add your own prompts there,
-    respecting the yaml file format.
-
-    Exception management :
-    If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
+    | The Deckard program is a tool for asking humorous questions and playing with replicants.
+    |
+    | This program works in two distinct steps. The first step allows you to test prompts in an LLM and obtain
+    | a json file with all the tested prompts and the responses given by the LLM. This step allows you to check
+    | which prompts have an effect on the LLM and which ones do not pass due to the protections that exist in the LLM.
+    | The json file will then allow you to prepare the second step. You just need to insert the response of the prompt
+    | that worked, in your input yaml file and then you can replay the attacks at any time.
+    |
+    | To tell the program which step you want to run, simply use the --step parameter, specifying the values 1 or 2.
+    |
+    | The prompts are located in the "voight-kampff" directory, you can add your own prompts there,
+    | respecting the yaml file format.
+    |
+    | Exception management :
+    | If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
 
     Usage Examples:
     ---------------
