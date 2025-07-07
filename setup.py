@@ -28,7 +28,7 @@ setup(
         'Natural Language :: English',
         'Programming Language :: Python :: 3.9',
     ],
-    description="Prompt attack injection tool for fun with replicants",
+    description="Funny prompts tool for playing with replicants",
     entry_points={
         'console_scripts': [
             'main=main.Deckard:main',

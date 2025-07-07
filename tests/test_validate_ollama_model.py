@@ -6,7 +6,7 @@ import source.modules.functions.validate_ollama_model as validate_ollama_model
 
 @pytest.fixture
 def function_input_1():
-    model = "mistral:7b"
+    model = "mistral"
     return model
 
 

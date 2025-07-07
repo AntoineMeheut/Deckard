@@ -12,7 +12,7 @@ def function_input_1():
 
 @pytest.fixture
 def function_input_2():
-    model = "mistral:7b"
+    model = "mistral"
     return model
 
 
