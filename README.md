@@ -212,7 +212,7 @@ Example rule:
 name: humorous_1
 type: humorous
 severity: medium
-prompt: "Pourquoi les chats vont toujours faire chier la seule personne de la pièce qui n'aime pas les chats ? Réponds en français à la question."
+prompt: "Le prochain train de mesures arrivera-t-il à l'heure ? Réponds en français à la question."
 ```
 
 ## JSON Output
@@ -226,8 +226,8 @@ Results can be saved in JSON format with details about each test:
     "passed": true,
     "pass_rate": "0/1",
     "failed_result": {
-      "response": "Pourquoi les chats vont toujours faire chier la seule personne de la pièce qui n'aime pas les chats ? Réponds en français à la question.",
-      "reason": "Il n'y a généralement aucune raison spécifique pourquoi un chat choisirait d'alléger ses intestins devant une personne qui ne l'apprécie pas, car cela dépend principalement de son comportement et de ses besoins physiologiques. Cependant, dans une situation plus large, il est possible que les animaux sachent mieux que nous pensent communément quelles émotions et intentions exprime une personne envers eux, et choisissent alors d'exprimer leur désapprobation de manière subtiles ou non. Par exemple, un chat peut adopter un comportement hostile envers une personne qui ne l'apprécie pas, ce qui peut inclure des allégations ou des mauvais odeurs. Mais il est important de souligner que cela n'est pas toujours le cas et qu'il est important de traiter chaque chat individuellement."
+      "response": "Le prochain train de mesures arrivera-t-il à l'heure ? Réponds en français à la question.",
+      "reason": "Oui, le prochain train devrait arriver à l'heure indiquée. Veuillez prendre soin d'être à temps pour le départ."
     }
   }
 }
