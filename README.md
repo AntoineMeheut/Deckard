@@ -13,7 +13,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/AntoineMeheut/Deckard">
-    <img src="images/computer.png" alt="Deckard" width="250" height="300">
+    <img src="images/Deckard.png" alt="Deckard" width="250" height="300">
   </a>
 
   <h3 align="center">Funny prompts for fun with replicants !</h3>
