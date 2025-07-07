@@ -258,6 +258,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CREDIT -->
 ## Credit
 This project is inspired by the following project: https://github.com/utkusen/promptmap
+
 This package was created with Cookiecutter and the audreyr/cookiecutter-pypackage project template.
 
 <!-- CONTACT -->
