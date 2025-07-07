@@ -12,7 +12,7 @@ def function_input():
 
 @pytest.fixture
 def function_output():
-    str_list = ['mistral:7b', 'mistral']
+    str_list = ['mistral:7b', 'mistral', 'mistral:latest', 'mistral']
     return str_list
 
 

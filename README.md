@@ -257,6 +257,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CREDIT -->
 ## Credit
+In homage to one of my favorite science fiction films: Blade Runner, directed by Ridley Scott and released in 1982.
+
 This project is inspired by the following project: https://github.com/utkusen/promptmap
 
 This package was created with Cookiecutter and the audreyr/cookiecutter-pypackage project template.

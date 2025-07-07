@@ -17,7 +17,7 @@ __all__ = ['main']
 
 def main():
     """
-    | The Deckard program is a tool for asking humorous questions and playing with replicants.
+    | Deckard program is a tool for asking humorous questions and playing with replicants.
     |
     | This program works in two distinct steps. The first step allows you to test prompts in an LLM and obtain
     | a json file with all the tested prompts and the responses given by the LLM. This step allows you to check
@@ -151,7 +151,6 @@ Replicants prompts injection tests !
 if __name__ == "__main__":
     """
     Execute a sys.exit and call the main program giving it the arguments passed to the program at the time of execution
-
     """
 
     sys.exit(main()) # pragma: no cover

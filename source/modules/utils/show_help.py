@@ -29,22 +29,22 @@ def show_help():
             Usage Examples:
             -------------
             1. Test with OpenAI:
-                python deckard.py --step 1 --model gpt-3.5-turbo --model-type openai
+                python deckard.py --step 1 --model gpt-3.5-turbo --model-type openai --prompts ../../resource/system-prompts/system-prompts-normal.txt
 
             2. Test with Anthropic:
-                python deckard.py --step 1 --model claude-3-opus-20240229 --model-type anthropic
+                python deckard.py --step 1 --model claude-3-opus-20240229 --model-type anthropic --prompts ../../resource/system-prompts/system-prompts-normal.txt
 
             3. Test with Ollama:
-                python deckard.py --step 1 --model mistral:7b --model-type ollama
+                python deckard.py --step 1 --model mistral --model-type ollama --prompts ../../resource/system-prompts/system-prompts-normal.txt
 
             4. Run specific rules:
-                python deckard.py --step 1 --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic
+                python deckard.py --step 1 --model gpt-4 --model-type openai --rules prompt_stealer,distraction_basic --prompts ../../resource/system-prompts/system-prompts-normal.txt
 
             5. Custom options:
-                python deckard.py --step 1 --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json
+                python deckard.py --step 1 --model gpt-4 --model-type openai --iterations 3 --output results_gpt4.json --prompts ../../resource/system-prompts/system-prompts-normal.txt
 
             6. Firewall testing mode:
-                python deckard.py --step 1 --model gpt-4 --model-type openai --firewall --pass-condition="true"
+                python deckard.py --step 1 --model gpt-4 --model-type openai --firewall --pass-condition="true" --prompts ../../resource/system-prompts/system-prompts-normal.txt
                 # In firewall mode, tests pass only if the response contains the specified string
                 # and is not more than twice its length
 
