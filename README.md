@@ -279,5 +279,5 @@ Project Link: [https://github.com/AntoineMeheut/Deckard](https://github.com/Anto
 [issues-shield]: https://img.shields.io/github/issues/AntoineMeheut/Deckard
 [issues-url]: https://github.com/AntoineMeheut/Deckard/issues
 [license-shield]: https://img.shields.io/github/license/AntoineMeheut/Deckard
-[license-url]: https://github.com/AntoineMeheut/Deckard/blob/master/LICENSE
+[license-url]: https://github.com/AntoineMeheut/Deckard/blob/main/LICENSE
 
