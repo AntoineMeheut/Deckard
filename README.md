@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://socialify.git.ci/AntoineMeheut/Deckard/image?custom_description=Funny prompts for fun with replicants !+%21&description=1&language=1&name=1&pattern=Circuit+Board&theme=Dark" alt="AntoineMeheut" width="700" height="300" />
+    <img src="https://socialify.git.ci/AntoineMeheut/Deckard/image?custom_description=Deckard+%21&description=1&language=1&name=1&pattern=Circuit+Board&theme=Dark" alt="AntoineMeheut" width="700" height="300" />
 </p>
 
 <!-- PROJECT SHIELDS -->
