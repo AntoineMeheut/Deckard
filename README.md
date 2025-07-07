@@ -16,7 +16,6 @@
     <img src="images/Deckard.png" alt="Deckard" width="650" height="250">
   </a>
 
-  <h3 align="center">Funny prompts for fun with replicants !</h3>
   <h3 align="center">THIS PROJECT IS CURRENTLY UNDER CONSTRUCTION!</h3>
   
   <p align="center">
