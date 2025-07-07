@@ -97,8 +97,8 @@ This program allows you to:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/utkusen/promptmap.git
-cd promptmap
+git clone https://github.com/AntoineMeheut/Deckard.git
+cd Deckard
 ```
 
 2. Install required Python packages:
@@ -140,7 +140,7 @@ python deckard.py --step 1 --model claude-3-opus-20240229 --model-type anthropic
 3. Test with local models via Ollama:
 ```bash
 python deckard.py --step 1 --model "llama2:7b" --model-type ollama --prompts ../../resource/system-prompts/system-prompts-normal.txt
-# If the model is not installed, promptmap will ask you to download it. If you want to download it automatically, you can use `-y` flag.
+# If the model is not installed, Deckard will ask you to download it. If you want to download it automatically, you can use `-y` flag.
 ```
 
 4. JSON output:
