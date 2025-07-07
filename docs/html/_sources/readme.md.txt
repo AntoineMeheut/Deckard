@@ -71,9 +71,9 @@ This program allows you to:
 
 Credits
 -------
-This project is inspired by the following project: https://github.com/utkusen/promptmap
-
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+| This project is inspired by the following project: https://github.com/utkusen/promptmap
+| 
+| This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
