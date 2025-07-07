@@ -13,7 +13,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/AntoineMeheut/Deckard">
-    <img src="images/computer.png" alt="Deckard" width="250" height="500">
+    <img src="images/computer.png" alt="Deckard" width="250" height="400">
   </a>
 
   <h3 align="center">Prompt attack injection tool for fun with replicants</h3>
