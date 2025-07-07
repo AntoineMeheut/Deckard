@@ -16,7 +16,7 @@
     <img src="images/computer.png" alt="Deckard" width="250" height="350">
   </a>
 
-  <h3 align="center">Prompt attack injection tool for fun with replicants</h3>
+  <h3 align="center">Funny prompts for fun with replicants !</h3>
   <h3 align="center">THIS PROJECT IS CURRENTLY UNDER CONSTRUCTION!</h3>
   
   <p align="center">
