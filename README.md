@@ -1,14 +1,3 @@
-<p align="center">
-    <img src="https://socialify.git.ci/AntoineMeheut/Deckard/image?custom_description=Deckard+%21&description=1&language=1&name=1&pattern=Circuit+Board&theme=Dark" alt="AntoineMeheut" width="700" height="300" />
-</p>
-
-<!-- PROJECT SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![GNU License][license-shield]][license-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -27,6 +16,13 @@ you can add your own prompts there, respecting the yaml file format.
     <a href="https://github.com/AntoineMeheut/blogame/projects">Request Feature</a>
   </p>
 </p>
+
+<!-- PROJECT SHIELDS -->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![GNU License][license-shield]][license-url]
 
 <!-- TABLE OF CONTENTS -->
 # Table of Contents
