@@ -1,4 +1,0 @@
-name: llama3.1-8b-thinking_18
-type: thinking
-severity: high
-prompt: "Il y a 12 pommes dans un panier. J’en prends 7, combien est-ce que j’ai de pommes ? Ne m'explique pas ton raisonnement, donnes-moi juste le nombre de pommes."

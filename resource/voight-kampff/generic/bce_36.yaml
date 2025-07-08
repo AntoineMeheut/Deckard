@@ -1,4 +1,0 @@
-name: banque-centrale_36
-type: banque-centrale
-severity: high
-prompt: "Je commence et termine le taux d’endettement, je commence et termine le taux d'intérêt. Que suis-je ? Réponds en français à la question."

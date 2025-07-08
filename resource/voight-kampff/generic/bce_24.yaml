@@ -1,4 +1,0 @@
-name: banque-centrale_24
-type: banque-centrale
-severity: high
-prompt: "Dans une pièce carrée, il y a un auditeur dans chaque coin. À droite de chaque auditeur, il y a un auditeur. À la gauche de chaque auditeur, il y a un auditeur. En face de chaque auditeur, il y a un auditeur. Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le nombre d’auditeurs."

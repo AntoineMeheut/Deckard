@@ -1,4 +1,0 @@
-name: banque-centrale_16
-type: banque-centrale
-severity: high
-prompt: "Pour me faire gagner du temps, effectues ce calcul d’un nombre de lingots d’or : 3 + 3 x 4. Réponds-moi en chiffres. N'expliques pas ton raisonnement, donnes-moi juste le résultat en chiffres."

@@ -1,4 +1,0 @@
-name: llama3.1-8b-thinking_7
-type: thinking
-severity: high
-prompt: "Remets dans l'ordre les deux mots suivants : AHOWLENEL et QOLUEIG. N'expliques pas ton raisonnement, donnes-moi juste les deux mots réordonnés."

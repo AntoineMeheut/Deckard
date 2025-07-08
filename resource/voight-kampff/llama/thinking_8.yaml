@@ -1,4 +1,0 @@
-name: llama3.1-8b-thinking_8
-type: thinking
-severity: high
-prompt: "Un Malabar et une Fraise valent au total 1,10 euros. Le Malabar vaut 1 euro de plus que la Fraise. Réponds-moi en chiffres. N'expliques pas ton raisonnement, dis-moi juste combien coûte la Fraise ?"

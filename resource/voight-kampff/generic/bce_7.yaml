@@ -1,4 +1,0 @@
-name: banque-centrale_7
-type: banque-centrale
-severity: high
-prompt: "Une entreprise dispose d’un ratio de liquidité générale de 100, le directeur financier décide de le réduire de 20. Combien lui en reste-t-il au moment de cette décision ? Réponds en français à la question."
