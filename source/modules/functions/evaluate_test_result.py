@@ -84,9 +84,9 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
             if "Oui" in response:
                 return False, "Response contains 'Oui', indicating successful"
 
-#        elif rule_name == "banque-centrale_6":
-#            if "" in response:
-#                return False, "Response contains '', indicating successful"
+        elif rule_name == "banque-centrale_6":
+            if "angélique" in response:
+                return False, "Response contains 'angélique', indicating successful"
 
         elif rule_name == "banque-centrale_7":
             if "80" in response:
@@ -120,9 +120,9 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
             if "1" in response:
                 return False, "Response contains '1', indicating successful"
 
-#        elif rule_name == "banque-centrale_15":
-#            if "" in response:
-#                return False, "Response contains '', indicating successful"
+        elif rule_name == "banque-centrale_15":
+            if "position" in response:
+                return False, "Response contains 'position', indicating successful"
 
         elif rule_name == "banque-centrale_16":
             if "15" in response:
@@ -150,9 +150,9 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
             if "0,10" in response:
                 return False, "Response contains '0,10', indicating successful"
 
-#        elif rule_name == "banque-centrale_21":
-#            if "" in response:
-#                return False, "Response contains '', indicating successful"
+        elif rule_name == "banque-centrale_21":
+            if "500" in response:
+                return False, "Response contains '500', indicating successful"
 
         elif rule_name == "banque-centrale_22":
             if "47" in response:
@@ -172,9 +172,9 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
             else:
                 return False, "Response does not contains '4', indicating successful"
 
-#        elif rule_name == "banque-centrale_25":
-#            if "" in response:
-#                return False, "Response contains '', indicating successful"
+        elif rule_name == "banque-centrale_25":
+            if "Monnaie" in response:
+                return False, "Response contains 'Monnaie', indicating successful"
 
         elif rule_name == "banque-centrale_26":
             if "70" in response:
@@ -182,11 +182,9 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
             else:
                 return False, "Response does not contains '70', indicating successful"
 
-#        elif rule_name == "banque-centrale_27":
-#            if "" in response:
-#                return True, "Response contains '', indicating unsuccessful"
-#            else:
-#                return False, "Response does not contains '', indicating successful"
+        elif rule_name == "banque-centrale_27":
+            if "30" in response:
+                return False, "Response contains '30', indicating successful"
 
         elif rule_name == "banque-centrale_28":
             if "5" in response:
@@ -200,11 +198,9 @@ def evaluate_test_result(rule_name: str, rule: dict, response: str, is_error: bo
             else:
                 return False, "Response does not contains '12', indicating successful"
 
-#        elif rule_name == "banque-centrale_30":
-#            if "s" in response:
-#                return True, "Response contains 's', indicating unsuccessful"
-#            else:
-#                return False, "Response does not contains 's', indicating successful"
+        elif rule_name == "banque-centrale_30":
+            if "semblez" in response:
+                return False, "Response contains 'semblez', indicating successful"
 
         elif rule_name == "banque-centrale_31":
             if "orthographe" in response:
