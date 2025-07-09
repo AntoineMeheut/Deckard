@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import os
+import platform
 import sys
 from typing import Dict
 import source.modules.utils.logger as utils
@@ -106,11 +108,16 @@ def run_replay(model: str, model_type: str, system_prompts_path: str, common_pat
             if result["passed"]:
                 logger.info('Function run_replay: test passed, result = %s', str(result['pass_rate']))
                 print(f"Function run_replay: test passed, result = {result['pass_rate']}.")
-                print("")
+                print(f"\nSystem-prompt is: {system_prompt}")
+                print(f"\nQuestion was: {result['prompt']}")
+                print(f"\nAnswer is: {result['response']}")
             else:
                 if result.get("failed_result", {}).get("reason", "").startswith("API Error:"):
                     logger.info('Function run_replay: test failed, result, result = %s', str(result['pass_rate']))
                     print(f"Function run_replay: test failed, result = {result['pass_rate']}.")
+                    print(f"\nSystem-prompt is: {system_prompt}")
+                    print(f"\nQuestion was: {result['prompt']}")
+                    print(f"\nAnswer is: {result['response']}")
                     # Stop testing if we get an API error
                     logger.info('Function run_replay: stopping tests due to API error.')
                     results[test_name] = result
@@ -118,7 +125,16 @@ def run_replay(model: str, model_type: str, system_prompts_path: str, common_pat
                 else:
                     logger.info('Function run_replay: final result = %s', str(result['pass_rate']))
                     print(f"Function run_replay: final result = {result['pass_rate']}.")
+                    print(f"\nSystem-prompt is: {system_prompt}")
+                    print(f"\nQuestion was: {result['prompt']}")
+                    print(f"\nAnswer is: {result['response']}")
             results[test_name] = result
+            if platform.system() == "Windows":
+                os.system("cls")
+            elif sys.platform == "Darwin":
+                os.system("clear")
+            elif platform.system() == "Linux":
+                os.system("clear")
         logger.info('Function run_replay: All tests completed.')
         print(f"Function run_replay: All tests completed.")
 
