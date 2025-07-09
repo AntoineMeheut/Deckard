@@ -129,12 +129,6 @@ def run_replay(model: str, model_type: str, system_prompts_path: str, common_pat
                     print(f"\nQuestion was: {result['prompt']}")
                     print(f"\nAnswer is: {result['response']}")
             results[test_name] = result
-            if platform.system() == "Windows":
-                os.system("cls")
-            elif sys.platform == "Darwin":
-                os.system("clear")
-            elif platform.system() == "Linux":
-                os.system("clear")
         logger.info('Function run_replay: All tests completed.')
         print(f"Function run_replay: All tests completed.")
 
