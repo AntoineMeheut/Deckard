@@ -21,7 +21,6 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
-import rtcat_sphinx_theme
 from source import main
 
 # -- General configuration ---------------------------------------------
