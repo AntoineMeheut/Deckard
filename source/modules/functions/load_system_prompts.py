@@ -10,10 +10,6 @@ def load_system_prompts(system_prompts_path: str) -> str:
     """
     Load system prompts from the specified file.
 
-    Function input: path to the system-prompts.txt file
-
-    Function output: the prompts in the file
-
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
 

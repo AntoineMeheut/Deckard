@@ -12,10 +12,6 @@ def load_test_rules(model, rule_start, rule_stop) -> Dict[str, dict]:
     """
     Load all test rules from YAML files in the rules directory.
 
-    Function input: rule_start (could be 0 for all the rules or 1 to start loading first rule), rule_stop (for the number of rules to load)
-
-    Function output: list of the loaded prompts
-
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
 

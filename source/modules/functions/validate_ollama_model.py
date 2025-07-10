@@ -13,10 +13,6 @@ def validate_ollama_model(model: str, model_type: str, common_paths: list, ollam
     """
     Validate if the model exists for the given model type.
 
-    Function input:
-
-    Function output:
-
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
 

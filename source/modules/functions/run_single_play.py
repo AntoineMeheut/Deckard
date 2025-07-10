@@ -15,10 +15,6 @@ def run_single_play(client, model: str, model_type: str, system_prompt: str,
     """
     Run a single test multiple times and evaluate results.
 
-    Function input:
-
-    Function output:
-
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
 

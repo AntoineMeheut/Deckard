@@ -10,10 +10,6 @@ def count_tokens(text: str) -> int:
     """
     Count the number of tokens in a text using GPT tokenizer.
 
-    Function input: a sentence
-
-    Function output: the number of tokens in the sentence
-
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
 

@@ -10,10 +10,6 @@ def get_system_prompt_words(system_prompt: str, num_lines: int = 3) -> List[str]
     """
     Extract unique words from the first N lines of system prompt.
 
-    Function input: the system_prompt.txt file and the number of prompts in the file
-
-    Function output: a list of the prompts extracted
-
     Exception management :
     If IOError or any exception : log the trace of the exception stack and stop the execution of the programme.
 
