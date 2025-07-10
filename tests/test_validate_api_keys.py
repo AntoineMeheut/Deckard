@@ -20,10 +20,10 @@ def test_validate_api_keys(function_input, function_output):
     Tests for `is_ollama_running` package.
     Check if ollama is running on the computer and send back true
 
-    :param function_input: common_paths
-    :type function_input: str
-    :param function_output: boolean
-    :type function_output: bool
+    :param: common_paths is the ollama computer path, like : /usr/local/bin/ollama or /opt/homebrew/bin/ollama or ollama
+    :ptype: list
+    :return: bool is ollama is running
+    :type: boolean
     """
 
     assert function_output == validate_api_keys.validate_api_keys(function_input)

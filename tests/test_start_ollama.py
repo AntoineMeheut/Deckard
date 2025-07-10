@@ -30,10 +30,10 @@ def test_start_ollama(function_input_1, function_input_2, function_output):
     Tests for `is_ollama_running` package.
     Check if ollama is running on the computer and send back true
 
-    :param function_input: common_paths
-    :type function_input: str
-    :param function_output: boolean
-    :type function_output: bool
+    :param: common_paths is the ollama computer path, like : /usr/local/bin/ollama or /opt/homebrew/bin/ollama or ollama
+    :ptype: list
+    :return: boolean, return True if ollama is running
+    :rtype: bool
     """
 
     assert function_output == start_ollama.start_ollama(function_input_1, function_input_2)

@@ -19,10 +19,10 @@ def validate_api_keys(model_type: str):
 
     The program stops with a log with the exit code EXT-000016.
 
-    :param: model_type
-    :rtype: str
-    :return: none
-    :rtype: none
+    :param: common_paths is the ollama computer path, like : /usr/local/bin/ollama or /opt/homebrew/bin/ollama or ollama
+    :ptype: list
+    :return: bool is ollama is running
+    :rtype: boolean
     """
 
     logging = utils.setup_logging()

@@ -19,9 +19,9 @@ def count_tokens(text: str) -> int:
 
     The program stops with a log with the exit code EXT-000001.
 
-    :param: text
-    :rtype: str
-    :return: number_of_token
+    :param: text is a list of tokens like "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do"
+    :ptype: str
+    :return: number_of_token is the number of tokens counted like 10 in this case
     :rtype: int
     """
 

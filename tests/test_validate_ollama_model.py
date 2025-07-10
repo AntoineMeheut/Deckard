@@ -54,19 +54,19 @@ def test_validate_ollama_model(function_input_1, function_input_2, function_inpu
     Tests for `validate_ollama_model` package.
     Validate if the model exists for the given model type.
 
-    :param : model
+    :param: model is the model name like "mistral:7b"
+    :ptype: str
+    :param: model_type like ollama or openai or anthropic
+    :ptype: str
+    :param: common_paths is the ollama computer path, like : /usr/local/bin/ollama or /opt/homebrew/bin/ollama or ollama
+    :ptype: list
+    :param: ollama_url, local url for ollama, like http://localhost:11434
     :rtype: str
-    :param : model_type
-    :rtype: str
-    :param : common_paths
-    :rtype: list
-    :param : ollama_url
-    :rtype: str
-    :param : ollama_models_url
-    :rtype: str
-    :param : auto_yes
-    :rtype: bool
-    :return: boolean
+    :param: ollama_models_url, local url for ollama model, like http://localhost:11434/api/tags
+    :ptype: str
+    :param: auto_yes, setting to download the model automatically or not
+    :rtype: boolean
+    :return: True is model is validated else False
     :rtype: bool
     """
 

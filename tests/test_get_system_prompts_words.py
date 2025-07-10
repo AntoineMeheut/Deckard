@@ -36,11 +36,11 @@ def test_get_system_prompt_words(function_input_1, function_input_2, function_ou
     Tests for `is_ollama_running` package.
     Check if ollama is running on the computer and send back true
 
-    :param : system_prompt
-    :rtype: str
-    :param : num_lines
-    :rtype: int
-    :return: str_list
+    :param: system_prompt, the prompt system which can modify the operation of the model, like You are an helpful assistant. Answer questions about users food deliveries..
+    :ptype: str
+    :param: num_lines, the number of lines in the system prompt, like 1 line
+    :ptype: int
+    :return: str_list, the words in the system prompt like 'you', 'are', 'helpful', 'assistant', 'answer', 'questions', 'about', 'users', 'food', 'deliveries'
     :rtype: list
     """
 

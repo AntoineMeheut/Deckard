@@ -32,10 +32,10 @@ def test_load_system_prompts_found(function_input_1, function_output_1):
     Tests for `load_system_prompts` package.
     Try to load a file of prompts on the system and send back the prompts in the file.
 
-    :param function_input: system_prompts_path
-    :type function_input: str
-    :param function_output: prompts
-    :type function_output: str
+    :param: system_prompts_path, the path to the system prompt files
+    :ptype: str
+    :return: system_prompt, the prompt system which can modify the operation of the model, like You are an helpful assistant. Answer questions about users food deliveries..
+    :rtype: str
     """
 
     assert function_output_1 == load_system_prompts.load_system_prompts(function_input_1)
@@ -46,10 +46,10 @@ def test_load_system_prompts_not_found(function_input_2, function_output_2):
     Tests for `load_system_prompts` package.
     Try to load a file of prompts on the system and send back False if problem.
 
-    :param function_input: system_prompts_path
-    :type function_input: str
-    :param function_output: error return
-    :type function_output: str
+    :param: system_prompts_path, the path to the system prompt files
+    :ptype: str
+    :return: system_prompt, the prompt system which can modify the operation of the model, like You are an helpful assistant. Answer questions about users food deliveries..
+    :rtype: str
     """
 
     assert function_output_2 == load_system_prompts.load_system_prompts(function_input_2)

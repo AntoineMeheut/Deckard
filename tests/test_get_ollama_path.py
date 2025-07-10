@@ -25,10 +25,10 @@ def test_get_ollama_path(function_input, function_output):
     Tests for `get_ollama_path` package.
     Check if ollama is install on the computer and send back the ollama path
 
-    :param function_input: common_paths
-    :type function_input: str
-    :param function_output: path
-    :type function_output: str
+    :param: common_paths is the ollama computer path, like : /usr/local/bin/ollama or /opt/homebrew/bin/ollama or ollama
+    :ptype: list
+    :return: path is the ollama computer path, like : /usr/local/bin/ollama on macbook
+    :rtype: str
     """
 
     assert function_output == get_ollama_path.get_ollama_path(function_input)

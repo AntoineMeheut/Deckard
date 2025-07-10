@@ -21,9 +21,9 @@ def test_count_tokens(function_input, function_output):
     Tests for `count_tokens` package.
     Check if ollama is install on the computer and send back the ollama path
 
-    :param : text
-    :rtype: str
-    :return: number_of_token
+    :param: text is a list of tokens like "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do"
+    :ptype: str
+    :return: number_of_token is the number of tokens counted like 10 in this case
     :rtype: int
     """
 

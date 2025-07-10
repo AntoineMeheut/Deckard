@@ -19,10 +19,10 @@ def load_system_prompts(system_prompts_path: str) -> str:
 
     The program stops with a log with the exit code EXT-000010.
 
-    :param: common_paths
+    :param: system_prompts_path, the path to the system prompt files
+    :ptype: str
+    :return: system_prompt, the prompt system which can modify the operation of the model, like You are an helpful assistant. Answer questions about users food deliveries..
     :rtype: str
-    :return: boolean
-    :rtype: bool
     """
 
     logging = utils.setup_logging()

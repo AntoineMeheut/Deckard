@@ -22,11 +22,11 @@ def download_ollama_model(model: str, common_paths: list) -> bool:
 
     The program stops with a log with the exit code EXT-000002.
 
-    :param: model
-    :rtype: str
-    :param: common_paths
-    :rtype: list
-    :return: boolean
+    :param: model is the model name like "mistral:7b"
+    :ptype: str
+    :param: common_paths is the ollama computer path, like : /usr/local/bin/ollama or /opt/homebrew/bin/ollama or ollama
+    :ptype: list
+    :return: boolean is False if ollama path not found or True if found
     :rtype: bool
     """
 

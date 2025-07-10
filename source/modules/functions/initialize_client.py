@@ -24,8 +24,12 @@ def initialize_client(model_type: str, common_paths: list, ollama_url: str):
 
     The program stops with a log with the exit code EXT-000008.
 
-    :param: model_type
-    :rtype: str
+    :param: model_type like ollama or openai or anthropic
+    :ptype: str
+    :param: common_paths is the ollama computer path, like : /usr/local/bin/ollama or /opt/homebrew/bin/ollama or ollama
+    :ptype: list
+    :param: ollama_models_url, local url for ollama model, like http://localhost:11434/api/tags
+    :ptype: str
     :return: none
     :rtype: none
     """

@@ -30,11 +30,11 @@ def test_download_ollama_model(function_input_1, function_input_2, function_outp
     Tests for `download_ollama_model` package.
     Download the ollama model needed for the test session.
 
-    :param : model
-    :rtype: str
-    :param : common_paths
-    :rtype: list
-    :return: boolean
+    :param: model is the model name like "mistral:7b"
+    :ptype: str
+    :param: common_paths is the ollama computer path, like : /usr/local/bin/ollama or /opt/homebrew/bin/ollama or ollama
+    :ptype: list
+    :return: boolean is False if ollama path not found or True if found
     :rtype: bool
     """
 

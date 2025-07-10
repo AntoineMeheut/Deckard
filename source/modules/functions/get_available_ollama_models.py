@@ -22,9 +22,9 @@ def get_available_ollama_models(ollama_models_url: str) -> List[str]:
 
     The program stops with a log with the exit code EXT-000005.
 
-    :param: ollama_models_url
-    :rtype: str
-    :return: str_list
+    :param: ollama_models_url, local url for ollama model, like http://localhost:11434/api/tags
+    :ptype: str
+    :return: str_list is the list of models already loaded, like 'mistral:7b', 'mistral', 'mistral:latest', 'mistral'
     :rtype: list
     """
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>source.modules.functions.initialize_client &mdash; Deckard 0.1.0 documentation</title>
+  <title>source.modules.functions.initialize_client &mdash; Deckard 0.2.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../../search.html"/>
-    <link rel="top" title="Deckard 0.1.0 documentation" href="../../../../index.html"/>
+    <link rel="top" title="Deckard 0.2.0 documentation" href="../../../../index.html"/>
         <link rel="up" title="Module code" href="../../../index.html"/> 
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.1.0
+                0.2.0
               </div>
             
           
@@ -182,8 +182,12 @@
 
 <span class="sd">    The program stops with a log with the exit code EXT-000008.</span>
 
-<span class="sd">    :param: model_type</span>
-<span class="sd">    :rtype: str</span>
+<span class="sd">    :param: model_type like ollama or openai or anthropic</span>
+<span class="sd">    :ptype: str</span>
+<span class="sd">    :param: common_paths is the ollama computer path, like : /usr/local/bin/ollama or /opt/homebrew/bin/ollama or ollama</span>
+<span class="sd">    :ptype: list</span>
+<span class="sd">    :param: ollama_models_url, local url for ollama model, like http://localhost:11434/api/tags</span>
+<span class="sd">    :ptype: str</span>
 <span class="sd">    :return: none</span>
 <span class="sd">    :rtype: none</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -257,7 +261,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'0.1.0',
+            VERSION:'0.2.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE: 'true'

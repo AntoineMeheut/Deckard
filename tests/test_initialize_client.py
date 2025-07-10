@@ -6,7 +6,7 @@ from source.modules.functions import initialize_client
 
 @pytest.fixture
 def function_input_1():
-    model_type = "openai"
+    model_type = "ollama"
     return model_type
 
 
@@ -36,10 +36,14 @@ def test_initialize_client(function_input_1, function_input_2, function_input_3,
     Tests for `initialize_client` package.
     Check if ollama is running on the computer and send back true
 
-    :param function_input: common_paths
-    :type function_input: str
-    :param function_output: boolean
-    :type function_output: bool
+    :param: model_type like ollama or openai or anthropic
+    :ptype: str
+    :param: common_paths is the ollama computer path, like : /usr/local/bin/ollama or /opt/homebrew/bin/ollama or ollama
+    :ptype: list
+    :param: ollama_models_url, local url for ollama model, like http://localhost:11434/api/tags
+    :ptype: str
+    :return: none
+    :rtype: none
     """
 
     assert function_output == initialize_client.initialize_client(function_input_1, function_input_2, function_input_3)

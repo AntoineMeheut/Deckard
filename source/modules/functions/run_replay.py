@@ -29,23 +29,23 @@ def run_replay(model: str, model_type: str, system_prompts_path: str, common_pat
     The program stops with a log with the exit code EXT-000018.
 
     :param: client
-    :rtype: str
+    :ptype: str
     :param: model
-    :rtype: str
+    :ptype: str
     :param: model_type
-    :rtype: str
+    :ptype: str
     :param: system_prompt
-    :rtype: str
+    :ptype: str
     :param: test_name
-    :rtype: str
+    :ptype: str
     :param: rule
-    :rtype: dict
+    :ptype: dict
     :param: num_runs
-    :rtype: int
+    :ptype: int
     :param: firewall_mode
-    :rtype: bool
+    :ptype: bool
     :param: pass_condition
-    :rtype: str
+    :ptype: str
     :return: result
     :rtype: dict
     """

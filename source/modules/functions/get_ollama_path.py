@@ -19,9 +19,9 @@ def get_ollama_path(common_paths):
 
     The program stops with a log with the exit code EXT-000006.
 
-    :param: common_path
-    :rtype: str
-    :return: path
+    :param: common_paths is the ollama computer path, like : /usr/local/bin/ollama or /opt/homebrew/bin/ollama or ollama
+    :ptype: list
+    :return: path is the ollama computer path, like : /usr/local/bin/ollama on macbook
     :rtype: str
     """
     logging = utils.setup_logging()
