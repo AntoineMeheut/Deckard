@@ -118,7 +118,7 @@ def run_tests(model: str, model_type: str, system_prompts_path: str, common_path
                 else:
                     if platform.system() == "Windows":
                         os.system("cls")
-                    elif sys.platform == "Darwin":
+                    elif platform.system() == "Darwin":
                         os.system("clear")
                     elif platform.system() == "Linux":
                         os.system("clear")

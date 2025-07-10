@@ -29,7 +29,7 @@ you can add your own prompts there, respecting the yaml file format.
 # Table of Contents
 
 * [About the Project](#about-the-project)
-	* [Example](#example)
+	* [Examples](#examples)
     * [My goals](#my-goals)
 	* [Features](#features)
 * [Installation](#installation)
@@ -47,11 +47,14 @@ you can add your own prompts there, respecting the yaml file format.
 
 <!-- ABOUT THE PROJECT -->
 # About this project
-## Example
+## Examples
 <br />
 <p align="center">
   <a href="https://github.com/AntoineMeheut/Deckard">
-    <img src="images/sample.png" alt="sample" width="850" height="250">
+    <img src="images/sample1.png" alt="sample1" width="850" height="250">
+  </a>
+  <a href="https://github.com/AntoineMeheut/Deckard">
+    <img src="images/sample2.png" alt="sample2" width="850" height="250">
   </a>
 </p>
 
