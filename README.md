@@ -11,6 +11,8 @@
     Funny prompts tool for playing with replicants. The prompts are located in the "voight-kampff" directory;
 you can add your own prompts there, respecting the yaml file format.
     <br />
+    <a href="https://antoinemeheut.github.io/Deckard/">Documentation</a>
+    ·
     <a href="https://github.com/AntoineMeheut/blogame/issues">Report Bug</a>
     ·
     <a href="https://github.com/AntoineMeheut/blogame/projects">Request Feature</a>
