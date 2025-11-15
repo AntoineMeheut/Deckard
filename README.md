@@ -129,6 +129,9 @@ If you want to use local models, you need to install Ollama.
 Navigate to the [Ollama's Download page](https://ollama.ai/download) and follow the installation instructions.
 
 ## Usage
+Before using deckard.py, you must modify the log management path for this program in the following file: /resource/logging.yaml
+
+Next, go to the /source/main directory to execute the commands below.
 
 You need to provide your system prompts file. Default file is `system-prompts.txt`. You can specify your own file with `--prompts` flag. An example file is provided in the repository.
 
